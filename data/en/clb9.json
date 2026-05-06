@@ -1,0 +1,58 @@
+[
+  {
+    "question": "描述「一般大眾」，哪個最符合 CLB 9？",
+    "options": ["public people", "the general public", "normal people", "common citizens"],
+    "answer": 1,
+    "explanation": "the general public 是標準學術名詞。public people 是中式英語。",
+    "errorKey": "一般大眾"
+  },
+  {
+    "question": "描述「這個問題源於社會因素」，哪個最好？",
+    "options": ["comes from social factors", "originates because of social factors", "stems from deeper social factors", "is caused by social factors"],
+    "answer": 2,
+    "explanation": "stem from 是學術寫作最自然的用法。",
+    "errorKey": "stem from"
+  },
+  {
+    "question": "描述「政府積極分配資源」，哪個最符合 CLB 9？",
+    "options": ["give money to fix the problem", "spend more on solving this issue", "proactively allocate resources to address the root causes", "use budget to solve the problem"],
+    "answer": 2,
+    "explanation": "proactively allocate resources 和 address the root causes 都是 CLB 9 標準表達。",
+    "errorKey": "分配資源"
+  },
+  {
+    "question": "描述「AI 使工作被淘汰」，哪個最精準？",
+    "options": ["makes many jobs useless", "will render a massive number of occupations obsolete", "causes jobs to disappear", "will remove many types of work"],
+    "answer": 1,
+    "explanation": "render obsolete 是 CLB 9 的關鍵片語。",
+    "errorKey": "render obsolete"
+  },
+  {
+    "question": "哪個 Task 1 描述「成長緩慢」最好？",
+    "options": ["grew slowly", "experienced sluggish growth throughout the period", "was not growing fast", "became bigger but slowly"],
+    "answer": 1,
+    "explanation": "experienced sluggish growth 是 Task 1 高分表達。",
+    "errorKey": "sluggish growth"
+  },
+  {
+    "question": "哪個開場句最接近 CLB 9？",
+    "options": ["In this essay, I will discuss...", "There are two opinions about...", "The phenomenon of X has sparked widespread debate.", "X is a controversial topic today."],
+    "answer": 2,
+    "explanation": "CLB 9 開場需要具體性和學術動詞，不說 In this essay I will。",
+    "errorKey": "CLB9開場"
+  },
+  {
+    "question": "描述「政策難以負擔」，哪個最學術？",
+    "options": ["easy to burden", "too expensive", "places an unaffordable financial burden on citizens", "costs too much money"],
+    "answer": 2,
+    "explanation": "places an unaffordable financial burden on 是標準學術搭配。",
+    "errorKey": "難以負擔"
+  },
+  {
+    "question": "哪個倍數表達最正確？",
+    "options": ["approximate 3 times of City B", "approximately three times that of City B", "about 3 times than City B", "approximately 3 times more of City B"],
+    "answer": 1,
+    "explanation": "倍數黃金公式：approximately + 數字 + times + that of。",
+    "errorKey": "倍數句型"
+  }
+]

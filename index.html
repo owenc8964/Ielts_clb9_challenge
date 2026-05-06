@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS CLB9 練習</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+:root{
+  --bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c28;--border:#2a2a3a;
+  --accent:#7c6cff;--accent2:#ff6c9d;--green:#4fffb0;--red:#ff4f6c;
+  --yellow:#ffd166;--text:#e8e8f0;--text2:#8888aa;--orange:#ff9f4a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;}
+
+/* HEADER */
+.header{width:100%;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:0;z-index:10;}
+.logo{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.1em;}
+.header-right{display:flex;gap:14px;align-items:center;font-family:'Space Mono',monospace;font-size:11px;}
+.hstat{color:var(--text2);} .hstat span{color:var(--text);margin-left:3px;}
+.streak-badge{color:var(--yellow);font-weight:700;}
+
+/* XP BAR */
+.xp-bar-wrap{width:100%;max-width:680px;padding:10px 20px 0;}
+.xp-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.xp-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);}
+.xp-level{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);font-weight:700;}
+.xp-track{width:100%;height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width 0.6s ease;}
+
+.container{width:100%;max-width:680px;padding:20px 20px 40px;flex:1;}
+
+/* DAILY REWARD */
+.daily-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;}
+.daily-popup.show{display:flex;}
+.daily-card{background:var(--surface);border:1px solid var(--accent);border-radius:20px;padding:36px 32px;text-align:center;max-width:320px;width:90%;animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+.daily-emoji{font-size:52px;margin-bottom:12px;}
+.daily-title{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--yellow);margin-bottom:8px;}
+.daily-sub{font-size:14px;color:var(--text2);line-height:1.5;margin-bottom:20px;}
+.daily-xp{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--green);margin-bottom:20px;}
+.btn-claim{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px 32px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;width:100%;}
+.btn-claim:hover{background:#9080ff;}
+@keyframes popIn{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
+
+/* HOME */
+.screen{display:none;} .screen.active{display:block;}
+.home-title{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;line-height:1.3;margin-bottom:8px;}
+.home-title .a1{color:var(--accent);} .home-title .a2{color:var(--accent2);}
+.home-sub{color:var(--text2);font-size:13px;line-height:1.6;margin-bottom:20px;}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+.stat-num{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:var(--accent);}
+.stat-lbl{font-size:11px;color:var(--text2);margin-top:3px;}
+
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.mode-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.mode-card:hover{border-color:var(--accent);background:var(--surface2);transform:translateY(-2px);}
+.mode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:0;transition:opacity 0.2s;}
+.mode-card:hover::before{opacity:1;}
+.mode-icon{font-size:20px;margin-bottom:6px;}
+.mode-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+.mode-desc{font-size:11px;color:var(--text2);line-height:1.4;}
+.mode-meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.mode-count{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);}
+.mode-acc{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);}
+.mode-card.wide{grid-column:span 2;}
+
+.error-tracker{background:var(--surface);border:1px solid rgba(255,79,108,0.3);border-radius:12px;padding:14px 16px;}
+.error-tracker-title{font-family:'Space Mono',monospace;font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+.error-item{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.error-item:last-child{border-bottom:none;}
+.err-badge{font-family:'Space Mono',monospace;font-size:10px;padding:2px 7px;border-radius:99px;}
+.err-red{color:var(--red);background:rgba(255,79,108,0.12);border:1px solid rgba(255,79,108,0.2);}
+.err-yellow{color:var(--yellow);background:rgba(255,209,102,0.12);border:1px solid rgba(255,209,102,0.2);}
+
+/* QUIZ */
+.quiz-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.quiz-mode-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.progress-wrap{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width 0.4s ease;}
+.quiz-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);white-space:nowrap;}
+.timer-bar-wrap{width:100%;height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:14px;}
+.timer-bar{height:100%;background:var(--green);border-radius:2px;transition:width 1s linear,background 0.3s;}
+
+.question-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;animation:fadeIn 0.2s ease;}
+.question-type{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:'Space Mono',monospace;}
+.question-text{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:6px;}
+.question-hint{font-size:12px;color:var(--yellow);margin-bottom:14px;line-height:1.4;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.option{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:11px 14px;cursor:pointer;font-size:13px;transition:all 0.12s;display:flex;align-items:center;gap:9px;}
+.option:hover:not(.disabled){border-color:var(--accent);background:#1e1e30;}
+.option-key{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);background:var(--border);padding:1px 5px;border-radius:3px;min-width:20px;text-align:center;flex-shrink:0;}
+.option.correct{border-color:var(--green);background:rgba(79,255,176,0.08);}
+.option.correct .option-key{background:var(--green);color:#000;}
+.option.wrong{border-color:var(--red);background:rgba(255,79,108,0.08);}
+.option.wrong .option-key{background:var(--red);color:#fff;}
+.option.disabled{cursor:default;}
+
+.translate-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:13px;font-family:'Noto Sans TC',sans-serif;color:var(--text);resize:none;min-height:80px;outline:none;transition:border-color 0.15s;line-height:1.6;}
+.translate-input:focus{border-color:var(--accent);}
+.translate-input.ci{border-color:var(--green);background:rgba(79,255,176,0.04);}
+.translate-input.wi{border-color:var(--red);background:rgba(255,79,108,0.04);}
+.translate-input:disabled{opacity:0.7;}
+.input-hint{font-size:10px;color:var(--text2);margin-top:5px;font-family:'Space Mono',monospace;}
+
+.feedback{display:none;background:var(--surface2);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.6;border-left:3px solid var(--green);margin-top:2px;}
+.feedback.show{display:block;}
+.feedback.wf{border-left-color:var(--red);}
+.feedback-title{font-weight:700;margin-bottom:3px;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;}
+.reference-ans{display:none;background:rgba(79,255,176,0.04);border:1px solid rgba(79,255,176,0.2);border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.7;margin-top:2px;}
+.reference-ans.show{display:block;}
+.reference-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;}
+.self-grade{display:none;gap:8px;margin-top:2px;}
+.self-grade.show{display:flex;}
+.btn-grade{flex:1;padding:10px;border-radius:9px;border:none;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;}
+.bgc{background:rgba(79,255,176,0.1);color:var(--green);border:1px solid rgba(79,255,176,0.25);}
+.bgc:hover{background:rgba(79,255,176,0.2);}
+.bgw{background:rgba(255,79,108,0.1);color:var(--red);border:1px solid rgba(255,79,108,0.25);}
+.bgw:hover{background:rgba(255,79,108,0.2);}
+
+.btn-submit{background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
+.btn-submit:hover{background:#ff4f8a;}
+.btn-next{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
+.btn-next.show{display:block;}
+.btn-next:hover{background:#9080ff;}
+.quiz-actions{display:flex;flex-direction:column;gap:6px;}
+
+/* XP POPUP */
+.xp-pop{position:fixed;top:70px;right:20px;background:var(--surface);border:1px solid var(--green);border-radius:10px;padding:10px 16px;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--green);opacity:0;pointer-events:none;transition:opacity 0.3s,transform 0.3s;transform:translateY(10px);z-index:50;}
+.xp-pop.show{opacity:1;transform:translateY(0);}
+
+/* RESULT */
+.result-score{font-family:'Space Mono',monospace;font-size:52px;font-weight:700;color:var(--accent);line-height:1;text-align:center;margin-bottom:4px;}
+.result-label{font-size:13px;color:var(--text2);text-align:center;margin-bottom:12px;}
+.result-comment{font-size:14px;font-weight:700;line-height:1.5;text-align:center;margin-bottom:16px;}
+.result-detail{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;justify-content:center;gap:24px;margin-bottom:14px;}
+.detail-item{text-align:center;}
+.detail-num{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;}
+.detail-num.g{color:var(--green);}.detail-num.r{color:var(--red);}
+.detail-label{font-size:11px;color:var(--text2);margin-top:3px;}
+.btn-group{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);border-radius:9px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;}
+.btn-primary:hover{background:#9080ff;}
+
+/* CHART */
+.chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:14px;}
+.chart-title{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;}
+.bar-chart{display:flex;align-items:flex-end;gap:6px;height:80px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.bar{width:100%;border-radius:4px 4px 0 0;background:var(--accent);opacity:0.7;transition:all 0.4s ease;min-height:2px;}
+.bar-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--text2);}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<!-- DAILY REWARD POPUP -->
+<div class="daily-popup" id="dailyPopup">
+  <div class="daily-card">
+    <div class="daily-emoji" id="dailyEmoji">🎁</div>
+    <div class="daily-title" id="dailyTitle">每日簽到！</div>
+    <div class="daily-sub" id="dailySub">連續練習是通往 CLB 9 最快的路</div>
+    <div class="daily-xp" id="dailyXP">+50 XP</div>
+    <button class="btn-claim" onclick="claimDaily()">領取獎勵</button>
+  </div>
+</div>
+
+<!-- XP POPUP -->
+<div class="xp-pop" id="xpPop"></div>
+
+<div class="header">
+  <div class="logo">CLB9 // TRAINER</div>
+  <div class="header-right">
+    <div class="hstat">LV <span id="hLevel">1</span></div>
+    <div class="hstat">XP <span id="hXP">0</span></div>
+    <div class="streak-badge">🔥 <span id="hStreak">0</span></div>
+  </div>
+</div>
+
+<div class="xp-bar-wrap">
+  <div class="xp-row">
+    <div class="xp-label" id="xpLabel">0 / 100 XP</div>
+    <div class="xp-level" id="xpLevelLabel">Level 1</div>
+  </div>
+  <div class="xp-track"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+</div>
+
+<div class="container">
+
+  <!-- HOME -->
+  <div class="screen active" id="homeScreen">
+    <div style="height:16px"></div>
+    <div class="home-title"><span class="a1">練習</span>才是通往 <span class="a2">CLB 9</span> 的路</div>
+    <div class="home-sub">每次 10 題，不超過一分鐘。短小但有趣。</div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num" id="statSessions">0</div>
+        <div class="stat-lbl">練習次數</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="statCorrect">0</div>
+        <div class="stat-lbl">累計答對</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="statDays">0</div>
+        <div class="stat-lbl">連續天數</div>
+      </div>
+    </div>
+
+    <div class="mode-grid">
+      <div class="mode-card" onclick="startMode('vocab')">
+        <div class="mode-icon">🔤</div>
+        <div class="mode-name">單字配對</div>
+        <div class="mode-desc">中英互翻，5題中翻英 + 5題英翻中</div>
+        <div class="mode-meta">
+          <div class="mode-count">10 題</div>
+          <div class="mode-acc" id="accVocab">—</div>
+        </div>
+      </div>
+      <div class="mode-card" onclick="startMode('grammar')">
+        <div class="mode-icon">⚡</div>
+        <div class="mode-name">文法挑錯</div>
+        <div class="mode-desc">找出 Chinglish 和文法錯誤</div>
+        <div class="mode-meta">
+          <div class="mode-count">10 題</div>
+          <div class="mode-acc" id="accGrammar">—</div>
+        </div>
+      </div>
+      <div class="mode-card" onclick="startMode('translate')">
+        <div class="mode-icon">✍️</div>
+        <div class="mode-name">句型中翻英</div>
+        <div class="mode-desc">自己寫英文，對照 CLB 9 參考答案</div>
+        <div class="mode-meta">
+          <div class="mode-count">5 題</div>
+          <div class="mode-acc" id="accTranslate">—</div>
+        </div>
+      </div>
+      <div class="mode-card" onclick="startMode('clb9')">
+        <div class="mode-icon">🎯</div>
+        <div class="mode-name">CLB9 辨別</div>
+        <div class="mode-desc">四選一，選出最高分學術用法</div>
+        <div class="mode-meta">
+          <div class="mode-count">10 題</div>
+          <div class="mode-acc" id="accClb9">—</div>
+        </div>
+      </div>
+      <div class="mode-card wide" onclick="startMode('reading')">
+        <div class="mode-icon">📖</div>
+        <div class="mode-name">閱讀理解</div>
+        <div class="mode-desc">讀文章段落，練同義詞替換和理解題（每次3題）</div>
+        <div class="mode-meta">
+          <div class="mode-count">3 題</div>
+          <div class="mode-acc" id="accReading">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorTrackerSection"></div>
+
+    <div class="chart-wrap" id="chartWrap" style="display:none">
+      <div class="chart-title">最近 7 次練習答對率</div>
+      <div class="bar-chart" id="barChart"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="quizScreen">
+    <div style="height:14px"></div>
+    <div class="quiz-meta">
+      <div class="quiz-mode-label" id="modeLabel">單字配對</div>
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+      <div class="quiz-num" id="quizNum">1/10</div>
+    </div>
+    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar" style="width:100%"></div></div>
+
+    <div class="question-card" id="questionCard">
+      <div class="question-type" id="questionType"></div>
+      <div class="question-text" id="questionText"></div>
+      <div class="question-hint" id="questionHint"></div>
+      <div class="options" id="optionsContainer"></div>
+      <div class="input-hint" id="inputHint"></div>
+    </div>
+
+    <div class="quiz-actions">
+      <div class="feedback" id="feedback">
+        <div class="feedback-title" id="feedbackTitle"></div>
+        <div id="feedbackBody"></div>
+      </div>
+      <div class="reference-ans" id="referenceAns">
+        <div class="reference-label">CLB 9 參考答案</div>
+        <div id="referenceText"></div>
+      </div>
+      <div class="self-grade" id="selfGrade">
+        <button class="btn-grade bgc" onclick="selfGrade(true)">✓ 我寫對了</button>
+        <button class="btn-grade bgw" onclick="selfGrade(false)">✗ 我寫錯了</button>
+      </div>
+      <button class="btn-submit" id="btnSubmit" onclick="submitTranslate()">確認 →</button>
+      <button class="btn-next" id="btnNext" onclick="nextQuestion()">下一題 →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="screen" id="resultScreen">
+    <div style="height:20px"></div>
+    <div class="result-score" id="resultScore">8/10</div>
+    <div class="result-label">答對題數</div>
+    <div class="result-comment" id="resultComment"></div>
+    <div class="result-detail">
+      <div class="detail-item"><div class="detail-num g" id="rCorrect">0</div><div class="detail-label">答對</div></div>
+      <div class="detail-item"><div class="detail-num r" id="rWrong">0</div><div class="detail-label">答錯</div></div>
+      <div class="detail-item"><div class="detail-num" id="rAcc" style="color:var(--yellow)">0%</div><div class="detail-label">正確率</div></div>
+      <div class="detail-item"><div class="detail-num" id="rXP" style="color:var(--green)">+0</div><div class="detail-label">XP 獲得</div></div>
+    </div>
+    <div id="resultErrors" style="margin-bottom:14px"></div>
+    <div class="btn-group">
+      <button class="btn-outline" onclick="goHome()">回首頁</button>
+      <button class="btn-primary" onclick="retryMode()">再練一次</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA (loaded from JSON) ───────────────────────────────
+let VOCAB_DATA = [], GRAMMAR_DATA = [], TRANSLATE_DATA = [], CLB9_DATA = [], READING_DATA = [];
+
+async function loadAllData() {
+  const base = 'data/en/';
+  const [vocab, grammar, translate, clb9, reading] = await Promise.all([
+    fetch(base + 'vocab.json').then(r => r.json()),
+    fetch(base + 'grammar.json').then(r => r.json()),
+    fetch(base + 'translate.json').then(r => r.json()),
+    fetch(base + 'clb9.json').then(r => r.json()),
+    fetch(base + 'reading.json').then(r => r.json()),
+  ]);
+  VOCAB_DATA = vocab;
+  GRAMMAR_DATA = grammar;
+  TRANSLATE_DATA = translate;
+  CLB9_DATA = clb9;
+  READING_DATA = reading;
+}
+
+// ── STORAGE ───────────────────────────────────────────────
+const STORE_KEY = 'ielts_v2';
+function loadStore() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return {xp:0,level:1,totalSessions:0,totalCorrect:0,streak:0,lastDate:'',errors:{},history:[],modeStats:{vocab:{c:0,t:0},grammar:{c:0,t:0},translate:{c:0,t:0},clb9:{c:0,t:0},reading:{c:0,t:0}}};
+}
+function saveStore() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch(e) {}
+}
+
+let store = loadStore();
+
+// ── XP SYSTEM ─────────────────────────────────────────────
+const XP_PER_LEVEL = [0,100,220,360,520,700,900,1120,1360,1620,1900];
+function xpForLevel(l) { return XP_PER_LEVEL[Math.min(l,XP_PER_LEVEL.length-1)] || (l*200); }
+function currentLevel(xp) {
+  let l = 1;
+  while (xp >= xpForLevel(l+1) && l < 20) l++;
+  return l;
+}
+function updateXPBar() {
+  const xp = store.xp;
+  const lv = currentLevel(xp);
+  const base = xpForLevel(lv);
+  const next = xpForLevel(lv+1);
+  const pct = Math.min(100, Math.round((xp - base) / (next - base) * 100));
+  store.level = lv;
+  document.getElementById('hLevel').textContent = lv;
+  document.getElementById('hXP').textContent = xp;
+  document.getElementById('hStreak').textContent = store.streak;
+  document.getElementById('xpLabel').textContent = (xp - base) + ' / ' + (next - base) + ' XP';
+  document.getElementById('xpLevelLabel').textContent = 'Level ' + lv;
+  document.getElementById('xpFill').style.width = pct + '%';
+}
+
+function showXPPop(amount) {
+  const el = document.getElementById('xpPop');
+  el.textContent = '+' + amount + ' XP';
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 1800);
+}
+
+// ── DAILY REWARD ──────────────────────────────────────────
+function checkDaily() {
+  const today = new Date().toDateString();
+  if (store.lastDate === today) return;
+
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (store.lastDate === yesterday) {
+    store.streak++;
+  } else if (store.lastDate !== '') {
+    store.streak = 1;
+  } else {
+    store.streak = 1;
+  }
+  store.lastDate = today;
+
+  let xpReward = 50;
+  let emoji = '🎁';
+  let title = '每日簽到！';
+  let sub = '連續練習是通往 CLB 9 最快的路';
+
+  if (store.streak >= 7) { xpReward = 150; emoji = '🏆'; title = '7天連續簽到！'; sub = '你的堅持令人敬佩！'; }
+  else if (store.streak >= 3) { xpReward = 100; emoji = '🔥'; title = store.streak + ' 天連續！'; sub = '保持這個節奏！'; }
+
+  document.getElementById('dailyEmoji').textContent = emoji;
+  document.getElementById('dailyTitle').textContent = title;
+  document.getElementById('dailySub').textContent = sub;
+  document.getElementById('dailyXP').textContent = '+' + xpReward + ' XP';
+  document.getElementById('dailyPopup').dataset.reward = xpReward;
+  document.getElementById('dailyPopup').classList.add('show');
+}
+
+function claimDaily() {
+  const reward = parseInt(document.getElementById('dailyPopup').dataset.reward || 50);
+  store.xp += reward;
+  saveStore();
+  document.getElementById('dailyPopup').classList.remove('show');
+  updateXPBar();
+  showXPPop(reward);
+  renderHome();
+}
+
+// ── HOME ──────────────────────────────────────────────────
+function renderHome() {
+  document.getElementById('statSessions').textContent = store.totalSessions;
+  document.getElementById('statCorrect').textContent = store.totalCorrect;
+  document.getElementById('statDays').textContent = store.streak;
+
+  const ms = store.modeStats;
+  const fmt = (m) => ms[m].t > 0 ? Math.round(ms[m].c/ms[m].t*100) + '%' : '—';
+  document.getElementById('accVocab').textContent = fmt('vocab');
+  document.getElementById('accGrammar').textContent = fmt('grammar');
+  document.getElementById('accTranslate').textContent = fmt('translate');
+  document.getElementById('accClb9').textContent = fmt('clb9');
+  document.getElementById('accReading').textContent = fmt('reading');
+
+  // Error tracker
+  const section = document.getElementById('errorTrackerSection');
+  const topErrors = Object.entries(store.errors).filter(([,v])=>v>=2).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  if (topErrors.length > 0) {
+    section.innerHTML = `<div class="error-tracker" style="margin-bottom:14px">
+      <div class="error-tracker-title">⚠ 你的高頻錯誤</div>
+      ${topErrors.map(([k,v])=>`<div class="error-item"><span>${k}</span><span class="err-badge ${v>=5?'err-red':'err-yellow'}">錯了 ${v} 次${v>=5?' 🔴':' 🟡'}</span></div>`).join('')}
+    </div>`;
+  } else {
+    section.innerHTML = '';
+  }
+
+  // Chart
+  if (store.history.length > 0) {
+    const wrap = document.getElementById('chartWrap');
+    wrap.style.display = 'block';
+    const recent = store.history.slice(-7);
+    const max = Math.max(...recent.map(h=>h.pct), 1);
+    document.getElementById('barChart').innerHTML = recent.map((h,i) =>
+      `<div class="bar-col">
+        <div class="bar" style="height:${Math.max(4, h.pct/max*72)}px;background:${h.pct>=80?'var(--green)':h.pct>=60?'var(--accent)':'var(--red)'}"></div>
+        <div class="bar-label">${h.pct}%</div>
+      </div>`
+    ).join('');
+  }
+}
+
+// ── GAME STATE ────────────────────────────────────────────
+let currentMode = '';
+let questions = [];
+let currentIndex = 0;
+let sessionCorrect = 0;
+let sessionWrong = 0;
+let sessionXP = 0;
+let answered = false;
+let timerInterval = null;
+let timeLeft = 0;
+
+function shuffle(arr) {
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function logError(key) {
+  if (!key) return;
+  store.errors[key] = (store.errors[key]||0)+1;
+  saveStore();
+}
+function clearError(key) {
+  if (!key || !store.errors[key]) return;
+  store.errors[key] = Math.max(0, store.errors[key]-1);
+  if (store.errors[key]===0) delete store.errors[key];
+  saveStore();
+}
+
+// ── START ─────────────────────────────────────────────────
+function startMode(mode) {
+  currentMode = mode;
+  sessionCorrect = 0; sessionWrong = 0; sessionXP = 0;
+  answered = false; currentIndex = 0;
+
+  const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'句型中翻英',clb9:'CLB9辨別',reading:'閱讀理解'};
+  document.getElementById('modeLabel').textContent = labels[mode];
+
+  if (mode==='vocab') questions = buildVocabQ();
+  else if (mode==='grammar') questions = shuffle(GRAMMAR_DATA).slice(0,10);
+  else if (mode==='translate') questions = shuffle(TRANSLATE_DATA).slice(0,5);
+  else if (mode==='clb9') questions = shuffle(CLB9_DATA).slice(0,10);
+  else if (mode==='reading') questions = buildReadingQ();
+
+  showScreen('quizScreen');
+  showQuestion();
+}
+
+function buildVocabQ() {
+  const pool = shuffle(VOCAB_DATA);
+  const zh2en = pool.slice(0,5).map(item => {
+    const opts = shuffle([item.en, ...shuffle(VOCAB_DATA.filter(d=>d!==item)).slice(0,3).map(w=>w.en)]);
+    return {type:'中 → 英',question:item.zh,options:opts,answer:opts.indexOf(item.en),explanation:item.note,errorKey:item.zh};
+  });
+  const en2zh = pool.slice(5,10).map(item => {
+    const opts = shuffle([item.zh, ...shuffle(VOCAB_DATA.filter(d=>d!==item)).slice(0,3).map(w=>w.zh)]);
+    return {type:'英 → 中',question:item.en,options:opts,answer:opts.indexOf(item.zh),explanation:item.note,errorKey:item.en};
+  });
+  return shuffle([...zh2en,...en2zh]);
+}
+
+function buildReadingQ() {
+  const r = shuffle(READING_DATA)[0];
+  return shuffle(r.questions).slice(0,3).map(q=>({...q,passage:r.passage,type:'閱讀理解'}));
+}
+
+// ── SHOW QUESTION ─────────────────────────────────────────
+function showQuestion() {
+  answered = false;
+  clearInterval(timerInterval);
+
+  const q = questions[currentIndex];
+  const total = questions.length;
+
+  document.getElementById('progressBar').style.width = (currentIndex/total*100)+'%';
+  document.getElementById('quizNum').textContent = (currentIndex+1)+'/'+total;
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('btnNext').className = 'btn-next';
+  document.getElementById('referenceAns').className = 'reference-ans';
+  document.getElementById('selfGrade').className = 'self-grade';
+  document.getElementById('btnSubmit').style.display = 'none';
+  document.getElementById('inputHint').textContent = '';
+  document.getElementById('questionHint').textContent = '';
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+
+  // Error warning
+  const errCount = store.errors[q.errorKey]||0;
+  if (errCount>=2) {
+    document.getElementById('questionHint').textContent = `⚠ 這個你已經錯了 ${errCount} 次，注意！`;
+  }
+
+  // Timer (skip for translate)
+  if (currentMode !== 'translate') {
+    const secs = currentMode==='reading' ? 45 : 20;
+    startTimer(secs);
+  } else {
+    document.getElementById('timerBar').style.width = '100%';
+    document.getElementById('timerBar').style.background = 'var(--green)';
+  }
+
+  if (q.passage) {
+    document.getElementById('questionType').textContent = '📖 閱讀後回答';
+    const passageDiv = document.createElement('div');
+    passageDiv.style.cssText = 'background:var(--surface2);border-radius:8px;padding:12px 14px;font-size:12px;line-height:1.8;color:var(--text2);margin-bottom:14px;border-left:3px solid var(--accent);';
+    passageDiv.textContent = q.passage;
+    container.appendChild(passageDiv);
+    document.getElementById('questionText').textContent = q.q;
+  } else {
+    document.getElementById('questionType').textContent = q.type || '';
+    document.getElementById('questionText').textContent = q.question||q.sentence||q.zh||'';
+  }
+
+  if (currentMode==='translate') {
+    const ta = document.createElement('textarea');
+    ta.className = 'translate-input';
+    ta.id = 'translateInput';
+    ta.placeholder = '在這裡輸入你的英文翻譯...';
+    ta.addEventListener('keydown', e=>{ if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)) submitTranslate(); });
+    container.appendChild(ta);
+    document.getElementById('btnSubmit').style.display = 'block';
+    document.getElementById('inputHint').textContent = '⌘ / Ctrl + Enter 快速確認';
+    setTimeout(()=>ta.focus(),100);
+  } else {
+    const keys=['A','B','C','D'];
+    q.options.forEach((opt,i)=>{
+      const div=document.createElement('div');
+      div.className='option';
+      div.innerHTML=`<span class="option-key">${keys[i]}</span>${opt}`;
+      div.onclick=()=>selectOption(i,q.answer,q.explanation,q.errorKey);
+      container.appendChild(div);
+    });
+  }
+}
+
+function startTimer(secs) {
+  timeLeft = secs;
+  const bar = document.getElementById('timerBar');
+  bar.style.transition = 'none';
+  bar.style.width = '100%';
+  bar.style.background = 'var(--green)';
+  setTimeout(()=>{
+    bar.style.transition = `width ${secs}s linear, background 0.3s`;
+    bar.style.width = '0%';
+  },50);
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    const pct = timeLeft/secs;
+    if (pct<0.3) bar.style.background='var(--red)';
+    else if (pct<0.6) bar.style.background='var(--yellow)';
+    if (timeLeft<=0) {
+      clearInterval(timerInterval);
+      if(!answered) autoWrong();
+    }
+  },1000);
+}
+
+function autoWrong() {
+  if (answered) return;
+  answered = true;
+  clearInterval(timerInterval);
+  const q = questions[currentIndex];
+  sessionWrong++;
+  logError(q.errorKey);
+  const opts = document.querySelectorAll('.option');
+  opts.forEach(o=>o.classList.add('disabled'));
+  if (q.answer !== undefined) opts[q.answer]?.classList.add('correct');
+  const fb = document.getElementById('feedback');
+  document.getElementById('feedbackTitle').textContent = '⏱ 時間到！';
+  document.getElementById('feedbackBody').textContent = q.explanation||'';
+  fb.className = 'feedback show wf';
+  document.getElementById('btnNext').className = 'btn-next show';
+}
+
+// ── SELECT OPTION ─────────────────────────────────────────
+function selectOption(selected, answer, explanation, errorKey) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timerInterval);
+
+  const opts = document.querySelectorAll('.option');
+  opts.forEach(o=>o.classList.add('disabled'));
+  const fb = document.getElementById('feedback');
+
+  if (selected===answer) {
+    opts[selected].classList.add('correct');
+    sessionCorrect++;
+    const xp = 10 + (store.streak>2?3:0);
+    sessionXP += xp;
+    clearError(errorKey);
+    fb.className = 'feedback show';
+    document.getElementById('feedbackTitle').textContent = '✓ 正確！';
+    document.getElementById('feedbackBody').innerHTML = explanation||'';
+  } else {
+    opts[selected].classList.add('wrong');
+    opts[answer].classList.add('correct');
+    sessionWrong++;
+    logError(errorKey);
+    const errCount = store.errors[errorKey]||0;
+    const warnMsg = errCount>=3 ? `<br><span style="color:var(--red);font-size:11px">🔴 已錯 ${errCount} 次！重點記憶。</span>` : errCount>=2 ? `<br><span style="color:var(--yellow);font-size:11px">🟡 第 ${errCount} 次錯這個了。</span>`:''
+    fb.className = 'feedback show wf';
+    document.getElementById('feedbackTitle').textContent = '✗ 答錯了';
+    document.getElementById('feedbackBody').innerHTML = (explanation||'') + warnMsg;
+  }
+  document.getElementById('btnNext').className = 'btn-next show';
+}
+
+// ── TRANSLATE ─────────────────────────────────────────────
+function submitTranslate() {
+  if (answered) return;
+  const input = document.getElementById('translateInput');
+  if (!input||!input.value.trim()) return;
+  answered = true;
+  document.getElementById('btnSubmit').style.display='none';
+  input.disabled=true;
+  const q=questions[currentIndex];
+  document.getElementById('referenceText').innerHTML=`<strong>${q.reference}</strong><br><span style="color:var(--text2);font-size:12px;margin-top:5px;display:block">${q.explanation||''}</span>`;
+  document.getElementById('referenceAns').className='reference-ans show';
+  document.getElementById('selfGrade').className='self-grade show';
+}
+
+function selfGrade(isCorrect) {
+  document.getElementById('selfGrade').className='self-grade';
+  const input=document.getElementById('translateInput');
+  const q=questions[currentIndex];
+  if (isCorrect) {
+    sessionCorrect++;
+    const xp=12;
+    sessionXP+=xp;
+    clearError(q.errorKey);
+    if(input) input.className='translate-input ci';
+    const fb=document.getElementById('feedback');
+    document.getElementById('feedbackTitle').textContent='✓ 記下來！這句話要能自然說出口。';
+    document.getElementById('feedbackBody').textContent='';
+    fb.className='feedback show';
+  } else {
+    sessionWrong++;
+    logError(q.errorKey);
+    if(input) input.className='translate-input wi';
+    const errCount=store.errors[q.errorKey]||0;
+    const fb=document.getElementById('feedback');
+    document.getElementById('feedbackTitle').textContent='✗ 對照參考答案，記住關鍵詞彙！';
+    document.getElementById('feedbackBody').textContent=errCount>=3?`🔴 已錯 ${errCount} 次，要特別注意。`:'';
+    fb.className='feedback show wf';
+  }
+  document.getElementById('btnNext').className='btn-next show';
+}
+
+// ── NEXT / RESULT ─────────────────────────────────────────
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex>=questions.length) showResult();
+  else showQuestion();
+}
+
+function showResult() {
+  clearInterval(timerInterval);
+  const total=questions.length;
+  const pct=Math.round(sessionCorrect/total*100);
+
+  // Update store
+  store.totalSessions++;
+  store.totalCorrect+=sessionCorrect;
+  store.xp+=sessionXP;
+  store.modeStats[currentMode].c+=sessionCorrect;
+  store.modeStats[currentMode].t+=total;
+  store.history.push({pct, mode:currentMode});
+  if (store.history.length>20) store.history.shift();
+  saveStore();
+  updateXPBar();
+  showXPPop(sessionXP);
+
+  document.getElementById('resultScore').textContent=sessionCorrect+'/'+total;
+  document.getElementById('rCorrect').textContent=sessionCorrect;
+  document.getElementById('rWrong').textContent=sessionWrong;
+  document.getElementById('rAcc').textContent=pct+'%';
+  document.getElementById('rXP').textContent='+'+sessionXP;
+
+  let comment='';
+  if(pct>=90) comment='🔥 CLB 9 水準！繼續保持。';
+  else if(pct>=70) comment='💪 CLB 8 穩了，往 9 衝！';
+  else if(pct>=50) comment='📚 答錯的要再複習。';
+  else comment='⚡ 錯誤是進步的機會，再練一次！';
+  document.getElementById('resultComment').textContent=comment;
+
+  const topErrors=Object.entries(store.errors).filter(([,v])=>v>=2).sort((a,b)=>b[1]-a[1]).slice(0,3);
+  const errDiv=document.getElementById('resultErrors');
+  if(topErrors.length>0){
+    errDiv.innerHTML=`<div class="error-tracker"><div class="error-tracker-title">⚠ 需要加強</div>${topErrors.map(([k,v])=>`<div class="error-item"><span>${k}</span><span class="err-badge ${v>=5?'err-red':'err-yellow'}">錯了 ${v} 次</span></div>`).join('')}</div>`;
+  } else { errDiv.innerHTML=''; }
+
+  showScreen('resultScreen');
+  renderHome();
+}
+
+function goHome() {
+  showScreen('homeScreen');
+  renderHome();
+}
+
+function retryMode() { startMode(currentMode); }
+
+function showScreen(id) {
+  ['homeScreen','quizScreen','resultScreen'].forEach(s=>{
+    document.getElementById(s).classList.toggle('active',s===id);
+  });
+}
+
+// ── INIT ─────────────────────────────────────────────────
+loadAllData().then(() => {
+  updateXPBar();
+  renderHome();
+  checkDaily();
+}).catch(err => {
+  console.error('Failed to load quiz data:', err);
+  document.querySelector('.container').innerHTML =
+    '<p style="color:var(--red);padding:40px;text-align:center">⚠ 無法載入題庫。請用本機伺服器開啟（例如：<code>npx serve .</code>）</p>';
+});
+</script>
+</body>
+</html>

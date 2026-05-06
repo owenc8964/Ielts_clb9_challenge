@@ -1,0 +1,151 @@
+[
+  {
+    "passage": "The rapid advancement of artificial intelligence has sparked widespread debate about its impact on employment. While some economists argue that automation will inevitably render a massive number of current occupations obsolete, others contend that disruptive innovation has historically given birth to unprecedented opportunities. A case in point is the Industrial Revolution, which, despite initially displacing many manual labourers, ultimately generated far more jobs than it eliminated. Nevertheless, the structural unemployment caused by today's AI wave may prove more challenging to navigate, as the pace of change far outstrips the capacity of education systems to adapt.",
+    "questions": [
+      {
+        "q": "According to the passage, which statement is correct?",
+        "options": [
+          "All economists believe AI will cause mass unemployment.",
+          "The Industrial Revolution ultimately created more jobs than it destroyed.",
+          "The impact of AI is identical to that of the Industrial Revolution.",
+          "Education systems have successfully adapted to the AI wave."
+        ],
+        "answer": 1,
+        "explanation": "The passage states the Industrial Revolution 'ultimately generated far more jobs than it eliminated'.",
+        "errorKey": "AI閱讀1"
+      },
+      {
+        "q": "Which word is closest in meaning to 'render obsolete' as used in the passage?",
+        "options": [
+          "to make more efficient",
+          "to make outdated and replaced",
+          "to make more important",
+          "to make widely available"
+        ],
+        "answer": 1,
+        "explanation": "'render obsolete' = to make something outdated or no longer useful. A CLB 9 high-frequency phrase.",
+        "errorKey": "render obsolete閱讀"
+      },
+      {
+        "q": "What does the author suggest makes today's AI challenge different from the Industrial Revolution?",
+        "options": [
+          "AI creates far more new jobs.",
+          "The pace of AI change outstrips the ability of education to keep up.",
+          "The Industrial Revolution caused worse unemployment.",
+          "AI only affects manual labour."
+        ],
+        "answer": 1,
+        "explanation": "The passage says 'the pace of change far outstrips the capacity of education systems to adapt'.",
+        "errorKey": "AI閱讀3"
+      }
+    ]
+  },
+  {
+    "passage": "Governments around the world are increasingly grappling with the question of how to regulate individuals' dietary choices in the interest of public health. Proponents of stringent legislation argue that clear prohibitions — such as sugar taxes or restrictions on ultra-processed foods — can effectively reduce the incidence rates of chronic diseases, including diabetes and cardiovascular conditions. However, opponents contend that such measures constitute an unacceptable infringement on personal autonomy. For highly disciplined individuals who fully understand the risks, rigid, one-size-fits-all regulations may prove both patronising and counterproductive.",
+    "questions": [
+      {
+        "q": "What is the main argument of those who support strict dietary legislation?",
+        "options": [
+          "It increases government tax revenue.",
+          "It can effectively lower the incidence of chronic diseases.",
+          "It protects personal autonomy.",
+          "It improves the taste of food."
+        ],
+        "answer": 1,
+        "explanation": "The passage says legislation 'can effectively reduce the incidence rates of chronic diseases'.",
+        "errorKey": "飲食立法閱讀"
+      },
+      {
+        "q": "Which word could best replace 'infringement' in the passage?",
+        "options": ["celebration", "violation", "extension", "promotion"],
+        "answer": 1,
+        "explanation": "'infringement' = a violation or breach of a right. 'constitute an infringement on autonomy' is a CLB 9 fixed expression.",
+        "errorKey": "infringement閱讀"
+      },
+      {
+        "q": "The word 'counterproductive' in the final sentence most closely means:",
+        "options": [
+          "very effective",
+          "achieving the opposite of the intended result",
+          "overly complicated",
+          "financially wasteful"
+        ],
+        "answer": 1,
+        "explanation": "'counterproductive' = producing results opposite to those intended. Often paired with 'patronising' in policy discussions.",
+        "errorKey": "counterproductive閱讀"
+      }
+    ]
+  },
+  {
+    "passage": "The question of whether unpaid community service should be a compulsory part of high school programmes remains deeply contested. Advocates argue that mandatory participation cultivates social empathy and breaks down class barriers, laying a foundation for long-term social cohesion. Critics, however, point out that coercion can fundamentally undermine the spirit of volunteerism. When community service becomes a rigid graduation requirement, students may approach it as a mere box-ticking exercise, which risks depleting their enthusiasm for civic engagement rather than nurturing it.",
+    "questions": [
+      {
+        "q": "What do critics argue is the main risk of making community service compulsory?",
+        "options": [
+          "It takes too much time away from academic study.",
+          "It may destroy students' genuine motivation to volunteer.",
+          "It is too expensive for schools to organise.",
+          "It benefits only wealthy students."
+        ],
+        "answer": 1,
+        "explanation": "Critics say coercion 'can fundamentally undermine the spirit of volunteerism' — turning it into a box-ticking exercise.",
+        "errorKey": "社區服務閱讀1"
+      },
+      {
+        "q": "Which phrase best replaces 'box-ticking exercise' as used in the passage?",
+        "options": [
+          "a meaningful learning experience",
+          "a purely formal act done without genuine engagement",
+          "an activity requiring great skill",
+          "a competitive academic task"
+        ],
+        "answer": 1,
+        "explanation": "A 'box-ticking exercise' describes doing something purely to fulfil a requirement, with no genuine intent or engagement.",
+        "errorKey": "box-ticking閱讀"
+      },
+      {
+        "q": "The word 'coercion' in the passage is closest in meaning to:",
+        "options": ["encouragement", "persuasion", "force or compulsion", "inspiration"],
+        "answer": 2,
+        "explanation": "'coercion' = the use of force or threats to make someone do something. The opposite of voluntary choice.",
+        "errorKey": "coercion閱讀"
+      }
+    ]
+  },
+  {
+    "passage": "In many capitalist economies, income inequality has widened considerably over recent decades. While high earners contribute substantial tax revenues — which can be redistributed to fund public infrastructure and social welfare — critics argue that leaving the capital market entirely to the forces of supply and demand will severely compromise the livelihoods of workers in essential but lower-paid industries. This, they contend, ultimately exacerbates social stratification and entrenches the monopoly of resources among a small elite, eroding the social cohesion upon which stable societies depend.",
+    "questions": [
+      {
+        "q": "According to critics, what is the main consequence of unregulated income inequality?",
+        "options": [
+          "Lower tax revenues for government",
+          "Worsening social stratification and resource monopoly",
+          "Faster economic growth",
+          "Improved productivity across all sectors"
+        ],
+        "answer": 1,
+        "explanation": "Critics say it 'exacerbates social stratification and entrenches the monopoly of resources among a small elite'.",
+        "errorKey": "收入不平等閱讀"
+      },
+      {
+        "q": "Which word is closest in meaning to 'entrenches' as used in the passage?",
+        "options": ["weakens", "firmly establishes", "gradually reduces", "publicly reveals"],
+        "answer": 1,
+        "explanation": "'entrench' = to establish something so firmly that it is difficult to change. Often used with inequality or power structures.",
+        "errorKey": "entrench閱讀"
+      },
+      {
+        "q": "What does the phrase 'eroding the social cohesion' suggest about inequality?",
+        "options": [
+          "Inequality makes society more innovative.",
+          "Inequality gradually destroys the bonds that hold society together.",
+          "Inequality is a temporary problem.",
+          "Inequality only affects lower-income groups."
+        ],
+        "answer": 1,
+        "explanation": "'erode' = to gradually wear away or destroy. 'social cohesion' = the bonds that unite a community. A CLB 9 key pairing.",
+        "errorKey": "social cohesion閱讀"
+      }
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "sentence": "Although the policy has merits, but it also carries significant risks.",
+    "correct": "Although the policy has merits, it also carries significant risks.",
+    "options": [
+      "Although the policy has merits, it also carries significant risks.",
+      "Although the policy has merits, but it also carries significant risks.",
+      "The policy has merits although but it also carries risks.",
+      "Although the policy has merits; but it carries significant risks."
+    ],
+    "answer": 0,
+    "explanation": "Although 和 but 不能同時使用，主句直接開始。",
+    "errorKey": "Although...but"
+  },
+  {
+    "sentence": "The new policy makes citizens to follow stricter guidelines.",
+    "correct": "The new policy makes citizens follow stricter guidelines.",
+    "options": [
+      "The new policy makes citizens follow stricter guidelines.",
+      "The new policy makes citizens to follow stricter guidelines.",
+      "The new policy makes citizens following stricter guidelines.",
+      "The new policy makes citizens followed stricter guidelines."
+    ],
+    "answer": 0,
+    "explanation": "make + 人 + 原形動詞（不加 to）。",
+    "errorKey": "make+to"
+  },
+  {
+    "sentence": "The crime rate will undermine gradually if the government intervenes.",
+    "correct": "The crime rate will decline gradually if the government intervenes.",
+    "options": [
+      "The crime rate will decline gradually if the government intervenes.",
+      "The crime rate will undermine gradually if the government intervenes.",
+      "The crime rate will be undermined gradually if the government intervenes.",
+      "The crime rate will undermining gradually."
+    ],
+    "answer": 0,
+    "explanation": "undermine 需要受詞。數字下降用 decline / fall / drop。",
+    "errorKey": "undermine獨立"
+  },
+  {
+    "sentence": "Researches show that excessive social media use leads to anxiety.",
+    "correct": "Research shows that excessive social media use leads to anxiety.",
+    "options": [
+      "Research shows that excessive social media use leads to anxiety.",
+      "Researches show that excessive social media use leads to anxiety.",
+      "Research show that excessive social media use leads to anxiety.",
+      "The researches shows that excessive social media use leads to anxiety."
+    ],
+    "answer": 0,
+    "explanation": "research 是不可數名詞，不加 s。動詞用 shows。",
+    "errorKey": "researches"
+  },
+  {
+    "sentence": "The government should limit the roof on executive salaries.",
+    "correct": "The government should impose a salary cap on executive compensation.",
+    "options": [
+      "The government should impose a salary cap on executive compensation.",
+      "The government should limit the roof on executive salaries.",
+      "The government should set a limit roof on executive salaries.",
+      "The government should cap limit the executive salaries."
+    ],
+    "answer": 0,
+    "explanation": "'limit the roof' 是中式直譯。正確：impose a salary cap 或 set a ceiling。",
+    "errorKey": "limit the roof"
+  },
+  {
+    "sentence": "The provokers of this policy argue that it will boost economic growth.",
+    "correct": "The proponents of this policy argue that it will boost economic growth.",
+    "options": [
+      "The proponents of this policy argue that it will boost economic growth.",
+      "The provokers of this policy argue that it will boost economic growth.",
+      "The provocateurs of this policy argue that it will boost economic growth.",
+      "The promoters of this policy argue that it will boost economic growth."
+    ],
+    "answer": 0,
+    "explanation": "provoker 是「挑釁者」。支持政策的人用 proponents 或 advocates。",
+    "errorKey": "provoker"
+  },
+  {
+    "sentence": "Smoking is necessarily evil but generates significant tax revenue.",
+    "correct": "Smoking is a necessary evil but generates significant tax revenue.",
+    "options": [
+      "Smoking is a necessary evil but generates significant tax revenue.",
+      "Smoking is necessarily evil but generates significant tax revenue.",
+      "Smoking is a necessarily evil but generates significant tax revenue.",
+      "Smoking is necessary evil but generates tax revenue."
+    ],
+    "answer": 0,
+    "explanation": "'a necessary evil' 是固定搭配。necessary 是形容詞，不能用副詞 necessarily。",
+    "errorKey": "necessarily evil"
+  },
+  {
+    "sentence": "City A's figure is approximate 3 times of City B.",
+    "correct": "City A's figure is approximately three times that of City B.",
+    "options": [
+      "City A's figure is approximately three times that of City B.",
+      "City A's figure is approximate 3 times of City B.",
+      "City A's figure is about 3 times than City B.",
+      "City A is approximately 3 times more of City B's figure."
+    ],
+    "answer": 0,
+    "explanation": "倍數公式：approximately + 數字 + times + that of。",
+    "errorKey": "倍數句型"
+  }
+]
