@@ -4,36 +4,21 @@
     "questions": [
       {
         "q": "According to the passage, which statement is correct?",
-        "options": [
-          "All economists believe AI will cause mass unemployment.",
-          "The Industrial Revolution ultimately created more jobs than it destroyed.",
-          "The impact of AI is identical to that of the Industrial Revolution.",
-          "Education systems have successfully adapted to the AI wave."
-        ],
+        "options": ["All economists believe AI will cause mass unemployment.", "The Industrial Revolution ultimately created more jobs than it destroyed.", "The impact of AI is identical to that of the Industrial Revolution.", "Education systems have successfully adapted to the AI wave."],
         "answer": 1,
         "explanation": "The passage states the Industrial Revolution 'ultimately generated far more jobs than it eliminated'.",
         "errorKey": "AI閱讀1"
       },
       {
         "q": "Which word is closest in meaning to 'render obsolete' as used in the passage?",
-        "options": [
-          "to make more efficient",
-          "to make outdated and replaced",
-          "to make more important",
-          "to make widely available"
-        ],
+        "options": ["to make more efficient", "to make outdated and replaced", "to make more important", "to make widely available"],
         "answer": 1,
         "explanation": "'render obsolete' = to make something outdated or no longer useful. A CLB 9 high-frequency phrase.",
         "errorKey": "render obsolete閱讀"
       },
       {
         "q": "What does the author suggest makes today's AI challenge different from the Industrial Revolution?",
-        "options": [
-          "AI creates far more new jobs.",
-          "The pace of AI change outstrips the ability of education to keep up.",
-          "The Industrial Revolution caused worse unemployment.",
-          "AI only affects manual labour."
-        ],
+        "options": ["AI creates far more new jobs.", "The pace of AI change outstrips the ability of education to keep up.", "The Industrial Revolution caused worse unemployment.", "AI only affects manual labour."],
         "answer": 1,
         "explanation": "The passage says 'the pace of change far outstrips the capacity of education systems to adapt'.",
         "errorKey": "AI閱讀3"
@@ -45,12 +30,7 @@
     "questions": [
       {
         "q": "What is the main argument of those who support strict dietary legislation?",
-        "options": [
-          "It increases government tax revenue.",
-          "It can effectively lower the incidence of chronic diseases.",
-          "It protects personal autonomy.",
-          "It improves the taste of food."
-        ],
+        "options": ["It increases government tax revenue.", "It can effectively lower the incidence of chronic diseases.", "It protects personal autonomy.", "It improves the taste of food."],
         "answer": 1,
         "explanation": "The passage says legislation 'can effectively reduce the incidence rates of chronic diseases'.",
         "errorKey": "飲食立法閱讀"
@@ -64,12 +44,7 @@
       },
       {
         "q": "The word 'counterproductive' in the final sentence most closely means:",
-        "options": [
-          "very effective",
-          "achieving the opposite of the intended result",
-          "overly complicated",
-          "financially wasteful"
-        ],
+        "options": ["very effective", "achieving the opposite of the intended result", "overly complicated", "financially wasteful"],
         "answer": 1,
         "explanation": "'counterproductive' = producing results opposite to those intended. Often paired with 'patronising' in policy discussions.",
         "errorKey": "counterproductive閱讀"
@@ -81,24 +56,14 @@
     "questions": [
       {
         "q": "What do critics argue is the main risk of making community service compulsory?",
-        "options": [
-          "It takes too much time away from academic study.",
-          "It may destroy students' genuine motivation to volunteer.",
-          "It is too expensive for schools to organise.",
-          "It benefits only wealthy students."
-        ],
+        "options": ["It takes too much time away from academic study.", "It may destroy students' genuine motivation to volunteer.", "It is too expensive for schools to organise.", "It benefits only wealthy students."],
         "answer": 1,
         "explanation": "Critics say coercion 'can fundamentally undermine the spirit of volunteerism' — turning it into a box-ticking exercise.",
         "errorKey": "社區服務閱讀1"
       },
       {
         "q": "Which phrase best replaces 'box-ticking exercise' as used in the passage?",
-        "options": [
-          "a meaningful learning experience",
-          "a purely formal act done without genuine engagement",
-          "an activity requiring great skill",
-          "a competitive academic task"
-        ],
+        "options": ["a meaningful learning experience", "a purely formal act done without genuine engagement", "an activity requiring great skill", "a competitive academic task"],
         "answer": 1,
         "explanation": "A 'box-ticking exercise' describes doing something purely to fulfil a requirement, with no genuine intent or engagement.",
         "errorKey": "box-ticking閱讀"
@@ -117,12 +82,7 @@
     "questions": [
       {
         "q": "According to critics, what is the main consequence of unregulated income inequality?",
-        "options": [
-          "Lower tax revenues for government",
-          "Worsening social stratification and resource monopoly",
-          "Faster economic growth",
-          "Improved productivity across all sectors"
-        ],
+        "options": ["Lower tax revenues for government", "Worsening social stratification and resource monopoly", "Faster economic growth", "Improved productivity across all sectors"],
         "answer": 1,
         "explanation": "Critics say it 'exacerbates social stratification and entrenches the monopoly of resources among a small elite'.",
         "errorKey": "收入不平等閱讀"
@@ -136,15 +96,88 @@
       },
       {
         "q": "What does the phrase 'eroding the social cohesion' suggest about inequality?",
-        "options": [
-          "Inequality makes society more innovative.",
-          "Inequality gradually destroys the bonds that hold society together.",
-          "Inequality is a temporary problem.",
-          "Inequality only affects lower-income groups."
-        ],
+        "options": ["Inequality makes society more innovative.", "Inequality gradually destroys the bonds that hold society together.", "Inequality is a temporary problem.", "Inequality only affects lower-income groups."],
         "answer": 1,
         "explanation": "'erode' = to gradually wear away or destroy. 'social cohesion' = the bonds that unite a community. A CLB 9 key pairing.",
         "errorKey": "social cohesion閱讀"
+      }
+    ]
+  },
+  {
+    "passage": "Rapid urbanisation has placed enormous pressure on housing markets in major cities worldwide. As the urban population swells, the proliferation of high-density residential developments has become both a necessity and a source of controversy. Proponents argue that vertical housing — such as high-rise apartment complexes — maximises land use efficiency and reduces urban sprawl, thereby preserving green spaces on the city's periphery. Detractors, however, warn that indiscriminate densification, without adequate investment in public transport and community infrastructure, risks creating overcrowded, socially fragmented neighbourhoods that undermine residents' quality of life.",
+    "questions": [
+      {
+        "q": "What do supporters of high-density housing argue is its main benefit?",
+        "options": ["It makes housing more affordable for all residents.", "It uses land efficiently and reduces urban sprawl.", "It eliminates the need for public transport investment.", "It creates stronger community bonds among residents."],
+        "answer": 1,
+        "explanation": "Supporters say it 'maximises land use efficiency and reduces urban sprawl, thereby preserving green spaces'.",
+        "errorKey": "都市化閱讀1"
+      },
+      {
+        "q": "The word 'proliferation' in the passage most closely means:",
+        "options": ["rapid decrease", "careful planning", "rapid increase and spread", "government regulation"],
+        "answer": 2,
+        "explanation": "'proliferation' = a rapid increase in numbers or spread. CLB 9 key word often used with technology, housing, disease.",
+        "errorKey": "proliferation閱讀"
+      },
+      {
+        "q": "According to critics, what is required for densification to succeed?",
+        "options": ["Taller buildings and more floors", "Sufficient investment in transport and community infrastructure", "Restrictions on green spaces", "A reduction in urban population"],
+        "answer": 1,
+        "explanation": "Critics warn that densification without 'adequate investment in public transport and community infrastructure' creates problems.",
+        "errorKey": "都市化閱讀3"
+      }
+    ]
+  },
+  {
+    "passage": "Climate change mitigation has increasingly shifted from a purely governmental responsibility to one shared by individuals, corporations, and civil society. While large-scale policy interventions — such as carbon pricing and international emissions treaties — remain indispensable, there is growing recognition that systemic change cannot materialise without a concurrent shift in consumer behaviour. Critics of individual-focused campaigns, however, argue that placing the burden of climate action on ordinary citizens is a deliberate strategy by major polluters to deflect regulatory scrutiny, obscuring the disproportionate contribution of industrial actors to global carbon emissions.",
+    "questions": [
+      {
+        "q": "What do critics argue about individual-focused climate campaigns?",
+        "options": ["They are the most effective way to reduce emissions.", "They unfairly shift responsibility away from major industrial polluters.", "They have successfully changed government policy.", "They are supported by environmental organisations worldwide."],
+        "answer": 1,
+        "explanation": "Critics say these campaigns 'deflect regulatory scrutiny' from major polluters by blaming individuals instead.",
+        "errorKey": "氣候閱讀1"
+      },
+      {
+        "q": "The word 'indispensable' in the passage most closely means:",
+        "options": ["optional", "absolutely necessary", "highly controversial", "financially costly"],
+        "answer": 1,
+        "explanation": "'indispensable' = absolutely essential, cannot be done without. CLB 9 synonym for 'essential' or 'crucial'.",
+        "errorKey": "indispensable閱讀"
+      },
+      {
+        "q": "The word 'disproportionate' as used in the passage suggests that industrial actors:",
+        "options": ["contribute equally to emissions as individuals", "contribute far more to emissions than their share of the population", "have reduced their emissions significantly", "are unfairly targeted by regulators"],
+        "answer": 1,
+        "explanation": "'disproportionate' = not in proportion, larger than expected relative to size. A CLB 9 key word for IELTS Task 2 arguments.",
+        "errorKey": "disproportionate閱讀"
+      }
+    ]
+  },
+  {
+    "passage": "The global ageing population presents both profound challenges and overlooked opportunities for modern economies. As the proportion of citizens aged 65 and over continues to expand, public expenditure on healthcare, pensions, and long-term care is projected to rise substantially, placing considerable strain on government budgets. Yet economists caution against an exclusively pessimistic reading. Older adults increasingly represent a significant consumer demographic, driving demand in sectors ranging from healthcare technology to leisure and financial services. Furthermore, policies that encourage longer working lives and facilitate the transfer of institutional knowledge from experienced workers to younger cohorts may help offset some of the economic costs associated with demographic ageing.",
+    "questions": [
+      {
+        "q": "Which of the following best describes the passage's overall argument?",
+        "options": ["Ageing populations are solely an economic burden.", "Ageing populations present both challenges and potential economic opportunities.", "Governments should discourage retirement to solve the ageing problem.", "Healthcare costs are the only concern related to demographic ageing."],
+        "answer": 1,
+        "explanation": "The passage presents both 'profound challenges' and 'overlooked opportunities', making it a balanced argument — a common IELTS essay structure.",
+        "errorKey": "老齡化閱讀1"
+      },
+      {
+        "q": "The word 'cohorts' as used in the passage most closely means:",
+        "options": ["competitors", "groups of people of similar age or background", "government departments", "medical professionals"],
+        "answer": 1,
+        "explanation": "'cohorts' = a group sharing a common characteristic, especially age. Common in academic writing about demographics.",
+        "errorKey": "cohorts閱讀"
+      },
+      {
+        "q": "According to the passage, how might experienced older workers benefit younger generations?",
+        "options": ["By retiring early to free up jobs", "By transferring institutional knowledge to younger workers", "By consuming more healthcare services", "By reducing government pension costs"],
+        "answer": 1,
+        "explanation": "The passage mentions 'the transfer of institutional knowledge from experienced workers to younger cohorts' as an economic benefit.",
+        "errorKey": "老齡化閱讀3"
       }
     ]
   }

@@ -127,8 +127,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .btn-next{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
 .btn-next.show{display:block;}
 .btn-next:hover{background:#9080ff;}
-.btn-abandon{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:9px;padding:8px 16px;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;align-self:flex-start;margin-top:6px;}
-.btn-abandon:hover{color:var(--red);border-color:var(--red);}
+.btn-abandon{background:rgba(255,159,74,0.12);color:var(--orange);border:1px solid rgba(255,159,74,0.35);border-radius:9px;padding:8px 16px;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;align-self:flex-start;margin-top:6px;font-weight:700;}
+.btn-abandon:hover{background:rgba(255,159,74,0.22);}
 .btn-ai-check{background:rgba(124,108,255,0.12);color:var(--accent);border:1px solid rgba(124,108,255,0.3);border-radius:9px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;margin-top:4px;}
 .btn-ai-check:hover{background:rgba(124,108,255,0.22);}
 .quiz-actions{display:flex;flex-direction:column;gap:6px;}
@@ -647,8 +647,8 @@ function showQuestion() {
     container.appendChild(passageDiv);
     document.getElementById('questionText').textContent = q.q;
   } else if (currentMode === 'grammar') {
-    document.getElementById('questionType').textContent = '找出錯誤並選出正確版本';
-    document.getElementById('questionText').innerHTML = highlightErrorSpan(q.sentence, q.error_span);
+    document.getElementById('questionType').textContent = '選出正確版本';
+    document.getElementById('questionText').textContent = q.sentence; // 初始不標紅
   } else {
     document.getElementById('questionType').textContent = q.type || '';
     document.getElementById('questionText').textContent = q.question||q.sentence||q.zh||'';
@@ -670,8 +670,12 @@ function showQuestion() {
       const div=document.createElement('div');
       div.className='option';
       div.dataset.index=i;
-      div.innerHTML=`<span class="option-key">${keys[i]}</span><span class="opt-text">${opt}</span>`;
-      div.onclick=()=>selectOption(i,q.answer,q.explanation,q.errorKey,q.correct,q.options);
+      // 文法題：對比正確答案標出各選項的差異（正確選項本身不標）
+      const displayText = (currentMode==='grammar' && q.correct && i !== q.answer)
+        ? highlightOptionDiff(q.correct, opt)
+        : opt;
+      div.innerHTML=`<span class="option-key">${keys[i]}</span><span class="opt-text">${displayText}</span>`;
+      div.onclick=()=>selectOption(i,q.answer,q.explanation,q.errorKey,q.correct,q.options,q.sentence,q.error_span);
       container.appendChild(div);
     });
   }
@@ -710,13 +714,15 @@ function autoWrong() {
   opts.forEach(o=>o.classList.add('disabled'));
   if (q.answer !== undefined) {
     opts[q.answer]?.classList.add('correct');
-    if (currentMode === 'grammar' && q.correct) {
-      opts.forEach((optEl, i) => {
-        const textEl = optEl.querySelector('.opt-text');
-        if (!textEl) return;
-        if (i === q.answer) { textEl.innerHTML = q.options[i]; }
-        else { textEl.innerHTML = highlightOptionDiff(q.correct, q.options[i]); }
-      });
+    if (currentMode === 'grammar') {
+      if (q.error_span) document.getElementById('questionText').innerHTML = highlightErrorSpan(q.sentence, q.error_span);
+      if (q.correct) {
+        opts.forEach((optEl, i) => {
+          const textEl = optEl.querySelector('.opt-text');
+          if (!textEl) return;
+          textEl.innerHTML = i === q.answer ? q.options[i] : highlightOptionDiff(q.correct, q.options[i]);
+        });
+      }
     }
   }
   const fb = document.getElementById('feedback');
@@ -727,7 +733,7 @@ function autoWrong() {
 }
 
 // ── SELECT OPTION ─────────────────────────────────────────
-function selectOption(selected, answer, explanation, errorKey, correctText, allOptions) {
+function selectOption(selected, answer, explanation, errorKey, correctText, allOptions, origSentence, errorSpan) {
   if (answered) return;
   answered = true;
   clearInterval(timerInterval);
@@ -736,17 +742,20 @@ function selectOption(selected, answer, explanation, errorKey, correctText, allO
   opts.forEach(o=>o.classList.add('disabled'));
   const fb = document.getElementById('feedback');
 
-  // 答題後：在文法模式下標出各選項與正確答案的差異
-  if (currentMode === 'grammar' && correctText) {
-    opts.forEach((optEl, i) => {
-      const textEl = optEl.querySelector('.opt-text');
-      if (!textEl) return;
-      if (i === answer) {
-        textEl.innerHTML = allOptions[i]; // 正確答案不加標記
-      } else {
-        textEl.innerHTML = highlightOptionDiff(correctText, allOptions[i]);
-      }
-    });
+  // 答題後：題目標出原始錯誤，選項改為對比正確答案
+  if (currentMode === 'grammar') {
+    if (errorSpan) {
+      document.getElementById('questionText').innerHTML = highlightErrorSpan(origSentence, errorSpan);
+    }
+    if (correctText) {
+      opts.forEach((optEl, i) => {
+        const textEl = optEl.querySelector('.opt-text');
+        if (!textEl) return;
+        textEl.innerHTML = i === answer
+          ? allOptions[i]
+          : highlightOptionDiff(correctText, allOptions[i]);
+      });
+    }
   }
 
   if (selected===answer) {
