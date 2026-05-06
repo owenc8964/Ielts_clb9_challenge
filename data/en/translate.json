@@ -3,30 +3,40 @@
     "zh": "雖然強制服務有其潛在風險，但這項政策在塑造青少年公民責任感方面具有深遠的社會意義。",
     "reference": "Although mandatory service carries potential risks, this policy holds profound social significance in shaping the civic responsibility of adolescents.",
     "explanation": "Although 後不加 but；profound social significance 比 very important 高級。",
-    "errorKey": "強制服務"
+    "errorKey": "強制服務",
+    "key_vocab": ["profound social significance", "mandatory service", "civic responsibility"],
+    "hint": "注意：需要用 profound social significance（深遠的社會意義），以及 Although 後不加 but"
   },
   {
     "zh": "AI 將使大量現有職業被淘汰，其根本原因源於機器的本質。",
     "reference": "AI will render a massive number of current occupations obsolete. The root cause stems from the nature of machines.",
     "explanation": "render obsolete 比 make disappear 高級；stem from 比 come from 更學術。",
-    "errorKey": "AI淘汰職業"
+    "errorKey": "AI淘汰職業",
+    "key_vocab": ["render obsolete", "stem from", "occupations"],
+    "hint": "核心詞彙：render...obsolete（使被淘汰）和 stem from（源於）"
   },
   {
     "zh": "資本市場若完全交由供需力量主導，將嚴重損害其他產業工作者的生活品質，最終加劇階級固化。",
     "reference": "If the capital market is left entirely to the forces of supply and demand, it will severely compromise the quality of life for workers in other sectors, ultimately exacerbating social stratification.",
     "explanation": "compromise（損害）、exacerbating（加劇）、social stratification（階級固化）都是 CLB 9 詞彙。",
-    "errorKey": "資本市場"
+    "errorKey": "資本市場",
+    "key_vocab": ["compromise", "exacerbating", "social stratification", "supply and demand"],
+    "hint": "需要用：compromise（損害）、exacerbating（加劇）、social stratification（階級固化）"
   },
   {
     "zh": "政府擁有專業機構和專家資源，能夠系統性地評估這些風險。",
     "reference": "Governments possess the professional institutions and expert resources to evaluate these hazards systematically.",
     "explanation": "possess 比 have 更正式；hazards 比 risks 更學術。",
-    "errorKey": "政府機構"
+    "errorKey": "政府機構",
+    "key_vocab": ["possess", "hazards", "systematically", "institutions"],
+    "hint": "關鍵替換：possess（擁有，比 have 正式）、hazards（危害，比 risks 更學術）"
   },
   {
     "zh": "在兩害相權之下，允許國家介入是保護公眾安全與健康的最明智選擇。",
     "reference": "Choosing the lesser of two evils by allowing state intervention is essential to maximise the protection of public safety and health.",
     "explanation": "choose the lesser of two evils 是固定片語；state intervention 比 government control 更學術。",
-    "errorKey": "兩害相權"
+    "errorKey": "兩害相權",
+    "key_vocab": ["lesser of two evils", "state intervention", "maximise"],
+    "hint": "固定片語：the lesser of two evils（兩害相權）；用 state intervention 而非 government control"
   }
 ]

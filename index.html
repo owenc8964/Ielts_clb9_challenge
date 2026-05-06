@@ -85,47 +85,56 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .timer-bar{height:100%;background:var(--green);border-radius:2px;transition:width 1s linear,background 0.3s;}
 
 .question-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;animation:fadeIn 0.2s ease;}
-.question-type{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:'Space Mono',monospace;}
-.question-text{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:6px;}
-.question-hint{font-size:12px;color:var(--yellow);margin-bottom:14px;line-height:1.4;}
+.question-type{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:'Space Mono',monospace;}
+.question-text{font-size:19px;font-weight:700;line-height:1.5;margin-bottom:6px;}
+.question-hint{font-size:13px;color:var(--yellow);margin-bottom:14px;line-height:1.4;}
+.error-highlight{color:var(--red);background:rgba(255,79,108,0.15);border-radius:3px;padding:1px 4px;font-style:italic;font-weight:700;}
 .options{display:flex;flex-direction:column;gap:8px;}
-.option{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:11px 14px;cursor:pointer;font-size:13px;transition:all 0.12s;display:flex;align-items:center;gap:9px;}
+.option{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:15px;transition:all 0.12s;display:flex;align-items:flex-start;gap:9px;line-height:1.5;}
 .option:hover:not(.disabled){border-color:var(--accent);background:#1e1e30;}
-.option-key{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);background:var(--border);padding:1px 5px;border-radius:3px;min-width:20px;text-align:center;flex-shrink:0;}
+.option-key{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);background:var(--border);padding:2px 6px;border-radius:3px;min-width:22px;text-align:center;flex-shrink:0;margin-top:3px;}
 .option.correct{border-color:var(--green);background:rgba(79,255,176,0.08);}
 .option.correct .option-key{background:var(--green);color:#000;}
 .option.wrong{border-color:var(--red);background:rgba(255,79,108,0.08);}
 .option.wrong .option-key{background:var(--red);color:#fff;}
 .option.disabled{cursor:default;}
+.opt-diff{font-style:italic;font-weight:700;color:var(--accent2);}
 
-.translate-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:13px;font-family:'Noto Sans TC',sans-serif;color:var(--text);resize:none;min-height:80px;outline:none;transition:border-color 0.15s;line-height:1.6;}
+.translate-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:15px;font-family:'Noto Sans TC',sans-serif;color:var(--text);resize:none;min-height:90px;outline:none;transition:border-color 0.15s;line-height:1.6;}
 .translate-input:focus{border-color:var(--accent);}
 .translate-input.ci{border-color:var(--green);background:rgba(79,255,176,0.04);}
 .translate-input.wi{border-color:var(--red);background:rgba(255,79,108,0.04);}
 .translate-input:disabled{opacity:0.7;}
-.input-hint{font-size:10px;color:var(--text2);margin-top:5px;font-family:'Space Mono',monospace;}
+.input-hint{font-size:11px;color:var(--text2);margin-top:5px;font-family:'Space Mono',monospace;}
 
-.feedback{display:none;background:var(--surface2);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.6;border-left:3px solid var(--green);margin-top:2px;}
+.feedback{display:none;background:var(--surface2);border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;border-left:3px solid var(--green);margin-top:2px;}
 .feedback.show{display:block;}
 .feedback.wf{border-left-color:var(--red);}
-.feedback-title{font-weight:700;margin-bottom:3px;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;}
-.reference-ans{display:none;background:rgba(79,255,176,0.04);border:1px solid rgba(79,255,176,0.2);border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.7;margin-top:2px;}
+.feedback-title{font-weight:700;margin-bottom:3px;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;}
+.reference-ans{display:none;background:rgba(79,255,176,0.04);border:1px solid rgba(79,255,176,0.2);border-radius:9px;padding:12px 14px;font-size:14px;line-height:1.8;margin-top:2px;}
 .reference-ans.show{display:block;}
 .reference-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;}
 .self-grade{display:none;gap:8px;margin-top:2px;}
 .self-grade.show{display:flex;}
-.btn-grade{flex:1;padding:10px;border-radius:9px;border:none;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;}
+.btn-grade{flex:1;padding:10px;border-radius:9px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;}
 .bgc{background:rgba(79,255,176,0.1);color:var(--green);border:1px solid rgba(79,255,176,0.25);}
 .bgc:hover{background:rgba(79,255,176,0.2);}
 .bgw{background:rgba(255,79,108,0.1);color:var(--red);border:1px solid rgba(255,79,108,0.25);}
 .bgw:hover{background:rgba(255,79,108,0.2);}
 
-.btn-submit{background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
+.btn-submit{background:var(--accent2);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
 .btn-submit:hover{background:#ff4f8a;}
-.btn-next{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
+.btn-next{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;display:none;align-self:flex-end;margin-top:4px;}
 .btn-next.show{display:block;}
 .btn-next:hover{background:#9080ff;}
+.btn-abandon{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:9px;padding:8px 16px;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;align-self:flex-start;margin-top:6px;}
+.btn-abandon:hover{color:var(--red);border-color:var(--red);}
+.btn-ai-check{background:rgba(124,108,255,0.12);color:var(--accent);border:1px solid rgba(124,108,255,0.3);border-radius:9px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;margin-top:4px;}
+.btn-ai-check:hover{background:rgba(124,108,255,0.22);}
 .quiz-actions{display:flex;flex-direction:column;gap:6px;}
+.mode-name{font-size:14px;font-weight:700;margin-bottom:2px;}
+.mode-desc{font-size:12px;color:var(--text2);line-height:1.4;}
+.home-sub{color:var(--text2);font-size:14px;line-height:1.6;margin-bottom:20px;}
 
 /* XP POPUP */
 .xp-pop{position:fixed;top:70px;right:20px;background:var(--surface);border:1px solid var(--green);border-radius:10px;padding:10px 16px;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--green);opacity:0;pointer-events:none;transition:opacity 0.3s,transform 0.3s;transform:translateY(10px);z-index:50;}
@@ -302,6 +311,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
       <button class="btn-submit" id="btnSubmit" onclick="submitTranslate()">確認 →</button>
       <button class="btn-next" id="btnNext" onclick="nextQuestion()">下一題 →</button>
+      <button class="btn-abandon" onclick="abandonQuiz()">放棄本次測驗</button>
     </div>
   </div>
 
@@ -490,6 +500,60 @@ function shuffle(arr) {
   return a;
 }
 
+function abandonQuiz() {
+  if (confirm('確定要放棄本次測驗？進度不會記錄。')) {
+    clearInterval(timerInterval);
+    goHome();
+  }
+}
+
+// 在文法題目中標出錯誤片段
+function highlightErrorSpan(sentence, errorSpan) {
+  if (!errorSpan) return sentence;
+  const escaped = errorSpan.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return sentence.replace(new RegExp(escaped), `<span class="error-highlight">$&</span>`);
+}
+
+// 比較兩個選項，標出不同的詞
+function highlightOptionDiff(correct, option) {
+  const correctTokens = correct.toLowerCase().match(/\w+/g) || [];
+  const correctSet = new Set(correctTokens);
+  const parts = option.match(/(\w[\w']*|\W+)/g) || [];
+  return parts.map(part => {
+    if (!/\w/.test(part)) return part;
+    if (!correctSet.has(part.toLowerCase())) return `<span class="opt-diff">${part}</span>`;
+    return part;
+  }).join('');
+}
+
+// 檢查中翻英答案與參考答案的相似度
+function checkTranslateSimilarity(userInput, q) {
+  const userLower = userInput.toLowerCase();
+  const missing = q.key_vocab.filter(kw => !userLower.includes(kw.toLowerCase()));
+  return missing;
+}
+
+// 一鍵 AI 檢查：複製 prompt 並開 Claude.ai
+function openAICheck(zh, userInput, reference) {
+  const prompt = `你是 IELTS 考官。請評估這個中翻英練習：
+
+中文原句：${zh}
+學生翻譯：${userInput}
+CLB 9 參考答案：${reference}
+
+請用中文回答：
+1. 學生的翻譯可以接受嗎？大約是 CLB 幾的水準？
+2. 哪些詞彙或句型可以更好？
+3. 修正後的版本`;
+
+  navigator.clipboard.writeText(prompt).then(() => {
+    window.open('https://claude.ai', '_blank');
+    alert('Prompt 已複製！請在 Claude 頁面貼上（⌘V）後送出。');
+  }).catch(() => {
+    window.open('https://claude.ai', '_blank');
+  });
+}
+
 function logError(key) {
   if (!key) return;
   store.errors[key] = (store.errors[key]||0)+1;
@@ -578,10 +642,13 @@ function showQuestion() {
   if (q.passage) {
     document.getElementById('questionType').textContent = '📖 閱讀後回答';
     const passageDiv = document.createElement('div');
-    passageDiv.style.cssText = 'background:var(--surface2);border-radius:8px;padding:12px 14px;font-size:12px;line-height:1.8;color:var(--text2);margin-bottom:14px;border-left:3px solid var(--accent);';
+    passageDiv.style.cssText = 'background:var(--surface2);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.9;color:var(--text2);margin-bottom:14px;border-left:3px solid var(--accent);';
     passageDiv.textContent = q.passage;
     container.appendChild(passageDiv);
     document.getElementById('questionText').textContent = q.q;
+  } else if (currentMode === 'grammar') {
+    document.getElementById('questionType').textContent = '找出錯誤並選出正確版本';
+    document.getElementById('questionText').innerHTML = highlightErrorSpan(q.sentence, q.error_span);
   } else {
     document.getElementById('questionType').textContent = q.type || '';
     document.getElementById('questionText').textContent = q.question||q.sentence||q.zh||'';
@@ -602,8 +669,9 @@ function showQuestion() {
     q.options.forEach((opt,i)=>{
       const div=document.createElement('div');
       div.className='option';
-      div.innerHTML=`<span class="option-key">${keys[i]}</span>${opt}`;
-      div.onclick=()=>selectOption(i,q.answer,q.explanation,q.errorKey);
+      div.dataset.index=i;
+      div.innerHTML=`<span class="option-key">${keys[i]}</span><span class="opt-text">${opt}</span>`;
+      div.onclick=()=>selectOption(i,q.answer,q.explanation,q.errorKey,q.correct,q.options);
       container.appendChild(div);
     });
   }
@@ -640,7 +708,17 @@ function autoWrong() {
   logError(q.errorKey);
   const opts = document.querySelectorAll('.option');
   opts.forEach(o=>o.classList.add('disabled'));
-  if (q.answer !== undefined) opts[q.answer]?.classList.add('correct');
+  if (q.answer !== undefined) {
+    opts[q.answer]?.classList.add('correct');
+    if (currentMode === 'grammar' && q.correct) {
+      opts.forEach((optEl, i) => {
+        const textEl = optEl.querySelector('.opt-text');
+        if (!textEl) return;
+        if (i === q.answer) { textEl.innerHTML = q.options[i]; }
+        else { textEl.innerHTML = highlightOptionDiff(q.correct, q.options[i]); }
+      });
+    }
+  }
   const fb = document.getElementById('feedback');
   document.getElementById('feedbackTitle').textContent = '⏱ 時間到！';
   document.getElementById('feedbackBody').textContent = q.explanation||'';
@@ -649,7 +727,7 @@ function autoWrong() {
 }
 
 // ── SELECT OPTION ─────────────────────────────────────────
-function selectOption(selected, answer, explanation, errorKey) {
+function selectOption(selected, answer, explanation, errorKey, correctText, allOptions) {
   if (answered) return;
   answered = true;
   clearInterval(timerInterval);
@@ -657,6 +735,19 @@ function selectOption(selected, answer, explanation, errorKey) {
   const opts = document.querySelectorAll('.option');
   opts.forEach(o=>o.classList.add('disabled'));
   const fb = document.getElementById('feedback');
+
+  // 答題後：在文法模式下標出各選項與正確答案的差異
+  if (currentMode === 'grammar' && correctText) {
+    opts.forEach((optEl, i) => {
+      const textEl = optEl.querySelector('.opt-text');
+      if (!textEl) return;
+      if (i === answer) {
+        textEl.innerHTML = allOptions[i]; // 正確答案不加標記
+      } else {
+        textEl.innerHTML = highlightOptionDiff(correctText, allOptions[i]);
+      }
+    });
+  }
 
   if (selected===answer) {
     opts[selected].classList.add('correct');
@@ -673,7 +764,7 @@ function selectOption(selected, answer, explanation, errorKey) {
     sessionWrong++;
     logError(errorKey);
     const errCount = store.errors[errorKey]||0;
-    const warnMsg = errCount>=3 ? `<br><span style="color:var(--red);font-size:11px">🔴 已錯 ${errCount} 次！重點記憶。</span>` : errCount>=2 ? `<br><span style="color:var(--yellow);font-size:11px">🟡 第 ${errCount} 次錯這個了。</span>`:''
+    const warnMsg = errCount>=3 ? `<br><span style="color:var(--red);font-size:12px">🔴 已錯 ${errCount} 次！重點記憶。</span>` : errCount>=2 ? `<br><span style="color:var(--yellow);font-size:12px">🟡 第 ${errCount} 次錯這個了。</span>`:''
     fb.className = 'feedback show wf';
     document.getElementById('feedbackTitle').textContent = '✗ 答錯了';
     document.getElementById('feedbackBody').innerHTML = (explanation||'') + warnMsg;
@@ -689,36 +780,46 @@ function submitTranslate() {
   answered = true;
   document.getElementById('btnSubmit').style.display='none';
   input.disabled=true;
-  const q=questions[currentIndex];
-  document.getElementById('referenceText').innerHTML=`<strong>${q.reference}</strong><br><span style="color:var(--text2);font-size:12px;margin-top:5px;display:block">${q.explanation||''}</span>`;
-  document.getElementById('referenceAns').className='reference-ans show';
-  document.getElementById('selfGrade').className='self-grade show';
-}
 
-function selfGrade(isCorrect) {
-  document.getElementById('selfGrade').className='self-grade';
-  const input=document.getElementById('translateInput');
-  const q=questions[currentIndex];
-  if (isCorrect) {
+  const q = questions[currentIndex];
+  const userInput = input.value.trim();
+
+  // 顯示參考答案
+  document.getElementById('referenceText').innerHTML=`<strong>${q.reference}</strong><br><span style="color:var(--text2);font-size:13px;margin-top:6px;display:block">${q.explanation||''}</span>`;
+  document.getElementById('referenceAns').className='reference-ans show';
+
+  // 比較關鍵詞彙
+  const missingVocab = q.key_vocab ? checkTranslateSimilarity(userInput, q) : [];
+  const fb = document.getElementById('feedback');
+
+  if (missingVocab.length === 0) {
+    // 包含所有關鍵詞彙 → 算正確
     sessionCorrect++;
-    const xp=12;
-    sessionXP+=xp;
+    sessionXP += 12;
     clearError(q.errorKey);
-    if(input) input.className='translate-input ci';
-    const fb=document.getElementById('feedback');
-    document.getElementById('feedbackTitle').textContent='✓ 記下來！這句話要能自然說出口。';
-    document.getElementById('feedbackBody').textContent='';
-    fb.className='feedback show';
+    input.className = 'translate-input ci';
+    document.getElementById('feedbackTitle').textContent = '✓ 很好！關鍵詞彙都用到了。';
+    document.getElementById('feedbackBody').textContent = '';
+    fb.className = 'feedback show';
   } else {
+    // 缺少關鍵詞彙 → 不太一樣
     sessionWrong++;
     logError(q.errorKey);
-    if(input) input.className='translate-input wi';
-    const errCount=store.errors[q.errorKey]||0;
-    const fb=document.getElementById('feedback');
-    document.getElementById('feedbackTitle').textContent='✗ 對照參考答案，記住關鍵詞彙！';
-    document.getElementById('feedbackBody').textContent=errCount>=3?`🔴 已錯 ${errCount} 次，要特別注意。`:'';
-    fb.className='feedback show wf';
+    input.className = 'translate-input wi';
+    document.getElementById('feedbackTitle').textContent = '△ 不太一樣';
+    document.getElementById('feedbackBody').innerHTML =
+      (q.hint || `提示：注意使用 ${missingVocab.join('、')}`) +
+      `<br><span style="color:var(--text2);font-size:12px">缺少關鍵詞彙：<em>${missingVocab.join('、')}</em></span>`;
+    fb.className = 'feedback show wf';
   }
+
+  // AI 檢查按鈕（無論對錯都顯示）
+  const aiBtn = document.createElement('button');
+  aiBtn.className = 'btn-ai-check';
+  aiBtn.textContent = '🤖 一鍵 AI 深度分析（開 Claude）';
+  aiBtn.onclick = () => openAICheck(q.zh, userInput, q.reference);
+  document.querySelector('.quiz-actions').insertBefore(aiBtn, document.getElementById('btnNext'));
+
   document.getElementById('btnNext').className='btn-next show';
 }
 

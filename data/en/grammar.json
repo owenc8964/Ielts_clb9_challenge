@@ -1,6 +1,7 @@
 [
   {
     "sentence": "Although the policy has merits, but it also carries significant risks.",
+    "error_span": "but",
     "correct": "Although the policy has merits, it also carries significant risks.",
     "options": [
       "Although the policy has merits, it also carries significant risks.",
@@ -14,6 +15,7 @@
   },
   {
     "sentence": "The new policy makes citizens to follow stricter guidelines.",
+    "error_span": "to follow",
     "correct": "The new policy makes citizens follow stricter guidelines.",
     "options": [
       "The new policy makes citizens follow stricter guidelines.",
@@ -27,6 +29,7 @@
   },
   {
     "sentence": "The crime rate will undermine gradually if the government intervenes.",
+    "error_span": "undermine",
     "correct": "The crime rate will decline gradually if the government intervenes.",
     "options": [
       "The crime rate will decline gradually if the government intervenes.",
@@ -40,6 +43,7 @@
   },
   {
     "sentence": "Researches show that excessive social media use leads to anxiety.",
+    "error_span": "Researches",
     "correct": "Research shows that excessive social media use leads to anxiety.",
     "options": [
       "Research shows that excessive social media use leads to anxiety.",
@@ -53,6 +57,7 @@
   },
   {
     "sentence": "The government should limit the roof on executive salaries.",
+    "error_span": "limit the roof",
     "correct": "The government should impose a salary cap on executive compensation.",
     "options": [
       "The government should impose a salary cap on executive compensation.",
@@ -66,6 +71,7 @@
   },
   {
     "sentence": "The provokers of this policy argue that it will boost economic growth.",
+    "error_span": "provokers",
     "correct": "The proponents of this policy argue that it will boost economic growth.",
     "options": [
       "The proponents of this policy argue that it will boost economic growth.",
@@ -79,6 +85,7 @@
   },
   {
     "sentence": "Smoking is necessarily evil but generates significant tax revenue.",
+    "error_span": "necessarily",
     "correct": "Smoking is a necessary evil but generates significant tax revenue.",
     "options": [
       "Smoking is a necessary evil but generates significant tax revenue.",
@@ -92,6 +99,7 @@
   },
   {
     "sentence": "City A's figure is approximate 3 times of City B.",
+    "error_span": "approximate 3 times of",
     "correct": "City A's figure is approximately three times that of City B.",
     "options": [
       "City A's figure is approximately three times that of City B.",
