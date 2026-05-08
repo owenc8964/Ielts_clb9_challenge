@@ -1,106 +1,141 @@
 [
   {
     "question": "描述「一般大眾」，哪個最符合 CLB 9？",
-    "options": ["public people", "the general public", "normal people", "common citizens"],
+    "options": ["the ordinary public", "the general public", "common members of society", "everyday citizens"],
     "answer": 1,
-    "explanation": "the general public 是標準學術名詞。public people 是中式英語。",
+    "explanation": "the general public 是標準學術固定名詞。其他三個說得通但非正式學術用法。",
     "errorKey": "一般大眾"
   },
   {
     "question": "描述「這個問題源於社會因素」，哪個最好？",
-    "options": ["comes from social factors", "originates because of social factors", "stems from deeper social factors", "is caused by social factors"],
+    "options": [
+      "originates due to underlying social factors",
+      "arises directly from a range of social factors",
+      "stems from deeper social factors",
+      "is caused by various broader social factors"
+    ],
     "answer": 2,
-    "explanation": "stem from 是學術寫作最自然的用法。",
+    "explanation": "stem from 是學術寫作最自然的用法，搭配 deeper 點出根本性，是 CLB 9 首選。其他選項的動詞搭配較為生硬或繁冗。",
     "errorKey": "stem from"
   },
   {
     "question": "描述「政府積極分配資源」，哪個最符合 CLB 9？",
-    "options": ["give money to fix the problem", "spend more on solving this issue", "proactively allocate resources to address the root causes", "use budget to solve the problem"],
+    "options": [
+      "invest public funds in resolving the core challenges involved",
+      "channel government resources toward tackling the most pressing issues",
+      "proactively allocate resources to address the root causes",
+      "distribute funding to effectively manage the immediate problems at hand"
+    ],
     "answer": 2,
-    "explanation": "proactively allocate resources 和 address the root causes 都是 CLB 9 標準表達。",
+    "explanation": "proactively allocate resources 是 CLB 9 標準表達；address the root causes（解決根本原因）比 solve the problem 更學術有力。",
     "errorKey": "分配資源"
   },
   {
     "question": "描述「AI 使工作被淘汰」，哪個最精準？",
-    "options": ["makes many jobs useless", "will render a massive number of occupations obsolete", "causes jobs to disappear", "will remove many types of work"],
+    "options": [
+      "will cause a large number of current jobs to disappear",
+      "will render a massive number of occupations obsolete",
+      "will make most of today's professions become outdated",
+      "will eliminate the majority of existing job categories over time"
+    ],
     "answer": 1,
-    "explanation": "render obsolete 是 CLB 9 的關鍵片語。",
+    "explanation": "render obsolete 是 CLB 9 的關鍵片語。其他三個用 cause/make/eliminate 都略遜一籌，且語感不如 render obsolete 精準有力。",
     "errorKey": "render obsolete"
   },
   {
     "question": "哪個 Task 1 描述「成長緩慢」最好？",
-    "options": ["grew slowly", "experienced sluggish growth throughout the period", "was not growing fast", "became bigger but slowly"],
+    "options": [
+      "grew at a relatively slow pace throughout the period",
+      "experienced sluggish growth throughout the period",
+      "did not increase as quickly as expected over time",
+      "showed a comparatively modest rise across the years"
+    ],
     "answer": 1,
-    "explanation": "experienced sluggish growth 是 Task 1 高分表達。",
+    "explanation": "experienced sluggish growth 是 Task 1 高分表達。sluggish（遲滯的）比 slow 更精準有力，且 experienced + 名詞片語是 Task 1 標準句型。",
     "errorKey": "sluggish growth"
   },
   {
     "question": "哪個開場句最接近 CLB 9？",
-    "options": ["In this essay, I will discuss...", "There are two opinions about...", "The phenomenon of X has sparked widespread debate.", "X is a controversial topic today."],
+    "options": [
+      "The issue of X has long been a subject of ongoing controversy.",
+      "X remains a deeply contested topic in contemporary society today.",
+      "The phenomenon of X has sparked widespread debate, warranting serious consideration.",
+      "The question of whether X continues to divide opinion across many communities."
+    ],
     "answer": 2,
-    "explanation": "CLB 9 開場需要具體性和學術動詞，不說 In this essay I will。",
+    "explanation": "CLB 9 開場需要具體性和學術動詞。sparked widespread debate 比 is controversial 更有力；warranting serious consideration 是高分固定搭配，點出議題重要性。",
     "errorKey": "CLB9開場"
   },
   {
     "question": "描述「政策難以負擔」，哪個最學術？",
-    "options": ["easy to burden", "too expensive", "places an unaffordable financial burden on citizens", "costs too much money"],
+    "options": [
+      "proves financially overwhelming for most ordinary households",
+      "creates excessive monetary strain for citizens to manage",
+      "places an unaffordable financial burden on citizens",
+      "generates prohibitive costs that disadvantage lower-income residents"
+    ],
     "answer": 2,
-    "explanation": "places an unaffordable financial burden on 是標準學術搭配。",
+    "explanation": "places an unaffordable financial burden on 是標準學術搭配。選項D 的 prohibitive costs 也不錯，但 disadvantage lower-income residents 範圍縮窄，不如 on citizens 廣泛精準。",
     "errorKey": "難以負擔"
   },
   {
     "question": "哪個倍數表達最正確？",
-    "options": ["approximate 3 times of City B", "approximately three times that of City B", "about 3 times than City B", "approximately 3 times more of City B"],
+    "options": [
+      "approximately three times higher than that of City B",
+      "approximately three times that of City B",
+      "around three times as many as City B recorded",
+      "roughly three times more than the figure of City B"
+    ],
     "answer": 1,
-    "explanation": "倍數黃金公式：approximately + 數字 + times + that of。",
+    "explanation": "倍數黃金公式：approximately + 數字 + times + that of。「three times higher than」和「three times more than」都暗示是 4 倍（有減數的歧義），CLB 9 考官會扣分。",
     "errorKey": "倍數句型"
   },
   {
     "question": "描述「這個政策可能產生反效果」，哪個最符合 CLB 9？",
     "options": [
-      "will cause bad results for society",
-      "is not going to work as expected",
+      "is unlikely to work and may cause unintended negative consequences",
+      "risks creating more problems than it was originally designed to solve",
       "might be counterproductive and exacerbate the very problems it aims to solve",
-      "could make the situation worse than before"
+      "could backfire and ultimately worsen the situation it intended to address"
     ],
     "answer": 2,
-    "explanation": "counterproductive（反效果）+ exacerbate the very problems it aims to solve 是 CLB 9 反論述的標準句型。",
+    "explanation": "counterproductive（反效果）是 CLB 9 必備詞；exacerbate the very problems it aims to solve 用 the very 強調諷刺感，是高分反論述的標準句型。",
     "errorKey": "counterproductive"
-  },
-  {
-    "question": "哪個開場方式最符合 CLB 9 的學術框架？",
-    "options": [
-      "This topic is very important to discuss.",
-      "Many people have different opinions about this.",
-      "This phenomenon has sparked widespread debate, warranting our serious consideration.",
-      "This issue is controversial and hard to solve."
-    ],
-    "answer": 2,
-    "explanation": "sparked widespread debate 比 is controversial 更學術；warranting serious consideration 是高級開場固定搭配。",
-    "errorKey": "warranting"
   },
   {
     "question": "描述「政府必須採取行動保障弱勢」，哪個最學術？",
     "options": [
-      "The government must do something for lower-paid workers.",
-      "The government needs to act immediately to help people.",
+      "The government must take action to protect workers in lower-paid industries.",
+      "Governments are obligated to support those who work in underpaid essential sectors.",
       "It is imperative for the government to safeguard the livelihoods of those in fundamental sectors.",
-      "The government should protect workers who earn less money."
+      "Authorities have a duty to ensure fair treatment for workers in basic industries."
     ],
     "answer": 2,
-    "explanation": "It is imperative for sb to V 是最強的必要性表達；safeguard livelihoods（保障生計）比 protect people 更精準。",
+    "explanation": "It is imperative for sb to V 是最強的必要性表達；safeguard livelihoods（保障生計）比 protect workers 更正式精準；fundamental sectors（基礎產業）是 CLB 9 標準詞彙。",
     "errorKey": "imperative"
   },
   {
-    "question": "描述「降低公司的固定營運成本」，哪個最精準？",
+    "question": "描述「降低公司固定營運成本」，哪個最精準？",
     "options": [
-      "reduce the company's costs",
-      "save more money for the business",
+      "reduce the overall costs involved in running the company",
+      "save money on the various expenses associated with the office",
       "alleviate overhead costs associated with office rentals and utilities",
-      "spend less on running the office"
+      "spend less on the day-to-day operational requirements of the business"
     ],
     "answer": 2,
-    "explanation": "overhead costs（固定營運成本：租金、水電等）比 costs 精準；alleviate（緩解）是 CLB 9 遠距工作議題的標準搭配。",
+    "explanation": "overhead costs（固定營運成本：租金、水電等）比 costs 精準；alleviate（緩解）是 CLB 9 遠距工作議題的標準搭配，比 reduce 更有學術感。",
     "errorKey": "overhead costs"
+  },
+  {
+    "question": "描述「資訊民主化讓人從被動變主動」，哪個最符合 CLB 9？",
+    "options": [
+      "online information has made it easier for people to learn about their health",
+      "access to health information online empowers patients to take control of their care",
+      "the democratization of information transforms patients from passive recipients into proactive participants",
+      "people can now find medical information easily and make better decisions for themselves"
+    ],
+    "answer": 2,
+    "explanation": "democratization（民主化）是 CLB 9 科技議題關鍵詞；passive recipients → proactive participants 是高分對比結構，展示角色轉換的深度意義。",
+    "errorKey": "democratization轉化"
   }
 ]

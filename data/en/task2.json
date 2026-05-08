@@ -1,0 +1,78 @@
+[
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "開場句",
+    "question": "主題：政府是否應立法限制飲食。哪個開場句最符合 CLB 9？",
+    "options": [
+      "In this essay, I will examine whether governments have the right to restrict citizens' dietary choices.",
+      "The debate over dietary regulation raises fundamental questions about the boundary between public health and personal freedom.",
+      "Whether governments should impose dietary restrictions is a deeply contested issue in contemporary society.",
+      "Governments controlling what citizens eat has become an increasingly controversial topic in recent decades."
+    ],
+    "answer": 1,
+    "explanation": "CLB 9 開場禁止說 In this essay I will（選項A）；選項C、D 說「is controversial」太空洞。選項B 用 raises fundamental questions about the boundary between X and Y，直接點出核心矛盾，是 CLB 9 的深度開場。",
+    "errorKey": "Task2開場"
+  },
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "論點深化 X→Y",
+    "question": "以下四個論點都在討論「公共交通」，哪個最符合 CLB 9 的「深度意義」？",
+    "options": [
+      "Public transport reduces the number of private cars on the road, easing traffic congestion.",
+      "Expanding public transit systems lowers per-capita carbon emissions and supports climate commitments.",
+      "Investing in public transport reflects a society's commitment to equity and long-term sustainability.",
+      "Well-funded public transit ensures that all citizens can access urban mobility regardless of income."
+    ],
+    "answer": 2,
+    "explanation": "CLB 9 論點不只說「結果」（減少車輛、降低碳排），而是說「這代表什麼更深層的社會意義」。選項C 點出公平與永續的價值選擇，是 X→Y 升維的最高層次。",
+    "errorKey": "Task2論點升維"
+  },
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "讓步結構",
+    "question": "文章立場：遠距工作整體有益。現在要讓步承認缺點。哪個讓步句最符合 CLB 9？",
+    "options": [
+      "But we cannot deny that remote work also has some serious downsides worth considering.",
+      "However, it should be noted that remote work is not without its challenges and limitations.",
+      "Admittedly, fully remote models can erode team cohesion and undermine spontaneous collaboration.",
+      "Although remote work has clear disadvantages, it remains a mostly positive development overall."
+    ],
+    "answer": 2,
+    "explanation": "Admittedly 是 CLB 9 讓步詞首選，表示「我自己承認」，語氣最誠懇有力。選項A 的 But 太口語；選項B 的 it should be noted 空洞沒有具體內容；選項D 的 Although 放在讓步句開頭結構矛盾。",
+    "errorKey": "Task2讓步"
+  },
+  {
+    "type": "blank",
+    "difficulty": "normal",
+    "category": "轉折詞",
+    "question": "前句已說明網路醫療資訊的優點。選出最符合 CLB 9 的轉折詞，引出缺點：",
+    "sentence": "[BLANK], self-diagnosis based on unverified information carries severe risks of misdiagnosis.",
+    "options": [
+      "Therefore",
+      "Furthermore",
+      "Nevertheless",
+      "Consequently"
+    ],
+    "answer": 2,
+    "explanation": "Nevertheless 表示「儘管如此，問題依然存在」，是對比前文優點的最強轉折。Therefore / Consequently 是因果詞（方向錯誤）；Furthermore 是補充詞（方向也錯）。",
+    "errorKey": "Task2Nevertheless"
+  },
+  {
+    "type": "choice",
+    "difficulty": "hell",
+    "category": "結尾句",
+    "question": "🔥 地獄級：文章討論高薪是否應設上限。四個結尾都屬 CLB 8–9，哪個最符合 CLB 9「留下思考空間」的特質？",
+    "options": [
+      "In conclusion, governments should prioritise redistribution through smart taxation rather than imposing arbitrary salary caps.",
+      "Ultimately, the real challenge lies not in suppressing individual earnings, but in designing fiscal systems that share prosperity more equitably.",
+      "In light of this, the solution demands not a ceiling on ambition, but a political commitment to ensuring growth benefits all.",
+      "The question, therefore, is not whether high salaries should exist, but whether societies possess the will to ensure their rewards are truly shared."
+    ],
+    "answer": 3,
+    "explanation": "地獄級！四個選項都是 CLB 8–9 水準。選項D 最符合 CLB 9 結尾的最高境界：用「疑問句」結尾（不直接給答案），將問題昇華為「社會是否有政治意志」，留下讀者思考空間，而非只是重複結論。",
+    "errorKey": "Task2結尾"
+  }
+]

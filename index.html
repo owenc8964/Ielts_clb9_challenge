@@ -270,6 +270,48 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
     </div>
 
+    <!-- WRITING SECTION -->
+    <div style="margin-bottom:10px;">
+      <div class="mode-card wide" onclick="toggleWritingMenu()" id="writingToggle" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <span style="font-size:20px;">✍️</span>
+              <span class="mode-name">寫作專項</span>
+            </div>
+            <div class="mode-desc">Task 1 數據描述 / Task 2 議論文框架句型</div>
+          </div>
+          <div id="writingArrow" style="font-family:'Space Mono',monospace;font-size:18px;color:var(--accent);transition:transform 0.2s;">▾</div>
+        </div>
+        <div class="mode-meta" style="margin-top:8px;">
+          <div class="mode-count">各 5 題</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);">Task 1 <span id="accTask1">—</span> &nbsp; Task 2 <span id="accTask2">—</span></div>
+        </div>
+      </div>
+      <div id="writingSubmenu" style="display:none;margin-top:10px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div class="mode-card" onclick="startMode('task1')">
+            <div class="mode-icon">📊</div>
+            <div class="mode-name">Task 1 數據描述</div>
+            <div class="mode-desc">趨勢句型、Overall、對比、倍數公式</div>
+            <div class="mode-meta">
+              <div class="mode-count">5 題</div>
+              <div class="mode-acc" id="accTask1b">—</div>
+            </div>
+          </div>
+          <div class="mode-card" onclick="startMode('task2')">
+            <div class="mode-icon">🖊️</div>
+            <div class="mode-name">Task 2 論文框架</div>
+            <div class="mode-desc">開場句、論點升維、讓步、結尾</div>
+            <div class="mode-meta">
+              <div class="mode-count">5 題</div>
+              <div class="mode-acc" id="accTask2b">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="errorTrackerSection"></div>
 
     <div class="chart-wrap" id="chartWrap" style="display:none">
@@ -338,22 +380,26 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 
 <script>
 // ── DATA (loaded from JSON) ───────────────────────────────
-let VOCAB_DATA = [], GRAMMAR_DATA = [], TRANSLATE_DATA = [], CLB9_DATA = [], READING_DATA = [];
+let VOCAB_DATA = [], GRAMMAR_DATA = [], TRANSLATE_DATA = [], CLB9_DATA = [], READING_DATA = [], TASK1_DATA = [], TASK2_DATA = [];
 
 async function loadAllData() {
   const base = 'data/en/';
-  const [vocab, grammar, translate, clb9, reading] = await Promise.all([
+  const [vocab, grammar, translate, clb9, reading, task1, task2] = await Promise.all([
     fetch(base + 'vocab.json').then(r => r.json()),
     fetch(base + 'grammar.json').then(r => r.json()),
     fetch(base + 'translate.json').then(r => r.json()),
     fetch(base + 'clb9.json').then(r => r.json()),
     fetch(base + 'reading.json').then(r => r.json()),
+    fetch(base + 'task1.json').then(r => r.json()),
+    fetch(base + 'task2.json').then(r => r.json()),
   ]);
   VOCAB_DATA = vocab;
   GRAMMAR_DATA = grammar;
   TRANSLATE_DATA = translate;
   CLB9_DATA = clb9;
   READING_DATA = reading;
+  TASK1_DATA = task1;
+  TASK2_DATA = task2;
 }
 
 // ── STORAGE ───────────────────────────────────────────────
@@ -363,7 +409,7 @@ function loadStore() {
     const raw = localStorage.getItem(STORE_KEY);
     if (raw) return JSON.parse(raw);
   } catch(e) {}
-  return {xp:0,level:1,totalSessions:0,totalCorrect:0,streak:0,lastDate:'',errors:{},history:[],modeStats:{vocab:{c:0,t:0},grammar:{c:0,t:0},translate:{c:0,t:0},clb9:{c:0,t:0},reading:{c:0,t:0}}};
+  return {xp:0,level:1,totalSessions:0,totalCorrect:0,streak:0,lastDate:'',errors:{},history:[],modeStats:{vocab:{c:0,t:0},grammar:{c:0,t:0},translate:{c:0,t:0},clb9:{c:0,t:0},reading:{c:0,t:0},task1:{c:0,t:0},task2:{c:0,t:0}}};
 }
 function saveStore() {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch(e) {}
@@ -449,12 +495,16 @@ function renderHome() {
   document.getElementById('statDays').textContent = store.streak;
 
   const ms = store.modeStats;
-  const fmt = (m) => ms[m].t > 0 ? Math.round(ms[m].c/ms[m].t*100) + '%' : '—';
+  const fmt = (m) => (ms[m] && ms[m].t > 0) ? Math.round(ms[m].c/ms[m].t*100) + '%' : '—';
   document.getElementById('accVocab').textContent = fmt('vocab');
   document.getElementById('accGrammar').textContent = fmt('grammar');
   document.getElementById('accTranslate').textContent = fmt('translate');
   document.getElementById('accClb9').textContent = fmt('clb9');
   document.getElementById('accReading').textContent = fmt('reading');
+  document.getElementById('accTask1').textContent = fmt('task1');
+  document.getElementById('accTask2').textContent = fmt('task2');
+  document.getElementById('accTask1b').textContent = fmt('task1');
+  document.getElementById('accTask2b').textContent = fmt('task2');
 
   // Error tracker
   const section = document.getElementById('errorTrackerSection');
@@ -505,6 +555,14 @@ function abandonQuiz() {
     clearInterval(timerInterval);
     goHome();
   }
+}
+
+function toggleWritingMenu() {
+  const menu = document.getElementById('writingSubmenu');
+  const arrow = document.getElementById('writingArrow');
+  const isOpen = menu.style.display !== 'none';
+  menu.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
 }
 
 // 在文法題目中標出錯誤片段
@@ -572,14 +630,16 @@ function startMode(mode) {
   sessionCorrect = 0; sessionWrong = 0; sessionXP = 0;
   answered = false; currentIndex = 0;
 
-  const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'句型中翻英',clb9:'CLB9辨別',reading:'閱讀理解'};
-  document.getElementById('modeLabel').textContent = labels[mode];
+  const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'句型中翻英',clb9:'CLB9辨別',reading:'閱讀理解',task1:'Task 1 數據描述',task2:'Task 2 論文框架'};
+  document.getElementById('modeLabel').textContent = labels[mode] || mode;
 
   if (mode==='vocab') questions = buildVocabQ();
   else if (mode==='grammar') questions = shuffle(GRAMMAR_DATA).slice(0,10);
   else if (mode==='translate') questions = shuffle(TRANSLATE_DATA).slice(0,5);
   else if (mode==='clb9') questions = shuffle(CLB9_DATA).slice(0,10);
   else if (mode==='reading') questions = buildReadingQ();
+  else if (mode==='task1') questions = [...TASK1_DATA];
+  else if (mode==='task2') questions = [...TASK2_DATA];
 
   showScreen('quizScreen');
   showQuestion();
@@ -650,8 +710,27 @@ function showQuestion() {
     document.getElementById('questionType').textContent = '選出正確版本';
     document.getElementById('questionText').textContent = q.sentence; // 初始不標紅
   } else {
-    document.getElementById('questionType').textContent = q.type || '';
-    document.getElementById('questionText').textContent = q.question||q.sentence||q.zh||'';
+    // Category / difficulty label
+    if (q.difficulty === 'hell') {
+      document.getElementById('questionType').textContent = '🔥 地獄級 — ' + (q.category || '');
+    } else if (q.category) {
+      document.getElementById('questionType').textContent = q.category;
+    } else {
+      document.getElementById('questionType').textContent = q.type || '';
+    }
+
+    if (q.type === 'blank') {
+      // Show instruction question above
+      document.getElementById('questionText').textContent = q.question || '';
+      // Insert styled sentence with [BLANK] placeholder before options
+      const sentDiv = document.createElement('div');
+      sentDiv.style.cssText = 'background:var(--surface2);border-radius:8px;padding:12px 14px;font-size:16px;line-height:1.9;margin-bottom:12px;border-left:3px solid var(--accent2);';
+      const blankHtml = (q.sentence || '').replace('[BLANK]', '<span style="display:inline-block;min-width:70px;border-bottom:2px solid var(--accent2);margin:0 4px;font-weight:700;color:var(--accent2);text-align:center;">_____</span>');
+      sentDiv.innerHTML = blankHtml;
+      container.appendChild(sentDiv);
+    } else {
+      document.getElementById('questionText').textContent = q.question || q.sentence || q.zh || '';
+    }
   }
 
   if (currentMode==='translate') {
@@ -848,6 +927,7 @@ function showResult() {
   store.totalSessions++;
   store.totalCorrect+=sessionCorrect;
   store.xp+=sessionXP;
+  if (!store.modeStats[currentMode]) store.modeStats[currentMode]={c:0,t:0};
   store.modeStats[currentMode].c+=sessionCorrect;
   store.modeStats[currentMode].t+=total;
   store.history.push({pct, mode:currentMode});

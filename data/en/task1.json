@@ -1,0 +1,78 @@
+[
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "趨勢描述",
+    "question": "情境：某國可再生能源比例從 2010 年 20% 穩定上升至 2024 年 60%。哪個描述最符合 Task 1 CLB 9？",
+    "options": [
+      "rose steadily from 20% in 2010 to 60% by 2024, tripling over the period",
+      "increased from 20% to 60% between 2010 and 2024 during the timeframe shown",
+      "went up from around 20% in 2010 to approximately 60% by the year 2024",
+      "climbed from a starting point of 20% to a final figure of 60% over the period"
+    ],
+    "answer": 0,
+    "explanation": "最佳描述需同時包含：趨勢動詞＋副詞（rose steadily）、標準年份格式（from X in 年 to Y by 年）、幅度資訊（tripling over the period）。其他選項缺少幅度比較或句型不夠精煉。",
+    "errorKey": "Task1趨勢描述"
+  },
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "Overall 句",
+    "question": "情境：四國可再生能源比例均呈上升趨勢，但增幅差異顯著。哪個 Overall 句最符合 CLB 9 標準？",
+    "options": [
+      "All four countries experienced an upward trend in renewable energy throughout the period.",
+      "An overarching upward trend was evident across all four nations, though the pace of increase varied considerably.",
+      "Renewable energy proportions rose consistently in all four countries across the years shown.",
+      "The data reveals a general upward pattern for all countries, with noticeable differences in growth rates."
+    ],
+    "answer": 1,
+    "explanation": "Overall 句需同時點出「整體趨勢」＋「最顯著的差異」。An overarching upward trend 是高分必備表達；though the pace of increase varied considerably 點出比較重點，展示觀察深度。",
+    "errorKey": "Task1Overall"
+  },
+  {
+    "type": "choice",
+    "difficulty": "normal",
+    "category": "對比分組",
+    "question": "情境：A 國增長緩慢穩定，B 國增長急速。哪個對比句最流暢精準？",
+    "options": [
+      "A grew at a moderate and consistent pace, whereas B experienced a far more dramatic surge.",
+      "A had a slow but steady increase, while B was growing at a much quicker rate overall.",
+      "In contrast to A's pattern, B showed much faster growth during the same period.",
+      "A rose gradually over the years, but B surged more dramatically in comparison."
+    ],
+    "answer": 0,
+    "explanation": "whereas 是 Task 1 最標準的對比連接詞；moderate and consistent pace（緩慢穩定）與 dramatic surge（急速激增）形成強烈對比，語感最精準。其他選項的動詞或連接詞較為口語。",
+    "errorKey": "Task1對比"
+  },
+  {
+    "type": "blank",
+    "difficulty": "normal",
+    "category": "動詞搭配",
+    "question": "選出最能描述「大幅急速上升」的動詞：",
+    "sentence": "The proportion of elderly people in Japan [BLANK] dramatically from just 5% in 1960 to a projected 35% by 2040.",
+    "options": [
+      "increased",
+      "rose",
+      "surged",
+      "grew"
+    ],
+    "answer": 2,
+    "explanation": "surged 隱含「急速、大幅」的語感，搭配 dramatically 且增幅達 7 倍，最為貼切。increased / grew 太中性；rose 通常搭配 steadily / gradually，不適合描述急劇變化。",
+    "errorKey": "Task1動詞surged"
+  },
+  {
+    "type": "choice",
+    "difficulty": "hell",
+    "category": "倍數描述",
+    "question": "🔥 地獄級：A 國數據為 60%，B 國為 20%。哪個倍數描述在 Task 1 中最精準無誤？",
+    "options": [
+      "A's figure was approximately three times higher than that of B over the period.",
+      "A's proportion stood at roughly three times that of B, at 60% and 20% respectively.",
+      "A recorded a figure approximately three times greater than B's during this timeframe.",
+      "A's figure exceeded B's proportion by approximately three times throughout the period."
+    ],
+    "answer": 1,
+    "explanation": "地獄級！「three times higher than」（選項A）和「three times greater than」（選項C）、「exceeded by three times」（選項D）都暗示是 B 的 4 倍（B + 3個B）。Task 1 黃金公式：approximately [數字] times that of，明確表示「是B的幾倍」。",
+    "errorKey": "Task1倍數"
+  }
+]
