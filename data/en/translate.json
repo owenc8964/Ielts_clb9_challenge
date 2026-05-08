@@ -38,5 +38,29 @@
     "errorKey": "兩害相權",
     "key_vocab": ["lesser of two evils", "state intervention", "maximise"],
     "hint": "固定片語：the lesser of two evils（兩害相權）；用 state intervention 而非 government control"
+  },
+  {
+    "zh": "這種做法可能適得其反，甚至加劇了它本身試圖解決的問題。",
+    "reference": "This approach might be counterproductive and exacerbate the very problems it aims to solve.",
+    "explanation": "counterproductive（反效果）是 CLB9 反論述必備詞；the very problems it aims to solve 比 the same problems 更有力。",
+    "errorKey": "適得其反",
+    "key_vocab": ["counterproductive", "exacerbate", "aims to solve"],
+    "hint": "核心詞彙：counterproductive（反效果）+ exacerbate（加劇）；注意 the very problems 的強調用法"
+  },
+  {
+    "zh": "政府必須透過社會福利與補貼，保障基礎產業從業者的生計——這才是最明智的治理策略。",
+    "reference": "It is imperative for the government to safeguard the livelihoods of those in fundamental sectors through social welfare and subsidies — this is the wisest governance strategy.",
+    "explanation": "It is imperative for sb to V 表達強烈必要性；safeguard（保障）比 protect 更正式；livelihoods（生計）比 lives 更精準。",
+    "errorKey": "imperative保障",
+    "key_vocab": ["imperative", "safeguard", "livelihoods", "fundamental sectors"],
+    "hint": "句型：It is imperative for sb to V（比 must 更學術）；safeguard livelihoods 是固定搭配"
+  },
+  {
+    "zh": "資訊民主化讓病患能立即獲得解答，使他們從被動接受照護轉變為積極參與自身健康管理的主體。",
+    "reference": "The democratization of information empowers patients by providing immediate answers, transforming them from passive recipients of care into proactive participants in their health management.",
+    "explanation": "democratization（民主化）是 CLB9 科技議題關鍵詞；passive recipients → proactive participants 是高分對比結構；transforming...into 是優雅的轉折句型。",
+    "errorKey": "democratization轉化",
+    "key_vocab": ["democratization", "empowers", "passive recipients", "proactive participants"],
+    "hint": "高分結構：transforming from passive recipients into proactive participants；democratization 比 wider access 更學術"
   }
 ]

@@ -54,5 +54,53 @@
     "answer": 1,
     "explanation": "倍數黃金公式：approximately + 數字 + times + that of。",
     "errorKey": "倍數句型"
+  },
+  {
+    "question": "描述「這個政策可能產生反效果」，哪個最符合 CLB 9？",
+    "options": [
+      "will cause bad results for society",
+      "is not going to work as expected",
+      "might be counterproductive and exacerbate the very problems it aims to solve",
+      "could make the situation worse than before"
+    ],
+    "answer": 2,
+    "explanation": "counterproductive（反效果）+ exacerbate the very problems it aims to solve 是 CLB 9 反論述的標準句型。",
+    "errorKey": "counterproductive"
+  },
+  {
+    "question": "哪個開場方式最符合 CLB 9 的學術框架？",
+    "options": [
+      "This topic is very important to discuss.",
+      "Many people have different opinions about this.",
+      "This phenomenon has sparked widespread debate, warranting our serious consideration.",
+      "This issue is controversial and hard to solve."
+    ],
+    "answer": 2,
+    "explanation": "sparked widespread debate 比 is controversial 更學術；warranting serious consideration 是高級開場固定搭配。",
+    "errorKey": "warranting"
+  },
+  {
+    "question": "描述「政府必須採取行動保障弱勢」，哪個最學術？",
+    "options": [
+      "The government must do something for lower-paid workers.",
+      "The government needs to act immediately to help people.",
+      "It is imperative for the government to safeguard the livelihoods of those in fundamental sectors.",
+      "The government should protect workers who earn less money."
+    ],
+    "answer": 2,
+    "explanation": "It is imperative for sb to V 是最強的必要性表達；safeguard livelihoods（保障生計）比 protect people 更精準。",
+    "errorKey": "imperative"
+  },
+  {
+    "question": "描述「降低公司的固定營運成本」，哪個最精準？",
+    "options": [
+      "reduce the company's costs",
+      "save more money for the business",
+      "alleviate overhead costs associated with office rentals and utilities",
+      "spend less on running the office"
+    ],
+    "answer": 2,
+    "explanation": "overhead costs（固定營運成本：租金、水電等）比 costs 精準；alleviate（緩解）是 CLB 9 遠距工作議題的標準搭配。",
+    "errorKey": "overhead costs"
   }
 ]

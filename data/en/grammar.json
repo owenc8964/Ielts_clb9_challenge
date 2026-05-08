@@ -110,5 +110,75 @@
     "answer": 0,
     "explanation": "倍數公式：approximately + 數字 + times + that of。",
     "errorKey": "倍數句型"
+  },
+  {
+    "sentence": "There are many people need to understand the risks of self-diagnosis.",
+    "error_span": "people need",
+    "correct": "There are many people who need to understand the risks of self-diagnosis.",
+    "options": [
+      "There are many people who need to understand the risks of self-diagnosis.",
+      "There are many people need to understand the risks of self-diagnosis.",
+      "There are many people needing understand the risks of self-diagnosis.",
+      "There are many people needed to understand the risks of self-diagnosis."
+    ],
+    "answer": 0,
+    "explanation": "「There are + 名詞 + 動詞」是錯的，名詞後不能直接接動詞。正確：加 who/that，變成關係子句。",
+    "errorKey": "There are people need"
+  },
+  {
+    "sentence": "People are hard to change their habits without government intervention.",
+    "error_span": "People are hard to change",
+    "correct": "It is hard for people to change their habits without government intervention.",
+    "options": [
+      "It is hard for people to change their habits without government intervention.",
+      "People are hard to change their habits without government intervention.",
+      "People find hard to change their habits without government intervention.",
+      "Changing habit is hard for people without government intervention."
+    ],
+    "answer": 0,
+    "explanation": "hard / difficult / important 不能用「人 + are + adj + to V」。正確句型：It is + adj + for sb + to V。",
+    "errorKey": "虛主詞"
+  },
+  {
+    "sentence": "Education plays a crucial role to develop critical thinking in students.",
+    "error_span": "role to develop",
+    "correct": "Education plays a crucial role in developing critical thinking in students.",
+    "options": [
+      "Education plays a crucial role in developing critical thinking in students.",
+      "Education plays a crucial role to develop critical thinking in students.",
+      "Education plays a crucial role for developing critical thinking in students.",
+      "Education plays a crucial role of developing critical thinking in students."
+    ],
+    "answer": 0,
+    "explanation": "play a role in + Ving 是固定搭配。不用 to V、for Ving 或 of Ving。",
+    "errorKey": "role in"
+  },
+  {
+    "sentence": "The policy reduces urban traffic, it also lowers carbon emissions significantly.",
+    "error_span": "traffic, it",
+    "correct": "The policy reduces urban traffic, which also lowers carbon emissions significantly.",
+    "options": [
+      "The policy reduces urban traffic, which also lowers carbon emissions significantly.",
+      "The policy reduces urban traffic, it also lowers carbon emissions significantly.",
+      "The policy reduces urban traffic and lowering carbon emissions significantly.",
+      "The policy reduces urban traffic; also lower carbon emissions significantly."
+    ],
+    "answer": 0,
+    "explanation": "逗號不能連接兩個完整句子（Comma Splice）。正確：用 which 轉關係子句，或用 and 連接。",
+    "errorKey": "逗號接句"
+  },
+  {
+    "sentence": "The long-term benefits of this policy are worth to consider carefully.",
+    "error_span": "worth to consider",
+    "correct": "The long-term benefits of this policy are worth considering carefully.",
+    "options": [
+      "The long-term benefits of this policy are worth considering carefully.",
+      "The long-term benefits of this policy are worth to consider carefully.",
+      "The long-term benefits of this policy are worthy to consider carefully.",
+      "The long-term benefits of this policy are worth to be considered carefully."
+    ],
+    "answer": 0,
+    "explanation": "worth + Ving（動名詞）是固定用法，不用 to V。worthy 是另一個詞，搭配 worthy of。",
+    "errorKey": "worth doing"
   }
 ]
