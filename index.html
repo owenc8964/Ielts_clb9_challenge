@@ -81,8 +81,6 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .progress-wrap{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
 .progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width 0.4s ease;}
 .quiz-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);white-space:nowrap;}
-.timer-bar-wrap{width:100%;height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:14px;}
-.timer-bar{height:100%;background:var(--green);border-radius:2px;transition:width 1s linear,background 0.3s;}
 
 .question-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;animation:fadeIn 0.2s ease;}
 .question-type{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:'Space Mono',monospace;}
@@ -328,8 +326,6 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
       <div class="quiz-num" id="quizNum">1/10</div>
     </div>
-    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar" style="width:100%"></div></div>
-
     <div class="question-card" id="questionCard">
       <div class="question-type" id="questionType"></div>
       <div class="question-text" id="questionText"></div>
@@ -541,8 +537,6 @@ let sessionCorrect = 0;
 let sessionWrong = 0;
 let sessionXP = 0;
 let answered = false;
-let timerInterval = null;
-let timeLeft = 0;
 
 function shuffle(arr) {
   const a=[...arr];
@@ -552,7 +546,6 @@ function shuffle(arr) {
 
 function abandonQuiz() {
   if (confirm('確定要放棄本次測驗？進度不會記錄。')) {
-    clearInterval(timerInterval);
     goHome();
   }
 }
@@ -646,16 +639,24 @@ function startMode(mode) {
 }
 
 function buildVocabQ() {
-  const pool = shuffle(VOCAB_DATA);
-  const zh2en = pool.slice(0,5).map(item => {
-    const opts = shuffle([item.en, ...shuffle(VOCAB_DATA.filter(d=>d!==item)).slice(0,3).map(w=>w.en)]);
-    return {type:'中 → 英',question:item.zh,options:opts,answer:opts.indexOf(item.en),explanation:item.note,errorKey:item.zh};
+  const pool = shuffle(VOCAB_DATA).slice(0, 10);
+  return pool.map(item => {
+    let distractors;
+    if (item.distractors && item.distractors.length >= 3) {
+      distractors = shuffle(item.distractors).slice(0, 3);
+    } else {
+      distractors = shuffle(VOCAB_DATA.filter(d => d !== item)).slice(0, 3).map(w => w.en);
+    }
+    const opts = shuffle([item.en, ...distractors]);
+    return {
+      type: '中 → 英',
+      question: `想表達「${item.zh}」，哪個最符合 CLB 9？`,
+      options: opts,
+      answer: opts.indexOf(item.en),
+      explanation: item.note,
+      errorKey: item.zh
+    };
   });
-  const en2zh = pool.slice(5,10).map(item => {
-    const opts = shuffle([item.zh, ...shuffle(VOCAB_DATA.filter(d=>d!==item)).slice(0,3).map(w=>w.zh)]);
-    return {type:'英 → 中',question:item.en,options:opts,answer:opts.indexOf(item.zh),explanation:item.note,errorKey:item.en};
-  });
-  return shuffle([...zh2en,...en2zh]);
 }
 
 function buildReadingQ() {
@@ -666,7 +667,6 @@ function buildReadingQ() {
 // ── SHOW QUESTION ─────────────────────────────────────────
 function showQuestion() {
   answered = false;
-  clearInterval(timerInterval);
 
   const q = questions[currentIndex];
   const total = questions.length;
@@ -688,15 +688,6 @@ function showQuestion() {
   const errCount = store.errors[q.errorKey]||0;
   if (errCount>=2) {
     document.getElementById('questionHint').textContent = `⚠ 這個你已經錯了 ${errCount} 次，注意！`;
-  }
-
-  // Timer (skip for translate)
-  if (currentMode !== 'translate') {
-    const secs = currentMode==='reading' ? 45 : 20;
-    startTimer(secs);
-  } else {
-    document.getElementById('timerBar').style.width = '100%';
-    document.getElementById('timerBar').style.background = 'var(--green)';
   }
 
   if (q.passage) {
@@ -760,62 +751,11 @@ function showQuestion() {
   }
 }
 
-function startTimer(secs) {
-  timeLeft = secs;
-  const bar = document.getElementById('timerBar');
-  bar.style.transition = 'none';
-  bar.style.width = '100%';
-  bar.style.background = 'var(--green)';
-  setTimeout(()=>{
-    bar.style.transition = `width ${secs}s linear, background 0.3s`;
-    bar.style.width = '0%';
-  },50);
-  timerInterval = setInterval(()=>{
-    timeLeft--;
-    const pct = timeLeft/secs;
-    if (pct<0.3) bar.style.background='var(--red)';
-    else if (pct<0.6) bar.style.background='var(--yellow)';
-    if (timeLeft<=0) {
-      clearInterval(timerInterval);
-      if(!answered) autoWrong();
-    }
-  },1000);
-}
-
-function autoWrong() {
-  if (answered) return;
-  answered = true;
-  clearInterval(timerInterval);
-  const q = questions[currentIndex];
-  sessionWrong++;
-  logError(q.errorKey);
-  const opts = document.querySelectorAll('.option');
-  opts.forEach(o=>o.classList.add('disabled'));
-  if (q.answer !== undefined) {
-    opts[q.answer]?.classList.add('correct');
-    if (currentMode === 'grammar') {
-      if (q.error_span) document.getElementById('questionText').innerHTML = highlightErrorSpan(q.sentence, q.error_span);
-      if (q.correct) {
-        opts.forEach((optEl, i) => {
-          const textEl = optEl.querySelector('.opt-text');
-          if (!textEl) return;
-          textEl.innerHTML = i === q.answer ? q.options[i] : highlightOptionDiff(q.correct, q.options[i]);
-        });
-      }
-    }
-  }
-  const fb = document.getElementById('feedback');
-  document.getElementById('feedbackTitle').textContent = '⏱ 時間到！';
-  document.getElementById('feedbackBody').textContent = q.explanation||'';
-  fb.className = 'feedback show wf';
-  document.getElementById('btnNext').className = 'btn-next show';
-}
 
 // ── SELECT OPTION ─────────────────────────────────────────
 function selectOption(selected, answer, explanation, errorKey, correctText, allOptions, origSentence, errorSpan) {
   if (answered) return;
   answered = true;
-  clearInterval(timerInterval);
 
   const opts = document.querySelectorAll('.option');
   opts.forEach(o=>o.classList.add('disabled'));
@@ -919,7 +859,6 @@ function nextQuestion() {
 }
 
 function showResult() {
-  clearInterval(timerInterval);
   const total=questions.length;
   const pct=Math.round(sessionCorrect/total*100);
 
