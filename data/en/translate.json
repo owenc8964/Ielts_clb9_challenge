@@ -1,66 +1,74 @@
 [
   {
-    "zh": "雖然強制服務有其潛在風險，但這項政策在塑造青少年公民責任感方面具有深遠的社會意義。",
-    "reference": "Although mandatory service carries potential risks, this policy holds profound social significance in shaping the civic responsibility of adolescents.",
-    "explanation": "Although 後不加 but；profound social significance 比 very important 高級。",
-    "errorKey": "強制服務",
-    "key_vocab": ["profound social significance", "mandatory service", "civic responsibility"],
-    "hint": "注意：需要用 profound social significance（深遠的社會意義），以及 Although 後不加 but"
-  },
-  {
-    "zh": "AI 將使大量現有職業被淘汰，其根本原因源於機器的本質。",
-    "reference": "AI will render a massive number of current occupations obsolete. The root cause stems from the nature of machines.",
-    "explanation": "render obsolete 比 make disappear 高級；stem from 比 come from 更學術。",
-    "errorKey": "AI淘汰職業",
-    "key_vocab": ["render obsolete", "stem from", "occupations"],
-    "hint": "核心詞彙：render...obsolete（使被淘汰）和 stem from（源於）"
-  },
-  {
-    "zh": "資本市場若完全交由供需力量主導，將嚴重損害其他產業工作者的生活品質，最終加劇階級固化。",
-    "reference": "If the capital market is left entirely to the forces of supply and demand, it will severely compromise the quality of life for workers in other sectors, ultimately exacerbating social stratification.",
-    "explanation": "compromise（損害）、exacerbating（加劇）、social stratification（階級固化）都是 CLB 9 詞彙。",
-    "errorKey": "資本市場",
-    "key_vocab": ["compromise", "exacerbating", "social stratification", "supply and demand"],
-    "hint": "需要用：compromise（損害）、exacerbating（加劇）、social stratification（階級固化）"
-  },
-  {
-    "zh": "政府擁有專業機構和專家資源，能夠系統性地評估這些風險。",
-    "reference": "Governments possess the professional institutions and expert resources to evaluate these hazards systematically.",
-    "explanation": "possess 比 have 更正式；hazards 比 risks 更學術。",
-    "errorKey": "政府機構",
-    "key_vocab": ["possess", "hazards", "systematically", "institutions"],
-    "hint": "關鍵替換：possess（擁有，比 have 正式）、hazards（危害，比 risks 更學術）"
-  },
-  {
-    "zh": "在兩害相權之下，允許國家介入是保護公眾安全與健康的最明智選擇。",
-    "reference": "Choosing the lesser of two evils by allowing state intervention is essential to maximise the protection of public safety and health.",
-    "explanation": "choose the lesser of two evils 是固定片語；state intervention 比 government control 更學術。",
-    "errorKey": "兩害相權",
-    "key_vocab": ["lesser of two evils", "state intervention", "maximise"],
-    "hint": "固定片語：the lesser of two evils（兩害相權）；用 state intervention 而非 government control"
-  },
-  {
-    "zh": "這種做法可能適得其反，甚至加劇了它本身試圖解決的問題。",
+    "zh": "想說「這個做法可能適得其反」",
+    "template_en": "This approach might be _____ and exacerbate the very problems it aims to solve.",
+    "key_answer": "counterproductive",
     "reference": "This approach might be counterproductive and exacerbate the very problems it aims to solve.",
-    "explanation": "counterproductive（反效果）是 CLB9 反論述必備詞；the very problems it aims to solve 比 the same problems 更有力。",
-    "errorKey": "適得其反",
-    "key_vocab": ["counterproductive", "exacerbate", "aims to solve"],
-    "hint": "核心詞彙：counterproductive（反效果）+ exacerbate（加劇）；注意 the very problems 的強調用法"
+    "explanation": "counterproductive（反效果）是 CLB9 反論述必備詞；the very 強調諷刺感，比 the same 更有力。",
+    "hint": "一個表示「反效果」的學術形容詞，不是 backfire",
+    "errorKey": "counterproductive"
   },
   {
-    "zh": "政府必須透過社會福利與補貼，保障基礎產業從業者的生計——這才是最明智的治理策略。",
-    "reference": "It is imperative for the government to safeguard the livelihoods of those in fundamental sectors through social welfare and subsidies — this is the wisest governance strategy.",
-    "explanation": "It is imperative for sb to V 表達強烈必要性；safeguard（保障）比 protect 更正式；livelihoods（生計）比 lives 更精準。",
-    "errorKey": "imperative保障",
-    "key_vocab": ["imperative", "safeguard", "livelihoods", "fundamental sectors"],
-    "hint": "句型：It is imperative for sb to V（比 must 更學術）；safeguard livelihoods 是固定搭配"
+    "zh": "想說「政府必須保障基礎產業從業者的生計」",
+    "template_en": "It is _____ for the government to safeguard the livelihoods of those in fundamental sectors.",
+    "key_answer": "imperative",
+    "reference": "It is imperative for the government to safeguard the livelihoods of those in fundamental sectors.",
+    "explanation": "It is imperative for sb to V 是最強的必要性表達，比 must 更學術正式。",
+    "hint": "比 necessary、essential 更強一個層次的「必要」形容詞",
+    "errorKey": "imperative"
   },
   {
-    "zh": "資訊民主化讓病患能立即獲得解答，使他們從被動接受照護轉變為積極參與自身健康管理的主體。",
-    "reference": "The democratization of information empowers patients by providing immediate answers, transforming them from passive recipients of care into proactive participants in their health management.",
-    "explanation": "democratization（民主化）是 CLB9 科技議題關鍵詞；passive recipients → proactive participants 是高分對比結構；transforming...into 是優雅的轉折句型。",
-    "errorKey": "democratization轉化",
-    "key_vocab": ["democratization", "empowers", "passive recipients", "proactive participants"],
-    "hint": "高分結構：transforming from passive recipients into proactive participants；democratization 比 wider access 更學術"
+    "zh": "想說「AI 將使大量現有職業被淘汰」",
+    "template_en": "AI will _____ a massive number of current occupations _____.",
+    "key_answer": "render / obsolete",
+    "reference": "AI will render a massive number of current occupations obsolete.",
+    "explanation": "render + 受詞 + obsolete 是固定搭配，比 make ... outdated 或 eliminate 更學術精準。",
+    "hint": "動詞用 render，後面加形容詞 obsolete（不是 disappear）",
+    "errorKey": "render obsolete"
+  },
+  {
+    "zh": "想說「資訊民主化讓病患從被動變主動」",
+    "template_en": "The democratization of information transforms patients from _____ of care into _____ in their health management.",
+    "key_answer": "passive recipients / proactive participants",
+    "reference": "The democratization of information transforms patients from passive recipients of care into proactive participants in their health management.",
+    "explanation": "passive recipients → proactive participants 是高分對比結構，展示角色轉換的深度意義。",
+    "hint": "第一個空：被動接受者；第二個空：主動參與者（各兩個詞）",
+    "errorKey": "democratization轉化"
+  },
+  {
+    "zh": "想說「這項政策在塑造青少年公民責任感方面有深遠意義」",
+    "template_en": "This policy holds _____ in shaping the civic responsibility of adolescents.",
+    "key_answer": "profound social significance",
+    "reference": "Although mandatory service carries potential risks, this policy holds profound social significance in shaping the civic responsibility of adolescents.",
+    "explanation": "profound social significance 比 is very important 高一個層次；hold significance 是學術固定搭配。",
+    "hint": "三個詞：深遠的＋社會＋意義（全英文）",
+    "errorKey": "強制服務"
+  },
+  {
+    "zh": "想說「若資本市場完全交由供需主導，將加劇階級固化」",
+    "template_en": "If the capital market is left entirely to the forces of supply and demand, it will ultimately exacerbate _____.",
+    "key_answer": "social stratification",
+    "reference": "If the capital market is left entirely to the forces of supply and demand, it will severely compromise the quality of life for workers in other sectors, ultimately exacerbating social stratification.",
+    "explanation": "social stratification（階級固化）比 class divide 或 social inequality 更學術；exacerbate 是必備動詞搭配。",
+    "hint": "兩個詞：社會的＋階層固化（名詞）",
+    "errorKey": "資本市場"
+  },
+  {
+    "zh": "想說「政府擁有專業機構，能系統性評估風險」",
+    "template_en": "Governments _____ the professional institutions and expert resources to evaluate these _____ systematically.",
+    "key_answer": "possess / hazards",
+    "reference": "Governments possess the professional institutions and expert resources to evaluate these hazards systematically.",
+    "explanation": "possess 比 have 更正式；hazards 比 risks 更學術，暗示嚴重性。",
+    "hint": "第一個空：比 have 更正式的「擁有」；第二個空：比 risks 更學術的「危害」",
+    "errorKey": "政府機構"
+  },
+  {
+    "zh": "想說「在兩害相權之下，允許國家介入是明智選擇」",
+    "template_en": "Choosing _____ by allowing state intervention is essential to maximise the protection of public safety.",
+    "key_answer": "the lesser of two evils",
+    "reference": "Choosing the lesser of two evils by allowing state intervention is essential to maximise the protection of public safety and health.",
+    "explanation": "the lesser of two evils 是固定片語（兩害取其輕）；state intervention 比 government control 更學術中立。",
+    "hint": "固定片語四個詞：the lesser of two evils",
+    "errorKey": "兩害相權"
   }
 ]

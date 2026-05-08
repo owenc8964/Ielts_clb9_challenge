@@ -130,6 +130,30 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .btn-ai-check{background:rgba(124,108,255,0.12);color:var(--accent);border:1px solid rgba(124,108,255,0.3);border-radius:9px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.12s;margin-top:4px;}
 .btn-ai-check:hover{background:rgba(124,108,255,0.22);}
 .quiz-actions{display:flex;flex-direction:column;gap:6px;}
+.phrase-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:16px;font-family:'Noto Sans TC',sans-serif;color:var(--text);outline:none;transition:border-color 0.15s;}
+.phrase-input:focus{border-color:var(--accent);}
+.phrase-input.ci{border-color:var(--green);background:rgba(79,255,176,0.04);}
+.phrase-input.wi{border-color:var(--red);background:rgba(255,79,108,0.04);}
+.phrase-input:disabled{opacity:0.7;}
+.template-box{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:14px 16px;font-size:15px;line-height:1.9;margin-bottom:10px;color:var(--text);border-left:3px solid var(--accent2);}
+.t-blank{display:inline-block;min-width:90px;border-bottom:2px solid var(--accent2);color:var(--accent2);font-weight:700;text-align:center;margin:0 3px;}
+.btn-report{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:9px;padding:7px 14px;font-size:11px;cursor:pointer;font-family:'Space Mono',monospace;transition:all 0.12s;align-self:flex-start;}
+.btn-report:hover{border-color:var(--red);color:var(--red);}
+.report-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;}
+.report-overlay.show{display:flex;}
+.report-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:360px;width:90%;}
+.report-title{font-family:'Space Mono',monospace;font-size:13px;color:var(--red);margin-bottom:8px;font-weight:700;}
+.report-meta{font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.5;}
+.report-textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:13px;font-family:'Noto Sans TC',sans-serif;color:var(--text);resize:none;min-height:70px;outline:none;margin-bottom:10px;}
+.report-textarea:focus{border-color:var(--accent);}
+.report-btns{display:flex;gap:8px;}
+.btn-report-send{flex:1;background:var(--red);color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;}
+.btn-report-cancel{flex:1;background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:13px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;}
+.pending-reports{background:var(--surface);border:1px solid rgba(255,79,108,0.25);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+.pending-reports-title{font-family:'Space Mono',monospace;font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+.report-list-item{font-size:12px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);line-height:1.5;}
+.report-list-item:last-child{border-bottom:none;}
+.btn-copy-reports{background:rgba(255,159,74,0.12);color:var(--orange);border:1px solid rgba(255,159,74,0.3);border-radius:7px;padding:5px 12px;font-size:11px;cursor:pointer;font-family:'Space Mono',monospace;}
 .mode-name{font-size:14px;font-weight:700;margin-bottom:2px;}
 .mode-desc{font-size:12px;color:var(--text2);line-height:1.4;}
 .home-sub{color:var(--text2);font-size:14px;line-height:1.6;margin-bottom:20px;}
@@ -174,6 +198,19 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
     <div class="daily-sub" id="dailySub">連續練習是通往 CLB 9 最快的路</div>
     <div class="daily-xp" id="dailyXP">+50 XP</div>
     <button class="btn-claim" onclick="claimDaily()">領取獎勵</button>
+  </div>
+</div>
+
+<!-- REPORT MODAL -->
+<div class="report-overlay" id="reportOverlay">
+  <div class="report-card">
+    <div class="report-title">⚑ 題目有問題？</div>
+    <div class="report-meta" id="reportMeta"></div>
+    <textarea class="report-textarea" id="reportNote" placeholder="說明哪裡有問題（例如：選項B語法錯、答案應該是C、說明不清楚...）"></textarea>
+    <div class="report-btns">
+      <button class="btn-report-cancel" onclick="closeReport()">取消</button>
+      <button class="btn-report-send" onclick="submitReport()">送出報錯</button>
+    </div>
   </div>
 </div>
 
@@ -311,6 +348,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
     </div>
 
     <div id="errorTrackerSection"></div>
+    <div id="pendingReportSection"></div>
 
     <div class="chart-wrap" id="chartWrap" style="display:none">
       <div class="chart-title">最近 7 次練習答對率</div>
@@ -349,7 +387,10 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
       <button class="btn-submit" id="btnSubmit" onclick="submitTranslate()">確認 →</button>
       <button class="btn-next" id="btnNext" onclick="nextQuestion()">下一題 →</button>
-      <button class="btn-abandon" onclick="abandonQuiz()">放棄本次測驗</button>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-abandon" onclick="abandonQuiz()">放棄本次測驗</button>
+        <button class="btn-report" id="btnReport" onclick="openReport()">⚑ 報錯</button>
+      </div>
     </div>
   </div>
 
@@ -514,6 +555,9 @@ function renderHome() {
     section.innerHTML = '';
   }
 
+  // Pending reports
+  renderPendingReports();
+
   // Chart
   if (store.history.length > 0) {
     const wrap = document.getElementById('chartWrap');
@@ -550,6 +594,75 @@ function abandonQuiz() {
   }
 }
 
+// ── REPORT SYSTEM ─────────────────────────────────────────
+const REPORT_KEY = 'ielts_v2_reports';
+function loadReports() {
+  try { return JSON.parse(localStorage.getItem(REPORT_KEY) || '[]'); } catch(e) { return []; }
+}
+function saveReports(rpts) {
+  try { localStorage.setItem(REPORT_KEY, JSON.stringify(rpts)); } catch(e) {}
+}
+
+function openReport() {
+  const q = questions[currentIndex];
+  const qText = q.question || q.sentence || q.zh || q.errorKey || '';
+  document.getElementById('reportMeta').textContent = `模式：${currentMode} ／ 題目：${qText.slice(0,40)}...`;
+  document.getElementById('reportNote').value = '';
+  document.getElementById('reportOverlay').classList.add('show');
+}
+function closeReport() {
+  document.getElementById('reportOverlay').classList.remove('show');
+}
+function submitReport() {
+  const note = document.getElementById('reportNote').value.trim();
+  if (!note) { alert('請說明哪裡有問題'); return; }
+  const q = questions[currentIndex];
+  const rpts = loadReports();
+  rpts.push({
+    timestamp: new Date().toISOString(),
+    mode: currentMode,
+    errorKey: q.errorKey || '',
+    question: (q.question || q.sentence || q.zh || '').slice(0, 80),
+    note
+  });
+  saveReports(rpts);
+  closeReport();
+  renderPendingReports();
+  // Brief visual confirmation
+  const btn = document.getElementById('btnReport');
+  btn.textContent = '✓ 已記錄';
+  setTimeout(() => { btn.textContent = '⚑ 報錯'; }, 1500);
+}
+
+function renderPendingReports() {
+  const rpts = loadReports();
+  const section = document.getElementById('pendingReportSection');
+  if (!section) return;
+  if (rpts.length === 0) { section.innerHTML = ''; return; }
+  section.innerHTML = `<div class="pending-reports" style="margin-bottom:14px">
+    <div class="pending-reports-title">
+      <span>⚑ 待處理報錯（${rpts.length} 筆）</span>
+      <button class="btn-copy-reports" onclick="copyReports()">複製全部</button>
+    </div>
+    ${rpts.map((r,i) => `<div class="report-list-item">
+      <strong>${r.mode}</strong> ／ ${r.question || r.errorKey}<br>
+      <span style="color:var(--orange)">↳ ${r.note}</span>
+      <span style="float:right;font-size:10px;color:var(--text2)">${r.timestamp.slice(0,10)}</span>
+    </div>`).join('')}
+    <div style="margin-top:8px;font-size:11px;color:var(--text2)">複製後貼給 Claude 更新題庫</div>
+  </div>`;
+}
+
+function copyReports() {
+  const rpts = loadReports();
+  const text = '=== CLB9 題庫報錯 ===\n\n' + rpts.map((r,i) =>
+    `${i+1}. [${r.mode}] ${r.errorKey}\n題目：${r.question}\n問題：${r.note}\n時間：${r.timestamp.slice(0,10)}`
+  ).join('\n\n');
+  navigator.clipboard.writeText(text).then(() => {
+    alert('已複製！貼給 Claude 說「幫我修正這些題目」就好。');
+  });
+}
+
 function toggleWritingMenu() {
   const menu = document.getElementById('writingSubmenu');
   const arrow = document.getElementById('writingArrow');
@@ -575,13 +688,6 @@ function highlightOptionDiff(correct, option) {
     if (!correctSet.has(part.toLowerCase())) return `<span class="opt-diff">${part}</span>`;
     return part;
   }).join('');
-}
-
-// 檢查中翻英答案與參考答案的相似度
-function checkTranslateSimilarity(userInput, q) {
-  const userLower = userInput.toLowerCase();
-  const missing = q.key_vocab.filter(kw => !userLower.includes(kw.toLowerCase()));
-  return missing;
 }
 
 // 一鍵 AI 檢查：複製 prompt 並開 Claude.ai
@@ -725,15 +831,26 @@ function showQuestion() {
   }
 
   if (currentMode==='translate') {
-    const ta = document.createElement('textarea');
-    ta.className = 'translate-input';
-    ta.id = 'translateInput';
-    ta.placeholder = '在這裡輸入你的英文翻譯...';
-    ta.addEventListener('keydown', e=>{ if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)) submitTranslate(); });
-    container.appendChild(ta);
+    // 顯示中文情境
+    document.getElementById('questionType').textContent = '填入關鍵片語';
+    document.getElementById('questionText').textContent = q.zh;
+    // 顯示英文模板
+    const tplDiv = document.createElement('div');
+    tplDiv.className = 'template-box';
+    const tplHtml = (q.template_en||'').replace(/_____/g, '<span class="t-blank">_____</span>');
+    tplDiv.innerHTML = tplHtml;
+    container.appendChild(tplDiv);
+    // 單行輸入框
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'phrase-input';
+    inp.id = 'translateInput';
+    inp.placeholder = q.hint || '輸入關鍵詞彙...';
+    inp.addEventListener('keydown', e=>{ if(e.key==='Enter') submitTranslate(); });
+    container.appendChild(inp);
     document.getElementById('btnSubmit').style.display = 'block';
-    document.getElementById('inputHint').textContent = '⌘ / Ctrl + Enter 快速確認';
-    setTimeout(()=>ta.focus(),100);
+    document.getElementById('inputHint').textContent = 'Enter 快速確認';
+    setTimeout(()=>inp.focus(),100);
   } else {
     const keys=['A','B','C','D'];
     q.options.forEach((opt,i)=>{
@@ -804,51 +921,45 @@ function selectOption(selected, answer, explanation, errorKey, correctText, allO
 function submitTranslate() {
   if (answered) return;
   const input = document.getElementById('translateInput');
-  if (!input||!input.value.trim()) return;
+  if (!input || !input.value.trim()) return;
   answered = true;
-  document.getElementById('btnSubmit').style.display='none';
-  input.disabled=true;
+  document.getElementById('btnSubmit').style.display = 'none';
+  input.disabled = true;
 
   const q = questions[currentIndex];
-  const userInput = input.value.trim();
-
-  // 顯示參考答案
-  document.getElementById('referenceText').innerHTML=`<strong>${q.reference}</strong><br><span style="color:var(--text2);font-size:13px;margin-top:6px;display:block">${q.explanation||''}</span>`;
-  document.getElementById('referenceAns').className='reference-ans show';
-
-  // 比較關鍵詞彙
-  const missingVocab = q.key_vocab ? checkTranslateSimilarity(userInput, q) : [];
+  const userInput = input.value.trim().toLowerCase();
   const fb = document.getElementById('feedback');
 
-  if (missingVocab.length === 0) {
-    // 包含所有關鍵詞彙 → 算正確
+  // 比對關鍵答案（允許斜線分隔的多個必填詞，全部包含才算對）
+  const keyParts = (q.key_answer || '').split('/').map(s => s.trim().toLowerCase()).filter(Boolean);
+  const isCorrect = keyParts.every(part => userInput.includes(part));
+
+  // 顯示完整參考句
+  document.getElementById('referenceText').innerHTML =
+    `<strong>${q.reference}</strong><br><span style="color:var(--text2);font-size:13px;margin-top:6px;display:block">${q.explanation || ''}</span>`;
+  document.getElementById('referenceAns').className = 'reference-ans show';
+
+  if (isCorrect) {
     sessionCorrect++;
     sessionXP += 12;
     clearError(q.errorKey);
-    input.className = 'translate-input ci';
-    document.getElementById('feedbackTitle').textContent = '✓ 很好！關鍵詞彙都用到了。';
+    input.className = 'phrase-input ci';
+    document.getElementById('feedbackTitle').textContent = '✓ 正確！';
     document.getElementById('feedbackBody').textContent = '';
     fb.className = 'feedback show';
   } else {
-    // 缺少關鍵詞彙 → 不太一樣
     sessionWrong++;
     logError(q.errorKey);
-    input.className = 'translate-input wi';
-    document.getElementById('feedbackTitle').textContent = '△ 不太一樣';
+    input.className = 'phrase-input wi';
+    const errCount = store.errors[q.errorKey] || 0;
+    const warnMsg = errCount >= 3 ? `<br><span style="color:var(--red);font-size:12px">🔴 已錯 ${errCount} 次！重點記憶。</span>` : '';
+    document.getElementById('feedbackTitle').textContent = '✗ 不對';
     document.getElementById('feedbackBody').innerHTML =
-      (q.hint || `提示：注意使用 ${missingVocab.join('、')}`) +
-      `<br><span style="color:var(--text2);font-size:12px">缺少關鍵詞彙：<em>${missingVocab.join('、')}</em></span>`;
+      `關鍵詞彙：<em style="color:var(--accent2)">${q.key_answer}</em>` + warnMsg;
     fb.className = 'feedback show wf';
   }
 
-  // AI 檢查按鈕（無論對錯都顯示）
-  const aiBtn = document.createElement('button');
-  aiBtn.className = 'btn-ai-check';
-  aiBtn.textContent = '🤖 一鍵 AI 深度分析（開 Claude）';
-  aiBtn.onclick = () => openAICheck(q.zh, userInput, q.reference);
-  document.querySelector('.quiz-actions').insertBefore(aiBtn, document.getElementById('btnNext'));
-
-  document.getElementById('btnNext').className='btn-next show';
+  document.getElementById('btnNext').className = 'btn-next show';
 }
 
 // ── NEXT / RESULT ─────────────────────────────────────────
