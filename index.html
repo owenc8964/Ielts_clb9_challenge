@@ -125,6 +125,20 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .t-blank{display:inline-block;min-width:90px;border-bottom:2px solid var(--accent2);color:var(--accent2);font-weight:700;text-align:center;margin:0 3px;}
 .btn-report{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:9px;padding:7px 14px;font-size:11px;cursor:pointer;font-family:'Space Mono',monospace;transition:all 0.12s;align-self:flex-start;}
 .btn-report:hover{border-color:var(--red);color:var(--red);}
+
+/* CATEGORY PICKER */
+.cat-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:200;align-items:flex-end;justify-content:center;}
+.cat-overlay.show{display:flex;}
+.cat-sheet{background:var(--surface);border-radius:20px 20px 0 0;padding:24px 20px 32px;width:100%;max-width:480px;}
+.cat-sheet-title{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.cat-sheet-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.4;}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.cat-btn{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:11px 14px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--text);transition:all 0.15s;text-align:left;}
+.cat-btn:hover{border-color:var(--accent);background:#1e1e30;}
+.cat-btn.cat-all{grid-column:span 2;background:linear-gradient(135deg,rgba(110,96,255,0.15),rgba(255,79,136,0.1));border-color:var(--accent);}
+.cat-btn .cat-count{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);margin-top:3px;}
+.cat-btn-cancel{width:100%;margin-top:12px;background:transparent;border:1px solid var(--border);border-radius:11px;padding:10px;font-family:'Noto Sans TC',sans-serif;font-size:13px;color:var(--text2);cursor:pointer;transition:all 0.15s;}
+.cat-btn-cancel:hover{border-color:var(--red);color:var(--red);}
 .report-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;}
 .report-overlay.show{display:flex;}
 .report-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:360px;width:90%;}
@@ -209,6 +223,18 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
   </div>
 </div>
 
+<!-- CATEGORY PICKER -->
+<div class="cat-overlay" id="catOverlay" onclick="closeCatPicker(event)">
+  <div class="cat-sheet" id="catSheet">
+    <div class="cat-sheet-title">🔤 單字配對 — 選擇分類</div>
+    <div class="cat-sheet-sub">選一個主題集中練習，或混合全部隨機出題</div>
+    <div class="cat-grid" id="catGrid">
+      <!-- JS 動態填入 -->
+    </div>
+    <button class="cat-btn-cancel" onclick="document.getElementById('catOverlay').classList.remove('show')">取消</button>
+  </div>
+</div>
+
 <!-- XP POPUP -->
 <div class="xp-pop" id="xpPop"></div>
 
@@ -261,10 +287,10 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
     </div>
 
     <div class="mode-grid">
-      <div class="mode-card" onclick="startMode('vocab')">
+      <div class="mode-card" onclick="showCatPicker()">
         <div class="mode-icon">🔤</div>
         <div class="mode-name">單字配對</div>
-        <div class="mode-desc">情境辨別 + SRS 智能排序，答對2次升級打字模式</div>
+        <div class="mode-desc">六大主題 + 口語升級 + PEEL 結構詞，SRS 智能排序</div>
         <div class="mode-meta">
           <div class="mode-count">10 題</div>
           <div class="mode-acc" id="accVocab">—</div>
@@ -637,6 +663,7 @@ function renderHome() {
 let currentMode = '';
 let questions = [];
 let currentIndex = 0;
+let selectedVocabCategory = 'all'; // 分類篩選
 let sessionCorrect = 0;
 let sessionWrong = 0;
 let sessionXP = 0;
@@ -765,13 +792,73 @@ function clearError(key) {
 }
 
 // ── START ─────────────────────────────────────────────────
+// ── 分類選擇器 ────────────────────────────────────────────────────────
+const CAT_META = {
+  all:            { label:'🔀 全部混合',    desc:'所有分類隨機出題' },
+  environment:    { label:'🌍 環境氣候',    desc:'碳排、保育、永續' },
+  economy:        { label:'💰 經濟勞動',    desc:'財政、薪資、職場' },
+  technology:     { label:'💻 科技',        desc:'AI、數位、隱私' },
+  education:      { label:'🎓 教育',        desc:'課程、思考、壓力' },
+  health:         { label:'🏥 健康醫療',    desc:'慢性病、預防、心理' },
+  society:        { label:'⚖️ 社會法律',   desc:'司法、歧視、凝聚' },
+  task1:          { label:'📊 Task 1',      desc:'趨勢、數據描述詞' },
+  spoken_upgrade: { label:'🗣️ 口語升級',   desc:'簡單說法→高分寫法' },
+  peel:           { label:'📝 PEEL 結構',   desc:'論點、展開、連結句' },
+  general:        { label:'🔧 通用學術',    desc:'加劇、緩解、分配...' }
+};
+
+function showCatPicker() {
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+
+  // 全部 btn（佔兩格）
+  const allCount = VOCAB_DATA.length;
+  const allBtn = document.createElement('button');
+  allBtn.className = 'cat-btn cat-all';
+  allBtn.innerHTML = `<div>${CAT_META.all.label}</div><div class="cat-count">${allCount} 個詞 · ${CAT_META.all.desc}</div>`;
+  allBtn.onclick = () => startVocabWithCat('all');
+  grid.appendChild(allBtn);
+
+  // 其他分類
+  const cats = ['environment','economy','technology','education','health','society','task1','spoken_upgrade','peel','general'];
+  cats.forEach(cat => {
+    const count = VOCAB_DATA.filter(v => v.category === cat).length;
+    if (!count) return;
+    const m = CAT_META[cat];
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.innerHTML = `<div>${m.label}</div><div class="cat-count">${count} 個詞 · ${m.desc}</div>`;
+    btn.onclick = () => startVocabWithCat(cat);
+    grid.appendChild(btn);
+  });
+
+  document.getElementById('catOverlay').classList.add('show');
+}
+
+function closeCatPicker(e) {
+  if (e.target === document.getElementById('catOverlay')) {
+    document.getElementById('catOverlay').classList.remove('show');
+  }
+}
+
+function startVocabWithCat(cat) {
+  document.getElementById('catOverlay').classList.remove('show');
+  selectedVocabCategory = cat;
+  startMode('vocab');
+}
+
 function startMode(mode) {
   currentMode = mode;
   sessionCorrect = 0; sessionWrong = 0; sessionXP = 0;
   answered = false; currentIndex = 0; sessionTotal = 0;
 
   const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'句型中翻英',clb9:'CLB9辨別',reading:'閱讀理解',task1:'Task 1 數據描述',task2:'Task 2 論文框架',review:'SRS 複習'};
-  document.getElementById('modeLabel').textContent = labels[mode] || mode;
+  let modeLabel = labels[mode] || mode;
+  if (mode === 'vocab' && selectedVocabCategory !== 'all') {
+    const catLabel = (CAT_META[selectedVocabCategory]||{}).label || selectedVocabCategory;
+    modeLabel = `單字 · ${catLabel}`;
+  }
+  document.getElementById('modeLabel').textContent = modeLabel;
 
   if (mode==='vocab')    questions = buildVocabQ(false);
   else if (mode==='review')   questions = buildVocabQ(true);
@@ -791,8 +878,14 @@ function buildVocabQ(reviewOnly = false) {
   const srs = loadSRS();
   const now = Date.now();
 
+  // 分類篩選（reviewOnly 時不限分類）
+  let base = [...VOCAB_DATA];
+  if (!reviewOnly && selectedVocabCategory !== 'all') {
+    base = base.filter(v => v.category === selectedVocabCategory);
+  }
+
   // 排序：到期 > 新詞 > 未到期（按 nextReview 升序）
-  let pool = [...VOCAB_DATA].sort((a, b) => {
+  let pool = base.sort((a, b) => {
     const ca = srs[a.zh], cb = srs[b.zh];
     const ta = ca ? ca.nextReview : 0;
     const tb = cb ? cb.nextReview : 0;
@@ -801,22 +894,36 @@ function buildVocabQ(reviewOnly = false) {
 
   if (reviewOnly) {
     pool = pool.filter(item => { const c = srs[item.zh]; return !c || c.nextReview <= now; });
-    pool = pool.slice(0, 20); // 最多20題
+    pool = pool.slice(0, 20);
   } else {
     pool = pool.slice(0, 10);
   }
+
+  // 同分類的詞用於干擾選項（避免跨類型混淆）
+  const samePool = selectedVocabCategory === 'all'
+    ? VOCAB_DATA
+    : VOCAB_DATA.filter(v => v.category === selectedVocabCategory);
 
   return pool.map(item => {
     const card = srs[item.zh];
     const reps = card ? card.reps : 0;
     const interval = card ? card.interval : 0;
 
-    // reps >= 2 → 打字模式（production）
+    // 根據分類決定問題格式
+    const isUpgrade = item.category === 'spoken_upgrade';
+    const isPeel = item.category === 'peel';
+
+    // reps >= 2 → 打字模式
     if (reps >= 2) {
+      const prompt = isUpgrade
+        ? `寫作升級：「${item.zh.split('→')[0].trim()}」→ 學術寫法是？`
+        : isPeel
+        ? `${item.zh}，用英文寫出固定搭配：`
+        : `想表達「${item.zh}」，用英文寫出來：`;
       return {
         type: '✍ 打字',
         isProduction: true,
-        question: `想表達「${item.zh}」，用英文寫出來：`,
+        question: prompt,
         en: item.en,
         explanation: item.note,
         errorKey: item.zh,
@@ -825,18 +932,25 @@ function buildVocabQ(reviewOnly = false) {
       };
     }
 
-    // 選擇模式（recognition）
+    // 選擇模式
     let distractors;
     if (item.distractors && item.distractors.length >= 3) {
       distractors = shuffle(item.distractors).slice(0, 3);
     } else {
-      distractors = shuffle(VOCAB_DATA.filter(d => d !== item)).slice(0, 3).map(w => w.en);
+      distractors = shuffle(samePool.filter(d => d !== item)).slice(0, 3).map(w => w.en);
     }
     const opts = shuffle([item.en, ...distractors]);
+
+    const question = isUpgrade
+      ? `寫作升級：想把「${item.zh.split('→')[0].trim()}」寫得更學術，選哪個？`
+      : isPeel
+      ? `${item.zh}，哪個是 CLB 9 固定搭配？`
+      : `想表達「${item.zh}」，哪個最符合 CLB 9？`;
+
     return {
-      type: '中 → 英',
+      type: isUpgrade ? '🗣️ 口語升級' : isPeel ? '📝 PEEL' : '中 → 英',
       isProduction: false,
-      question: `想表達「${item.zh}」，哪個最符合 CLB 9？`,
+      question,
       options: opts,
       answer: opts.indexOf(item.en),
       explanation: item.note,
