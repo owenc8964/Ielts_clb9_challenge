@@ -127,6 +127,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .fill-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
 .fill-row{display:flex;align-items:center;gap:8px;}
 .fill-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);min-width:16px;}
+.fill-wc{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);white-space:nowrap;flex-shrink:0;}
 .hint-toggle{background:transparent;border:1px solid var(--border);border-radius:7px;padding:5px 12px;font-size:11px;color:var(--text2);cursor:pointer;font-family:'Space Mono',monospace;margin-top:4px;transition:all 0.15s;align-self:flex-start;}
 .hint-toggle:hover{border-color:var(--yellow);color:var(--yellow);}
 .hint-line{font-size:12px;color:var(--yellow);line-height:1.5;margin-top:4px;padding:8px 12px;background:rgba(255,209,102,0.06);border-radius:7px;border-left:2px solid var(--yellow);display:none;}
@@ -1081,7 +1082,8 @@ function showQuestion() {
     const isMulti = answers.length > 1;
     const fillWrap = document.createElement('div');
     fillWrap.className = 'fill-wrap';
-    answers.forEach((_, i) => {
+    answers.forEach((ans, i) => {
+      const wordCount = ans.trim().split(/\s+/).length;
       const row = document.createElement('div');
       row.className = 'fill-row';
       if (isMulti) {
@@ -1098,6 +1100,10 @@ function showQuestion() {
       inp.addEventListener('keydown', e=>{ if(e.key==='Enter') submitTranslate(); });
       if (i===0) setTimeout(()=>inp.focus(), 100);
       row.appendChild(inp);
+      const wc = document.createElement('span');
+      wc.className = 'fill-wc';
+      wc.textContent = `${wordCount} 個字`;
+      row.appendChild(wc);
       fillWrap.appendChild(row);
     });
     container.appendChild(fillWrap);
