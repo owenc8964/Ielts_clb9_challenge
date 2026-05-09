@@ -1082,8 +1082,7 @@ function showQuestion() {
     const isMulti = answers.length > 1;
     const fillWrap = document.createElement('div');
     fillWrap.className = 'fill-wrap';
-    answers.forEach((ans, i) => {
-      const wordCount = ans.trim().split(/\s+/).length;
+    answers.forEach((_, i) => {
       const row = document.createElement('div');
       row.className = 'fill-row';
       if (isMulti) {
@@ -1100,23 +1099,31 @@ function showQuestion() {
       inp.addEventListener('keydown', e=>{ if(e.key==='Enter') submitTranslate(); });
       if (i===0) setTimeout(()=>inp.focus(), 100);
       row.appendChild(inp);
-      const wc = document.createElement('span');
-      wc.className = 'fill-wc';
-      wc.textContent = `${wordCount} 個字`;
-      row.appendChild(wc);
       fillWrap.appendChild(row);
     });
     container.appendChild(fillWrap);
-    // 提示：可折疊，預設收起
+    // 提示：字數 + 概念方向，預設收起
+    const hintToggle = document.createElement('button');
+    hintToggle.className = 'hint-toggle';
+    hintToggle.textContent = '💡 提示';
+    const hintLine = document.createElement('div');
+    hintLine.className = 'hint-line';
+    // 字數行：「第1格 2個字 ／ 第2格 3個字」
+    const wcParts = answers.map((ans, i) => {
+      const n = ans.trim().split(/\s+/).length;
+      return isMulti ? `第${i+1}格 ${n}個字` : `${n}個字`;
+    });
+    const wcLine = document.createElement('div');
+    wcLine.style.cssText = 'font-family:Space Mono,monospace;font-size:11px;color:var(--accent);margin-bottom:6px;';
+    wcLine.textContent = wcParts.join('　／　');
+    hintLine.appendChild(wcLine);
     if (q.hint) {
-      const hintToggle = document.createElement('button');
-      hintToggle.className = 'hint-toggle';
-      hintToggle.textContent = '💡 提示';
-      const hintLine = document.createElement('div');
-      hintLine.className = 'hint-line';
-      hintLine.textContent = q.hint;
-      hintToggle.onclick = () => hintLine.classList.toggle('show');
-      container.appendChild(hintToggle);
+      const hintText = document.createElement('div');
+      hintText.textContent = q.hint;
+      hintLine.appendChild(hintText);
+    }
+    hintToggle.onclick = () => hintLine.classList.toggle('show');
+    container.appendChild(hintToggle);
       container.appendChild(hintLine);
     }
     const btnSub = document.getElementById('btnSubmit');
