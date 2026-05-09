@@ -123,6 +123,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .phrase-input:disabled{opacity:0.7;}
 .template-box{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:14px 16px;font-size:15px;line-height:1.9;margin-bottom:10px;color:var(--text);border-left:3px solid var(--accent2);}
 .t-blank{display:inline-block;min-width:90px;border-bottom:2px solid var(--accent2);color:var(--accent2);font-weight:700;text-align:center;margin:0 3px;}
+.t-label{font-size:11px;color:var(--text2);background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1px 6px;margin-left:2px;vertical-align:middle;font-family:'Space Mono',monospace;letter-spacing:0.03em;}
 .btn-report{background:transparent;color:var(--text2);border:1px solid var(--border);border-radius:9px;padding:7px 14px;font-size:11px;cursor:pointer;font-family:'Space Mono',monospace;transition:all 0.12s;align-self:flex-start;}
 .btn-report:hover{border-color:var(--red);color:var(--red);}
 
@@ -307,8 +308,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
       <div class="mode-card" onclick="startMode('translate')">
         <div class="mode-icon">✍️</div>
-        <div class="mode-name">句型中翻英</div>
-        <div class="mode-desc">自己寫英文，對照 CLB 9 參考答案</div>
+        <div class="mode-name">情境填空</div>
+        <div class="mode-desc">看句子裝零件，練習主動提取 CLB 9 詞彙</div>
         <div class="mode-meta">
           <div class="mode-count">5 題</div>
           <div class="mode-acc" id="accTranslate">—</div>
@@ -852,7 +853,7 @@ function startMode(mode) {
   sessionCorrect = 0; sessionWrong = 0; sessionXP = 0;
   answered = false; currentIndex = 0; sessionTotal = 0;
 
-  const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'句型中翻英',clb9:'CLB9辨別',reading:'閱讀理解',task1:'Task 1 數據描述',task2:'Task 2 論文框架',review:'SRS 複習'};
+  const labels = {vocab:'單字配對',grammar:'文法挑錯',translate:'情境填空',clb9:'CLB9辨別',reading:'閱讀理解',task1:'Task 1 數據描述',task2:'Task 2 論文框架',review:'SRS 複習'};
   let modeLabel = labels[mode] || mode;
   if (mode === 'vocab' && selectedVocabCategory !== 'all') {
     const catLabel = (CAT_META[selectedVocabCategory]||{}).label || selectedVocabCategory;
@@ -1057,13 +1058,15 @@ function showQuestion() {
   }
 
   if (currentMode==='translate') {
-    // 顯示中文情境
-    document.getElementById('questionType').textContent = '填入關鍵片語';
-    document.getElementById('questionText').textContent = q.zh;
-    // 顯示英文模板
+    document.getElementById('questionType').textContent = '情境填空';
+    document.getElementById('questionText').textContent = ''; // 新格式：句子本身就是題目
+    // 解析 ___[中文標籤] 和 _____，轉成帶提示的空格
     const tplDiv = document.createElement('div');
     tplDiv.className = 'template-box';
-    const tplHtml = (q.template_en||'').replace(/_____/g, '<span class="t-blank">_____</span>');
+    const tplHtml = (q.template_en||'')
+      .replace(/___\[([^\]]+)\]/g,
+        '<span class="t-blank">___</span><span class="t-label">$1</span>')
+      .replace(/_____/g, '<span class="t-blank">_____</span>');
     tplDiv.innerHTML = tplHtml;
     container.appendChild(tplDiv);
     // 單行輸入框
