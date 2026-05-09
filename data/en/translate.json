@@ -2,175 +2,175 @@
   {
     "template_en": "Continued reliance on ___[化石燃料] will inevitably accelerate ___[環境惡化].",
     "key_answer": "fossil fuels / environmental degradation",
-    "hint": "第一空：煤炭石油的統稱（兩個詞）；第二空：environment + 名詞化",
+    "hint": "第一空：煤、石油、天然氣的統稱；第二空：描述環境品質整體下滑的名詞片語",
     "explanation": "fossil fuels 是能源議題必備詞；environmental degradation 比 damage to the environment 更學術。",
     "errorKey": "化石燃料惡化"
   },
   {
     "template_en": "Governments must ___[分配] greater resources toward renewable energy to ensure long-term ___[永續性].",
     "key_answer": "allocate / sustainability",
-    "hint": "第一空：比 invest/give 更精準的資源分配動詞；第二空：sustainable 的名詞形",
+    "hint": "第一空：比 invest 或 give 更精準的「資源分配」動詞；第二空：描述一個系統能長期維持下去的特質（名詞）",
     "explanation": "allocate resources 是政策議題固定搭配；sustainability 是環境／經濟議題必備名詞。",
     "errorKey": "分配永續"
   },
   {
     "template_en": "The mass ___[湧入] of commuters has created severe traffic ___[癱瘓] in the city centre.",
     "key_answer": "influx / gridlock",
-    "hint": "第一空：大量湧入的名詞；第二空：比 traffic jam 更學術的交通停滯詞",
+    "hint": "第一空：大量人潮同時進入某地的名詞；第二空：比 traffic jam 更學術的交通完全停滯狀態",
     "explanation": "a massive influx of 是城市議題高頻搭配；traffic gridlock 比 traffic jam 更正式有力。",
     "errorKey": "湧入癱瘓"
   },
   {
     "template_en": "Prolonged ___[薪資停滯] has significantly eroded the ___[購買力] of middle-income households.",
     "key_answer": "wage stagnation / purchasing power",
-    "hint": "第一空：wage + 停滯（名詞）；第二空：purchase 的名詞形 + power",
+    "hint": "第一空：描述薪資長時間沒有成長的現象（兩個詞）；第二空：衡量消費者實際能買多少東西的能力（兩個詞）",
     "explanation": "wage stagnation 是勞動市場必備詞；erode purchasing power 是固定搭配，用 erode 而不是 reduce。",
     "errorKey": "薪資購買力"
   },
   {
     "template_en": "The rise of ___[零工經濟] has created ___[結構性挑戰] for traditional labour protection systems.",
     "key_answer": "the gig economy / structural challenges",
-    "hint": "第一空：接零散案子的新型態工作經濟（三個詞）；第二空：不說 big problems",
+    "hint": "第一空：靠接零散案子維生的新型態工作經濟（三個詞）；第二空：根源於體制本身、不是表面問題的挑戰",
     "explanation": "the gig economy 是當代勞動議題核心詞；structural challenges 比 serious problems 高一個層次。",
     "errorKey": "零工結構"
   },
   {
     "template_en": "If left entirely to market forces, the capital market will ___[加劇惡化] ___[階級固化] over time.",
     "key_answer": "exacerbate / social stratification",
-    "hint": "第一空：比 worsen 更學術的動詞；第二空：social + 階層固化名詞（兩個詞）",
+    "hint": "第一空：比 worsen 更學術的「使問題更嚴重」動詞；第二空：描述階層之間固定化、難以流動的社會現象（兩個詞）",
     "explanation": "exacerbate 是 CLB9 必備動詞；social stratification 比 class divide 更學術。",
     "errorKey": "資本市場"
   },
   {
     "template_en": "Remote work can ___[緩解] ___[固定營運成本] associated with office rentals and utilities.",
     "key_answer": "alleviate / overhead costs",
-    "hint": "第一空：緩解壓力的動詞（不是 reduce）；第二空：租金水電等固定支出的學術詞（兩個詞）",
+    "hint": "第一空：緩解壓力或負擔的動詞，不是 reduce；第二空：租金、水電這類固定支出的商業術語（兩個詞）",
     "explanation": "alleviate 搭配 overhead costs 是遠距工作議題的標準句型。",
     "errorKey": "遠距成本"
   },
   {
     "template_en": "AI will ___[使] a massive number of current occupations ___[過時的].",
     "key_answer": "render / obsolete",
-    "hint": "第一空：使某物變成某狀態的動詞（不是 make）；第二空：不再被需要的形容詞",
+    "hint": "第一空：使某物進入某種狀態的動詞，不是 make；第二空：因為新技術而不再被需要的形容詞",
     "explanation": "render + 受詞 + obsolete 是固定搭配，比 make jobs disappear 精準有力。",
     "errorKey": "render obsolete"
   },
   {
     "template_en": "The ___[擴散] of misinformation has ___[侵蝕] public trust in scientific institutions.",
     "key_answer": "proliferation / eroded",
-    "hint": "第一空：大量快速蔓延的名詞；第二空：逐漸侵蝕（過去式），不是突然破壞",
+    "hint": "第一空：某事物大量快速蔓延的名詞（常搭配 of）；第二空：逐漸、緩慢地破壞（過去式），像水侵蝕岩石",
     "explanation": "the proliferation of 是 CLB9 科技議題高頻片語；erode trust 是固定搭配。",
     "errorKey": "擴散侵蝕"
   },
   {
     "template_en": "Without regulation, ___[演算法偏見] may ___[加劇] existing inequalities, disproportionately affecting marginalised groups.",
     "key_answer": "algorithmic bias / exacerbate",
-    "hint": "第一空：AI 系統中的系統性偏差（兩個詞）；第二空：使不平等更嚴重的動詞",
+    "hint": "第一空：AI 系統中因訓練資料不均而產生的系統性偏差（兩個詞）；第二空：使已有問題更嚴重的動詞",
     "explanation": "algorithmic bias 是 AI 議題必備詞；exacerbate inequalities 是固定搭配。",
     "errorKey": "演算法加劇"
   },
   {
     "template_en": "The ___[平民化] of information ___[賦權] patients to take a more active role in their health management.",
     "key_answer": "democratization / empowers",
-    "hint": "第一空：讓原本少數人有的東西普及化的名詞；第二空：賦予能力／權力的動詞（現在式）",
+    "hint": "第一空：讓原本只有少數人才能取得的東西變得人人可及的名詞；第二空：賦予某人能力和主導權的動詞，不只是 help",
     "explanation": "democratization of information 是 CLB9 必備片語；empower 比 allow 或 help 更有力。",
     "errorKey": "democratization轉化"
   },
   {
     "template_en": "An overemphasis on ___[標準化測驗] tends to ___[削弱] students' capacity for ___[批判性思考].",
     "key_answer": "standardized testing / undermine / critical thinking",
-    "hint": "第一空：統一考試制度（兩個詞）；第二空：暗中削弱（非直接破壞）；第三空：獨立分析的思考能力（兩個詞）",
+    "hint": "第一空：全國統一評分標準的考試制度（兩個詞）；第二空：暗中逐漸削弱某個正向事物，不是直接破壞；第三空：獨立分析與評估論點的思考能力（兩個詞）",
     "explanation": "三個詞組合是教育議題 CLB9 段落的核心句型。undermine 強調漸進式削弱，比 weaken 更學術。",
     "errorKey": "測驗削弱思考"
   },
   {
     "template_en": "Schools should ___[培養] ___[求知欲] rather than training students purely for examinations.",
     "key_answer": "cultivate / intellectual curiosity",
-    "hint": "第一空：比 develop 或 train 更學術的培養動詞；第二空：對知識本身的好奇心（兩個詞）",
+    "hint": "第一空：比 develop 或 train 更有深度的「培育」動詞；第二空：對知識本身感到好奇、想主動探索的渴望（兩個詞）",
     "explanation": "cultivate intellectual curiosity 是教育議題 CLB9 必備搭配，展示教育的更高目標。",
     "errorKey": "培養求知"
   },
   {
     "template_en": "Vocational training should be recognised as equally ___[值得肯定的] as academic pathways, helping diversify the skilled ___[勞動力].",
     "key_answer": "commendable / workforce",
-    "hint": "第一空：值得稱讚、肯定的形容詞（比 good 高一層）；第二空：整體勞動人口的名詞",
+    "hint": "第一空：值得被社會認可與稱讚的形容詞，比 good 高一層；第二空：整個社會中所有工作人口的統稱",
     "explanation": "commendable 替代 good/great；workforce 比 workers 更學術正式。",
     "errorKey": "技職勞動"
   },
   {
     "template_en": "A ___[久坐不動的] lifestyle has been directly linked to rising ___[慢性病] rates and declining life expectancy.",
     "key_answer": "sedentary / chronic disease",
-    "hint": "第一空：整天坐著不活動的形容詞；第二空：長期持續性疾病（兩個詞）",
+    "hint": "第一空：整天坐著、缺乏身體活動的形容詞；第二空：長期持續、不容易治癒的疾病類型（兩個詞）",
     "explanation": "sedentary lifestyle 是健康議題必備搭配；chronic disease 比 long-term illness 更醫學正式。",
     "errorKey": "久坐慢性病"
   },
   {
     "template_en": "Dismissing early symptoms as ___[微不足道的] ailments can lead to dangerous ___[誤診] with severe consequences.",
     "key_answer": "trivial / misdiagnosis",
-    "hint": "第一空：微不足道、不重要的形容詞；第二空：診斷錯誤的名詞",
-    "explanation": "trivial 比 minor 更精準；misdiagnosis 是健康／科技議題必備詞，強調危險性。",
+    "hint": "第一空：輕微到不值得重視的形容詞；第二空：醫生對病情做出錯誤判斷的名詞",
+    "explanation": "trivial 比 minor 更精準；misdiagnosis 是健康議題必備詞，強調危險性。",
     "errorKey": "trivial誤診"
   },
   {
     "template_en": "Investing in ___[預防性醫療] is far more cost-effective than relying on ___[傳聞的] remedies and self-diagnosis.",
     "key_answer": "preventive healthcare / anecdotal",
-    "hint": "第一空：事先預防的醫療體系（兩個詞）；第二空：沒有科學根據、只靠個人經驗的形容詞",
+    "hint": "第一空：著重在疾病發生前就介入的醫療模式（兩個詞）；第二空：只來自個人經驗、缺乏科學實證支持的形容詞",
     "explanation": "preventive healthcare 是醫療政策必備詞；anecdotal remedies 強調缺乏實證，是 CLB9 批判句型。",
     "errorKey": "預防傳聞"
   },
   {
     "template_en": "A purely punitive system that ignores ___[更生] risks driving up ___[再犯率] and deepening social division.",
     "key_answer": "rehabilitation / recidivism",
-    "hint": "第一空：讓犯人重新融入社會的過程；第二空：再次犯罪的比率",
+    "hint": "第一空：幫助犯人改過、重新融入社會的過程；第二空：出獄後再次犯罪的比率（學術詞）",
     "explanation": "rehabilitation vs. punishment 是刑事司法議題的核心對比；recidivism 是 CLB9 司法議題必備詞。",
     "errorKey": "更生再犯"
   },
   {
     "template_en": "Excessive state control risks creating a ___[保姆國家] that fundamentally ___[侵蝕] individual ___[自主權].",
     "key_answer": "nanny state / erodes / autonomy",
-    "hint": "第一空：過度保護的政府（固定片語兩個詞）；第二空：逐漸侵蝕（現在式）；第三空：個人自我決定的權利",
+    "hint": "第一空：形容政府過度干涉人民生活、像保姆一樣的固定片語（兩個詞）；第二空：像水侵蝕石頭般緩慢破壞；第三空：個人有權為自己做決定的權利",
     "explanation": "nanny state 是批評過度政府干預的標準詞；erode autonomy 是固定搭配。",
     "errorKey": "保姆侵蝕自主"
   },
   {
     "template_en": "Policies that ignore ___[社會流動性] will inevitably ___[削弱] ___[社會凝聚力] over time.",
     "key_answer": "social mobility / undermine / social cohesion",
-    "hint": "第一空：階層間向上流動的能力（兩個詞）；第二空：暗中削弱（非 exacerbate）；第三空：社會成員的凝聚與團結（兩個詞）",
-    "explanation": "三詞組合是社會議題 CLB9 段落的典型用法。注意 undermine 和 exacerbate 的差異：undermine = 削弱某個正向事物；exacerbate = 加劇某個負向問題。",
+    "hint": "第一空：個人或家庭跨越社會階層向上或向下移動的能力（兩個詞）；第二空：暗中逐漸削弱某個正向事物（注意：不是 exacerbate）；第三空：社會成員之間相互信任、凝聚在一起的狀態（兩個詞）",
+    "explanation": "注意 undermine（削弱正向事物）vs exacerbate（加劇負向問題）的差異，是 CLB9 辨別考點。",
     "errorKey": "流動凝聚"
   },
   {
-    "template_en": "___[More and more →] young graduates are choosing vocational training over traditional university degrees.",
+    "template_en": "___[more and more →] young graduates are choosing vocational training over traditional university degrees.",
     "key_answer": "Increasingly",
-    "hint": "一個副詞替換 'more and more'，放句首後面句子語序不變",
-    "explanation": "Increasingly 是最常被考的口語升級詞之一，放句首即可，不需要改動後面句子結構。",
+    "hint": "一個副詞，替換掉口語化的 more and more，放句首後面語序不變",
+    "explanation": "Increasingly 是最常被考的口語升級詞，放句首即可，不需改動後面句子結構。",
     "errorKey": "increasingly"
   },
   {
     "template_en": "Climate change, if left unaddressed, will ___[get worse →] existing economic ___[differences →] between nations.",
     "key_answer": "exacerbate / disparities",
-    "hint": "第一空：不用 worsen，用更學術的動詞；第二空：不用 differences，強調不公平差距的名詞",
+    "hint": "第一空：比 worsen 更學術的「使問題加劇」動詞；第二空：強調不公平、結構性差距的名詞，不是中性的 differences",
     "explanation": "exacerbate 取代 worsen；disparities 取代 differences，強調不公平的結構性差距。",
     "errorKey": "升級惡化差距"
   },
   {
     "template_en": "The government must ___[use →] every available tool to ___[help →] those most vulnerable to automation.",
     "key_answer": "employ / empower",
-    "hint": "第一空：比 use 更正式的「運用」動詞；第二空：不只是幫助，而是賦予能力",
+    "hint": "第一空：比 use 更正式的「運用、採用」動詞（這個詞也可以指「雇用」）；第二空：不只是幫助，而是賦予對方主動改變自身處境的能力",
     "explanation": "employ（運用）比 use 更正式；empower 強調給予能動性，比 help 高一個層次。",
     "errorKey": "升級使用賦權"
   },
   {
     "template_en": "While urban populations ___[激增] throughout the period, rural areas experienced ___[緩慢遲滯的] but steady decline.",
     "key_answer": "surged / sluggish",
-    "hint": "第一空：急速上升的動詞（過去式）；第二空：緩慢遲滯的形容詞（比 slow 更學術）",
+    "hint": "第一空：急速大幅上升的動詞（過去式），比 increased 更有力；第二空：形容成長速度非常緩慢、像陷在泥沼的形容詞",
     "explanation": "surged 比 increased rapidly 更簡潔有力；sluggish 是 Task 1 必備形容詞，比 slow 精準。",
     "errorKey": "激增遲滯"
   },
   {
     "template_en": "Foreign investment, which ___[佔] nearly 40% of GDP, began to ___[趨於平穩] after the 2015 policy shift.",
     "key_answer": "accounted for / plateau",
-    "hint": "第一空：佔某比例的固定動詞片語（三個詞）；第二空：成長停止趨於穩定的動詞",
+    "hint": "第一空：表示某數字「佔」某比例的固定動詞片語（三個詞）；第二空：成長到某點之後停止、維持水平的動詞",
     "explanation": "accounted for 是 Task 1 比例表達必備片語；plateau 比 became stable 更精準，暗示之前有明顯成長。",
     "errorKey": "佔比平穩"
   }
