@@ -229,5 +229,83 @@
     "hint": "第一空：描述產品使用結束後如何負責任地處置的管理機制，三個詞；第二空：從生產製造到最終廢棄，涵蓋一個產品完整存在過程的名詞",
     "explanation": "end-of-life management（或 disposal）是循環經濟必備詞彙；the entire lifecycle of these products 是 Day 17 練到的語塊，兩者一起出現在廢棄物議題最有力。",
     "errorKey": "end-of-life lifecycle"
+  },
+
+  {
+    "template_en": "___[Point 萬用開頭] standardised testing has done more harm than good to students' long-term intellectual development.",
+    "key_answer": "A compelling case can be made that",
+    "hint": "CLB9 Point 句的萬用開頭，取代 I think / It is clear that。共 7 個字。",
+    "explanation": "[Point 開頭] A compelling case can be made that... 表示「有充分理由支持以下觀點」，比 I believe 高兩個層次，且不帶主觀色彩，更學術。整串背起來直接用。",
+    "errorKey": "compelling case"
+  },
+  {
+    "template_en": "The widening income gap between urban and rural populations ___[值得嚴肅對待], as it threatens long-term social stability.",
+    "key_answer": "warrants serious consideration",
+    "hint": "動詞片語，表示某議題重要到必須認真對待。warrants = 值得、需要。共 3 個字。",
+    "explanation": "[Point 點出重要性] warrants serious consideration 是 CLB9 點出議題份量的固定語塊，比 is important / needs attention 強很多。主詞可以是任何社會問題。",
+    "errorKey": "warrants consideration"
+  },
+  {
+    "template_en": "The surge in youth unemployment ___[可歸因於] two converging forces: rapid automation and an education system misaligned with market needs.",
+    "key_answer": "can be attributed to",
+    "hint": "CLB9 Explain 句的歸因公式，比 is caused by 更學術。共 4 個字。",
+    "explanation": "[Explain 歸因] can be attributed to 是解釋根本原因的標準句型。後面接名詞或名詞片語，不接子句（接子句用 the fact that）。整串記。",
+    "errorKey": "attributed to"
+  },
+  {
+    "template_en": "When workers are displaced without retraining support, this ___[必然導致] structural unemployment, ___[進而引發] a broader erosion of the middle class.",
+    "key_answer": "inevitably leads to / consequently giving rise to",
+    "hint": "第一空：強調結果必然發生的動詞片語，3 個字；第二空：承接前句、描述連鎖後果的分詞構句，4 個字",
+    "explanation": "[Explain 連鎖因果] inevitably leads to 強調必然性；consequently giving rise to 是分詞構句，把兩個因果連成一氣，避免重複用 and / which。整組是 CLB9 解釋段的連環炮。",
+    "errorKey": "inevitably giving rise"
+  },
+  {
+    "template_en": "___[引入有力例子的萬用句首] Finland, where educational reform prioritising critical thinking over rote learning has consistently produced top-ranking graduates.",
+    "key_answer": "A striking example of this is",
+    "hint": "Example 段的萬用開頭，比 For example 強很多。striking = 令人印象深刻的。共 6 個字。",
+    "explanation": "[Example 引例] A striking example of this is + 地名/人名/事件，是 CLB9 引入具體例子最乾淨的句式。striking 強調這個例子特別有說服力，不能換成 good 或 clear。",
+    "errorKey": "striking example"
+  },
+  {
+    "template_en": "___[引用研究的萬用句首] countries investing heavily in preventive healthcare ultimately spend less on acute medical treatment per capita.",
+    "key_answer": "Studies have consistently shown that",
+    "hint": "引用研究佐證的固定句首，consistently 強調結論跨多項研究都成立。共 5 個字。",
+    "explanation": "[Example 引研究] Studies have consistently shown that 是 IELTS 引用數據/研究的萬用句首。consistently 是關鍵字，表示「不只一次、跨研究都這樣」，去掉它就降一個等級。",
+    "errorKey": "consistently shown"
+  },
+  {
+    "template_en": "___[推向更大意義的升維句首], this reflects a deeper question — whether technological progress should serve ___[利潤邏輯] or human well-being.",
+    "key_answer": "Beyond the immediate impact / profit motives",
+    "hint": "第一空：Link 段的升維開頭，從直接影響推向更大意義，4 個字；第二空：描述以商業利益為優先考量的名詞片語，2 個字",
+    "explanation": "[Link 升維] Beyond the immediate impact 是 CLB9 Link 句把論點從表面推向象徵意義的固定起手式；profit motives 比 making money 更學術，指驅動決策的利潤動機。",
+    "errorKey": "beyond immediate impact"
+  },
+  {
+    "template_en": "___[讓步承認], stricter surveillance may deter crime in the short term. ___[反駁：但這忽略了] mass monitoring fundamentally erodes civil liberties.",
+    "key_answer": "Admittedly / However, this overlooks the fact that",
+    "hint": "第一空：CLB9 讓步詞首選，比 Although 更誠懇，1 個字；第二空：反駁讓步的學術套語，6 個字",
+    "explanation": "[Concession + Counter] Admittedly 開讓步，However, this overlooks the fact that 緊接反駁——這是 CLB9 讓步段的黃金配對，整組記。overlooks 比 ignores 更客觀，暗示對方不是惡意而是視野有限。",
+    "errorKey": "admittedly overlooks"
+  },
+  {
+    "template_en": "___[強調關鍵發現的倒裝句首] that despite decades of gender equality legislation, the wage gap ___[頑固持續存在] in virtually every sector.",
+    "key_answer": "What is particularly noteworthy is / persists",
+    "hint": "第一空：CLB9 強調句的倒裝開頭，比 importantly 更有焦點感，5 個字；第二空：描述問題長期存在、難以消除的不及物動詞，1 個字",
+    "explanation": "[Emphasis] What is particularly noteworthy is 是倒裝強調句，把焦點凝聚在最關鍵的發現上。persists 是 CLB9 強調問題持續性的動詞（問題 persists，不說 problem continues to exist）。",
+    "errorKey": "noteworthy persists"
+  },
+  {
+    "template_en": "___[結論的最終判斷], the most effective solutions to urban congestion lie not in punitive measures, but in redesigning cities to ___[以人為本].",
+    "key_answer": "Ultimately / prioritise human needs",
+    "hint": "第一空：結論段最常用的收尾詞，表示「歸根結底」，1 個字；第二空：描述把人的需求放在設計核心的動詞片語，3 個字",
+    "explanation": "[Conclusion] Ultimately 是結論段首選收尾詞，比 In conclusion / To sum up 更流暢自然；prioritise human needs（或 centre on human needs）是城市規劃論點的升維結尾，把討論從技術層面推向價值層面。",
+    "errorKey": "ultimately prioritise"
+  },
+  {
+    "template_en": "The question is therefore not ___[是否要管制社群媒體], but ___[是否有足夠的政治意志] to enforce such regulation without compromising freedom of expression.",
+    "key_answer": "whether to regulate social media / whether there is sufficient political will",
+    "hint": "第一空：CLB9 結論升維的前半，把問題從「是否做」轉向更深層，5 個字；第二空：完成升維、指出真正挑戰的後半，6 個字",
+    "explanation": "[Conclusion 最高境界] The question is therefore not whether X, but whether Y 是 CLB9 頂級收尾——不直接給答案，而是把討論昇華為更深層的問題。political will（政治意志）是政策議題的高頻詞，表示執行決心，不是能力問題。",
+    "errorKey": "not whether but whether"
   }
 ]
