@@ -364,6 +364,15 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
           <div class="mode-acc" id="accReading">—</div>
         </div>
       </div>
+      <div class="mode-card wide" onclick="showUnlockCatPicker()">
+        <div class="mode-icon">🃏</div>
+        <div class="mode-name">主題開箱</div>
+        <div class="mode-desc">選一個主題，先回憶再翻牌，標出還不熟的詞</div>
+        <div class="mode-meta">
+          <div class="mode-count">翻牌自評</div>
+          <div class="mode-acc" style="color:var(--accent2)">Production</div>
+        </div>
+      </div>
     </div>
 
     <!-- WRITING SECTION -->
@@ -467,6 +476,57 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
     <div class="btn-group">
       <button class="btn-outline" onclick="goHome()">回首頁</button>
       <button class="btn-primary" onclick="retryMode()">再練一次</button>
+    </div>
+  </div>
+
+  <!-- UNLOCK -->
+  <div class="screen" id="unlockScreen">
+    <div style="height:14px"></div>
+    <div class="quiz-meta">
+      <div class="quiz-mode-label" id="unlockModeLabel">主題開箱</div>
+      <div class="progress-wrap"><div class="progress-bar" id="unlockProgressBar" style="width:0%"></div></div>
+      <div class="quiz-num" id="unlockNum">1/13</div>
+    </div>
+    <div class="unlock-card">
+      <div class="unlock-front" id="unlockFront">
+        <div class="unlock-zh" id="unlockZh"></div>
+        <div class="unlock-think">先在腦中回憶...</div>
+      </div>
+      <div class="unlock-back" id="unlockBack">
+        <div class="unlock-en" id="unlockEn"></div>
+        <div class="unlock-note" id="unlockNote"></div>
+      </div>
+    </div>
+    <div class="unlock-actions">
+      <button class="btn-reveal" id="btnReveal" onclick="revealCard()">翻牌 →</button>
+      <div class="self-eval-btns" id="selfEvalBtns">
+        <button class="btn-knew" onclick="evalCard(true)">✅ 有想到</button>
+        <button class="btn-didnt" onclick="evalCard(false)">❌ 沒想到</button>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <button class="btn-abandon" onclick="abandonUnlock()">放棄開箱</button>
+    </div>
+  </div>
+
+  <!-- UNLOCK RESULT -->
+  <div class="screen" id="unlockResultScreen">
+    <div style="height:20px"></div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text2);text-align:center;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em;">開箱完成</div>
+    <div style="display:flex;justify-content:center;gap:40px;margin-bottom:20px;">
+      <div style="text-align:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:44px;font-weight:700;color:var(--green)" id="unlockResultKnew">0</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:4px;">✅ 有想到</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:44px;font-weight:700;color:var(--red)" id="unlockResultMissed">0</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:4px;">❌ 沒想到</div>
+      </div>
+    </div>
+    <div id="unlockMissedSection"></div>
+    <div class="btn-group" style="margin-top:16px;">
+      <button class="btn-outline" onclick="goHome()">回首頁</button>
+      <button class="btn-primary" onclick="retryUnlock()">再開一次</button>
     </div>
   </div>
 
@@ -1378,10 +1438,130 @@ function goHome() {
 function retryMode() { startMode(currentMode); }
 
 function showScreen(id) {
-  ['homeScreen','quizScreen','resultScreen'].forEach(s=>{
+  ['homeScreen','quizScreen','resultScreen','unlockScreen','unlockResultScreen'].forEach(s=>{
     document.getElementById(s).classList.toggle('active',s===id);
   });
 }
+
+// ── UNLOCK MODE (主題開箱) ────────────────────────────────
+let unlockDeck = [];
+let unlockIndex = 0;
+let unlockKnew = [];
+let unlockMissed = [];
+let selectedUnlockCategory = '';
+
+function showUnlockCatPicker() {
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+  document.querySelector('.cat-sheet-title').textContent = '🃏 主題開箱 — 選擇分類';
+  document.querySelector('.cat-sheet-sub').textContent = '選一個主題，先回憶再翻牌，標出你還不熟的詞';
+
+  const cats = ['environment','economy','technology','education','health','society','task1','spoken_upgrade','peel','general'];
+  cats.forEach(cat => {
+    const count = VOCAB_DATA.filter(v => v.category === cat).length;
+    if (!count) return;
+    const m = CAT_META[cat];
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.innerHTML = `<div>${m.label}</div><div class="cat-count">${count} 個詞 · ${m.desc}</div>`;
+    btn.onclick = () => startUnlock(cat);
+    grid.appendChild(btn);
+  });
+
+  document.getElementById('catOverlay').classList.add('show');
+}
+
+function startUnlock(cat) {
+  document.getElementById('catOverlay').classList.remove('show');
+  selectedUnlockCategory = cat;
+
+  const catLabel = (CAT_META[cat]||{}).label || cat;
+  document.getElementById('unlockModeLabel').textContent = `開箱 · ${catLabel}`;
+
+  unlockDeck = shuffle(VOCAB_DATA.filter(v => v.category === cat));
+  unlockIndex = 0;
+  unlockKnew = [];
+  unlockMissed = [];
+
+  showScreen('unlockScreen');
+  showUnlockCard();
+}
+
+function showUnlockCard() {
+  const item = unlockDeck[unlockIndex];
+  const total = unlockDeck.length;
+
+  document.getElementById('unlockProgressBar').style.width = (unlockIndex/total*100)+'%';
+  document.getElementById('unlockNum').textContent = (unlockIndex+1)+'/'+total;
+  document.getElementById('unlockZh').textContent = item.zh;
+  document.getElementById('unlockEn').textContent = item.en;
+  document.getElementById('unlockNote').textContent = item.note || '';
+
+  document.getElementById('unlockFront').style.display = 'flex';
+  document.getElementById('unlockBack').style.display = 'none';
+  document.getElementById('btnReveal').style.display = 'block';
+  document.getElementById('selfEvalBtns').style.display = 'none';
+}
+
+function revealCard() {
+  document.getElementById('unlockFront').style.display = 'none';
+  document.getElementById('unlockBack').style.display = 'flex';
+  document.getElementById('btnReveal').style.display = 'none';
+  document.getElementById('selfEvalBtns').style.display = 'flex';
+}
+
+function evalCard(knew) {
+  const item = unlockDeck[unlockIndex];
+  const srs = loadSRS();
+  if (knew) {
+    unlockKnew.push(item);
+    if (srs[item.zh]) { srs[item.zh].productionDue = false; saveSRS(srs); }
+  } else {
+    unlockMissed.push(item);
+    if (!srs[item.zh]) srs[item.zh] = { interval: 0, ease: 2.5, reps: 0 };
+    srs[item.zh].productionDue = true;
+    saveSRS(srs);
+  }
+
+  unlockIndex++;
+  if (unlockIndex >= unlockDeck.length) showUnlockResult();
+  else showUnlockCard();
+}
+
+function showUnlockResult() {
+  document.getElementById('unlockResultKnew').textContent = unlockKnew.length;
+  document.getElementById('unlockResultMissed').textContent = unlockMissed.length;
+
+  const section = document.getElementById('unlockMissedSection');
+  if (unlockMissed.length > 0) {
+    section.innerHTML = `<div class="unlock-missed-list">
+      <div class="unlock-missed-title">❌ 沒想到的詞（已標記加強）</div>
+      ${unlockMissed.map(item => `
+        <div class="unlock-missed-item">
+          <span>${item.zh}</span>
+          <span class="unlock-missed-en">${item.en}</span>
+        </div>`).join('')}
+    </div>`;
+  } else {
+    section.innerHTML = '<div style="text-align:center;color:var(--green);font-size:15px;font-weight:700;margin:16px 0">🏆 全部都有想到！</div>';
+  }
+
+  const xpEarned = unlockKnew.length * 5;
+  if (xpEarned > 0) {
+    store.xp += xpEarned;
+    saveStore();
+    updateXPBar();
+    showXPPop(xpEarned);
+  }
+
+  showScreen('unlockResultScreen');
+}
+
+function abandonUnlock() {
+  if (confirm('確定放棄開箱？')) goHome();
+}
+
+function retryUnlock() { startUnlock(selectedUnlockCategory); }
 
 // ── INIT ─────────────────────────────────────────────────
 loadAllData().then(() => {
