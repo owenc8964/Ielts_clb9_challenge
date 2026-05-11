@@ -173,5 +173,61 @@
     "hint": "第一空：表示某數字佔某比例的固定動詞片語；第二空：成長到某點之後停止、維持水平的動詞",
     "explanation": "accounted for 是 Task 1 比例表達必備片語；plateau 比「趨於穩定」更精準，暗示之前有明顯成長。",
     "errorKey": "佔比平穩"
+  },
+  {
+    "template_en": "If implemented without sufficient planning, this policy might prove ___[反效果的] and ___[加劇] the very inequality it aims to solve.",
+    "key_answer": "counterproductive / exacerbate",
+    "hint": "第一空：比 useless 高一層，帶有「結果與本意相反」含義的形容詞；第二空：使問題更嚴重的學術動詞，後接受詞",
+    "explanation": "prove counterproductive 是固定搭配（不說 be counterproductive）；exacerbate the very problems it aims to solve 是 CLB9 反向影響句的萬用結尾，記住整組。",
+    "errorKey": "counterproductive exacerbate"
+  },
+  {
+    "template_en": "Both corporations and individuals must ___[優先考量] environmental sustainability ___[高於] short-term convenience.",
+    "key_answer": "prioritize / over",
+    "hint": "第一空：表示「把A置於更重要位置」的動詞，取捨邏輯必備；第二空：一個介系詞，構成固定結構 prioritize A ___ B",
+    "explanation": "prioritize A over B 是 CLB9 取捨邏輯的萬用句型，取代口語化的「care about A but ignore B」。結構固定，直接背整組。",
+    "errorKey": "prioritize over"
+  },
+  {
+    "template_en": "If consumers blindly ___[屈服於] a ___[物質主義的] culture, the throwaway mentality will only intensify.",
+    "key_answer": "succumb to / materialistic",
+    "hint": "第一空：表示抵抗不住誘惑而屈服的動詞片語，後接名詞；第二空：形容以物質財富為核心價值觀的形容詞",
+    "explanation": "blindly succumb to 強調「不加反思地屈服」；materialistic 比 money-driven 或 consumer-oriented 更精準，描述一種以物質定義成功的文化取向。",
+    "errorKey": "succumb materialistic"
+  },
+  {
+    "template_en": "Empowering citizens with stable housing will ___[培育] a healthier, more ___[具凝聚力的] society for future generations.",
+    "key_answer": "foster / cohesive",
+    "hint": "第一空：比 create 或 build 更有「逐步培育」含義的動詞；第二空：描述社會成員緊密連結、不分裂的形容詞，來自 cohesion",
+    "explanation": "foster a cohesive society 是 CLB9 收尾的高頻語塊；cohesive 源自 social cohesion（社會凝聚力），這兩個詞要一起記。",
+    "errorKey": "foster cohesive"
+  },
+  {
+    "template_en": "The real challenge ___[關鍵不在於] whether to implement this policy, but ___[而在於] how resources can be equitably distributed.",
+    "key_answer": "lies not in / in",
+    "hint": "第一空：CLB9 收尾的升維公式核心，表達「挑戰的本質不是...」，3個詞；第二空：承接 but 的單一介系詞，完成「不是X，而是Y」的對照結構",
+    "explanation": "The real challenge lies not in X, but in Y 是 CLB9 收尾的升維模板，把討論從表面選擇推向更深層問題。lies 是動詞（位於、在於），不是「說謊」。",
+    "errorKey": "lies not in"
+  },
+  {
+    "template_en": "By treating housing as a basic ___[人民應有的權利], governments take ___[積極主動的干預] rather than waiting for crises to worsen.",
+    "key_answer": "right / proactive intervention",
+    "hint": "第一空：指在道德或法律上本應享有的事物，最簡單的一個詞；第二空：描述主動出擊而非被動回應的政策行動，兩個詞",
+    "explanation": "treat X as a basic right 是政策論點的有力框架；proactive intervention 是 CLB9 政策議題的核心語塊，比 active measures 更學術。",
+    "errorKey": "right proactive"
+  },
+  {
+    "template_en": "In traditional classrooms, students learn to ___[分配任務] and work as a ___[團結一致的力量], skills that virtual platforms struggle to replicate.",
+    "key_answer": "allocate tasks / unified force",
+    "hint": "第一空：把工作責任分派給不同成員的動詞片語，兩個詞；第二空：形容團隊方向一致、緊密合作的固定名詞片語，兩個詞",
+    "explanation": "allocate tasks 是分工合作的精準用詞（比 divide work 更學術）；work as a unified force 是 CLB9 課堂互動的萬用語塊，整組記。",
+    "errorKey": "unified force"
+  },
+  {
+    "template_en": "Governments must enforce proper ___[廢棄物後處理] for consumer goods, ensuring the entire ___[生命週期] of products does not burden the planet.",
+    "key_answer": "end-of-life management / lifecycle",
+    "hint": "第一空：描述產品使用結束後如何負責任地處置的管理機制，三個詞；第二空：從生產製造到最終廢棄，涵蓋一個產品完整存在過程的名詞",
+    "explanation": "end-of-life management（或 disposal）是循環經濟必備詞彙；the entire lifecycle of these products 是 Day 17 練到的語塊，兩者一起出現在廢棄物議題最有力。",
+    "errorKey": "end-of-life lifecycle"
   }
 ]

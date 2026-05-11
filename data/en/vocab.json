@@ -153,6 +153,10 @@
   {"zh":"increase → 增加（學術）","en":"escalate / surge / intensify","note":"escalate = 逐步升高；surge = 急速；intensify = 加劇","category":"spoken_upgrade","distractors":["go up","rise sharply","become greater"]},
   {"zh":"reduce → 減少（學術）","en":"curtail / diminish","note":"curtail spending；diminish confidence","category":"spoken_upgrade","distractors":["lower","cut down","make less"]},
   {"zh":"start → 引起／促成","en":"initiate / give rise to / prompt","note":"initiate reform；give rise to concerns；prompt action","category":"spoken_upgrade","distractors":["begin","kick off","set off"]},
+  {"zh":"fabricate items with low cost → 精準語塊","en":"mass-produce low-cost garments","note":"解釋型冗贅的 CLB9 覆寫：停止解釋，用複合形容詞+名詞","category":"spoken_upgrade","distractors":["produce many cheap items","manufacture affordable clothing","make low-priced products"]},
+  {"zh":"find a doctor → 正式就醫","en":"consult a physician","note":"consult 比 see/find 更正式；physician 比 doctor 更學術","category":"spoken_upgrade","distractors":["see a doctor","visit a hospital","seek medical help"]},
+  {"zh":"share the cost → 補貼分攤","en":"subsidize / offset the cost","note":"subsidize = 政府補貼；offset = 抵銷；兩個用途不同","category":"spoken_upgrade","distractors":["split the bill","reduce the price","share expenses"]},
+  {"zh":"lead to wrong direction → 誤導偏離","en":"lead someone astray","note":"固定搭配；astray = 偏離正軌、走錯路","category":"spoken_upgrade","distractors":["mislead people","cause confusion","point in the wrong direction"]},
 
   {"zh":"[Point] 提出核心論點","en":"A compelling case can be made that / It is widely argued that","note":"禁止用 I think / In my opinion 開論點句","category":"peel","distractors":["In my opinion,","I strongly believe that","It is obvious that"]},
   {"zh":"[Point] 點出議題重要性","en":"This issue warrants serious consideration, as","note":"warrants = 值得；as 直接帶出原因","category":"peel","distractors":["This topic is important because","We should pay attention to this since","This matter is worth discussing"]},

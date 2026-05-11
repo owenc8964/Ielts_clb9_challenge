@@ -180,5 +180,89 @@
     "answer": 0,
     "explanation": "worth + Ving（動名詞）是固定用法，不用 to V。worthy 是另一個詞，搭配 worthy of。",
     "errorKey": "worth doing"
+  },
+  {
+    "sentence": "Technology makes students can record and review lectures at any time.",
+    "error_span": "can record",
+    "correct": "Technology enables students to record and review lectures at any time.",
+    "options": [
+      "Technology enables students to record and review lectures at any time.",
+      "Technology makes students can record and review lectures at any time.",
+      "Technology makes students to record and review lectures at any time.",
+      "Technology allows students can record and review lectures at any time."
+    ],
+    "answer": 0,
+    "explanation": "❌ make + 人 + can V → 兩個助動詞疊加，絕對錯。✅ enable + 人 + to V 是正確結構。make 後面直接接原形動詞，不加 to 也不加 can。",
+    "errorKey": "make can record"
+  },
+  {
+    "sentence": "Through teamwork, employees can work as an unified force to overcome challenges.",
+    "error_span": "an unified",
+    "correct": "Through teamwork, employees can work as a unified force to overcome challenges.",
+    "options": [
+      "Through teamwork, employees can work as a unified force to overcome challenges.",
+      "Through teamwork, employees can work as an unified force to overcome challenges.",
+      "Through teamwork, employees can work as one unified forces to overcome challenges.",
+      "Through teamwork, employees can work as the unified force to overcome challenges."
+    ],
+    "answer": 0,
+    "explanation": "❌ an unified → ✅ a unified。冠詞看「發音」不看「拼字」：unified 發音是 /juːnɪfaɪd/，首音是子音 /j/，所以用 a 不用 an。",
+    "errorKey": "a/an unified"
+  },
+  {
+    "sentence": "Online platforms can maximise students' ceiling of learning beyond classroom walls.",
+    "error_span": "ceiling of learning",
+    "correct": "Online platforms can maximise students' learning potential beyond classroom walls.",
+    "options": [
+      "Online platforms can maximise students' learning potential beyond classroom walls.",
+      "Online platforms can maximise students' ceiling of learning beyond classroom walls.",
+      "Online platforms can maximise students' learning ceiling beyond classroom walls.",
+      "Online platforms can maximise the ceiling of students' potential for learning."
+    ],
+    "answer": 0,
+    "explanation": "❌ ceiling of learning → 中式直譯（學習天花板）。✅ learning potential 才是英文自然說法，表達「學習能力的上限與發展空間」。",
+    "errorKey": "learning potential"
+  },
+  {
+    "sentence": "Fast-fashion brands fabricate lots of items with low cost to meet consumer demand.",
+    "error_span": "fabricate lots of items with low cost",
+    "correct": "Fast-fashion brands mass-produce low-cost garments to meet consumer demand.",
+    "options": [
+      "Fast-fashion brands mass-produce low-cost garments to meet consumer demand.",
+      "Fast-fashion brands fabricate lots of items with low cost to meet consumer demand.",
+      "Fast-fashion brands produce many affordable items to meet consumer demand.",
+      "Fast-fashion brands manufacture a lot of cheap products to meet consumer demand."
+    ],
+    "answer": 0,
+    "explanation": "❌ fabricate items with low cost → 解釋型冗贅（中式思維）。✅ CLB9 原則：停止解釋，改用「複合形容詞 + 精準名詞」。mass-produce low-cost garments 比三個選項都簡潔有力。",
+    "errorKey": "mass-produce"
+  },
+  {
+    "sentence": "Consumers care about convenience but protect the environment in their daily choices.",
+    "error_span": "care about convenience but protect",
+    "correct": "Consumers consistently prioritize convenience over environmental protection in their daily choices.",
+    "options": [
+      "Consumers consistently prioritize convenience over environmental protection in their daily choices.",
+      "Consumers care about convenience but protect the environment in their daily choices.",
+      "Consumers prefer convenience however they also protect the environment in their daily choices.",
+      "Consumers care for convenience and they protect the environment in their daily choices."
+    ],
+    "answer": 0,
+    "explanation": "❌ care about A but protect B → 口語化並列句。✅ 遇到「重A輕B」的取捨邏輯，強制觸發 prioritize A over B。這個結構更精準，一個詞組取代整個句子邏輯。",
+    "errorKey": "prioritize over"
+  },
+  {
+    "sentence": "There are many families cannot afford proper nutrition due to rising food costs.",
+    "error_span": "families cannot",
+    "correct": "Many families cannot afford proper nutrition due to rising food costs.",
+    "options": [
+      "Many families cannot afford proper nutrition due to rising food costs.",
+      "There are many families cannot afford proper nutrition due to rising food costs.",
+      "There are many families who are cannot afford proper nutrition due to food costs.",
+      "There are many families can't affording proper nutrition due to rising costs."
+    ],
+    "answer": 0,
+    "explanation": "❌ There are + 名詞 + 動詞 → 動詞疊加。There are 後的名詞不能直接接限制子句的動詞。✅ 最簡潔：直接用 Many families cannot afford...，省掉 There are，句子更乾淨有力。",
+    "errorKey": "There are cannot"
   }
 ]
