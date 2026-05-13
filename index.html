@@ -1005,6 +1005,22 @@ function buildVocabQ(reviewOnly = false) {
     const isUpgrade = item.category === 'spoken_upgrade';
     const isPeel = item.category === 'peel';
 
+    // productionDue → 情境克漏字（高優先）
+    if (card && card.productionDue && item.sentence) {
+      return {
+        type: '📝 情境克漏字',
+        isProduction: true,
+        isCloze: true,
+        question: item.sentence,
+        en: item.en,
+        zh: item.zh,
+        explanation: item.note,
+        errorKey: item.zh,
+        _srsInterval: interval,
+        _srsReps: reps
+      };
+    }
+
     // reps >= 2 → 打字模式
     if (reps >= 2) {
       const prompt = isUpgrade
@@ -1115,15 +1131,29 @@ function renderQuestionHeader(q) {
 // 打字題（vocab SRS production mode）
 function renderProduction(q) {
   const requeueTag = q._requeued ? '<span class="requeue-tag">🔁 再考一次</span>' : '';
-  document.getElementById('questionType').innerHTML = '<span class="production-tag">✍ 打字</span>' + requeueTag;
-  document.getElementById('questionText').textContent = q.question;
   const maxReps = 6, srsReps = q._srsReps || 0, srsPct = Math.min(100, Math.round(srsReps/maxReps*100));
-  document.getElementById('questionHint').innerHTML =
-    `<div class="srs-bar-wrap"><div class="srs-bar-track"><div class="srs-bar-fill" style="width:${srsPct}%"></div></div><span class="srs-interval">記憶強度 ${srsReps}/${maxReps} ｜ 下次 ${q._srsInterval||1} 天後</span></div>`;
+
+  if (q.isCloze) {
+    // 情境克漏字模式：句子中有 ___ 要填入
+    document.getElementById('questionType').innerHTML =
+      '<span class="production-tag" style="background:rgba(100,200,255,0.15);color:#64c8ff;border-color:rgba(100,200,255,0.3)">📝 情境克漏字</span>' + requeueTag;
+    // 把句子的 ___ 替換成醒目的 [___] 顯示
+    const displaySentence = q.question.replace(/___/g, '<span style="color:var(--accent2);font-weight:700;letter-spacing:1px">[___]</span>');
+    document.getElementById('questionText').innerHTML = displaySentence;
+    document.getElementById('questionHint').innerHTML =
+      `<span style="color:var(--text2);font-size:13px">🔖 提示：「${q.zh}」</span>` +
+      `<div class="srs-bar-wrap" style="margin-top:6px"><div class="srs-bar-track"><div class="srs-bar-fill" style="width:${srsPct}%"></div></div><span class="srs-interval">記憶強度 ${srsReps}/${maxReps}</span></div>`;
+  } else {
+    document.getElementById('questionType').innerHTML = '<span class="production-tag">✍ 打字</span>' + requeueTag;
+    document.getElementById('questionText').textContent = q.question;
+    document.getElementById('questionHint').innerHTML =
+      `<div class="srs-bar-wrap"><div class="srs-bar-track"><div class="srs-bar-fill" style="width:${srsPct}%"></div></div><span class="srs-interval">記憶強度 ${srsReps}/${maxReps} ｜ 下次 ${q._srsInterval||1} 天後</span></div>`;
+  }
+
   const container = document.getElementById('optionsContainer');
   const inp = document.createElement('input');
   inp.type = 'text'; inp.className = 'phrase-input'; inp.id = 'translateInput';
-  inp.placeholder = '直接打英文，沒有選項...';
+  inp.placeholder = q.isCloze ? '填入 [___] 的英文...' : '直接打英文，沒有選項...';
   inp.addEventListener('keydown', e => { if (e.key === 'Enter') submitProduction(); });
   container.appendChild(inp);
   const btnSubmit = document.getElementById('btnSubmit');
@@ -1301,12 +1331,17 @@ function submitProduction() {
 
   if (isCorrect) {
     sessionCorrect++;
-    sessionXP += 15; // production 給更多 XP
+    sessionXP += 15;
     clearError(q.errorKey);
     updateSRS(q.errorKey, true);
+    // 情境克漏字答對 → 清除 productionDue
+    if (q.isCloze) {
+      const srs = loadSRS();
+      if (srs[q.errorKey]) { srs[q.errorKey].productionDue = false; saveSRS(srs); }
+    }
     input.className = 'phrase-input ci';
     document.getElementById('feedbackTitle').textContent = '✓ 正確！';
-    document.getElementById('feedbackBody').textContent = '';
+    document.getElementById('feedbackBody').textContent = q.isCloze ? '🎯 情境克漏字完成，已移出待練清單' : '';
     fb.className = 'feedback show';
   } else {
     sessionWrong++;
