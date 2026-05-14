@@ -227,6 +227,27 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .unlock-missed-item:last-child{border-bottom:none;}
 .unlock-missed-en{color:var(--accent);font-weight:700;text-align:right;flex-shrink:0;}
 .production-due-tag{display:inline-block;background:rgba(255,108,157,0.15);color:var(--accent2);border:1px solid rgba(255,108,157,0.3);border-radius:4px;font-size:10px;font-family:'Space Mono',monospace;padding:2px 7px;margin-left:6px;vertical-align:middle;}
+
+/* ── 複習手冊 ─────────────────────────────────────────── */
+.review-tabs{display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px;}
+.review-tabs::-webkit-scrollbar{display:none;}
+.review-tab{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:12px;cursor:pointer;white-space:nowrap;color:var(--text2);transition:all 0.2s;}
+.review-tab.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700;}
+.review-panel{display:none;}
+.review-panel.active{display:block;}
+.rv-section{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin:18px 0 8px;}
+.rv-chunk{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 12px;background:var(--surface);border-radius:8px;margin-bottom:6px;gap:12px;}
+.rv-en{color:var(--text1);font-size:13px;flex:1;}
+.rv-zh{color:var(--text2);font-size:11px;text-align:right;flex-shrink:0;}
+.rv-pattern{background:var(--surface);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:10px;}
+.rv-pattern-label{font-size:10px;color:var(--accent2);font-family:'Space Mono',monospace;margin-bottom:5px;}
+.rv-pattern-en{font-size:14px;color:var(--text1);line-height:1.5;}
+.rv-pattern-note{font-size:11px;color:var(--text2);margin-top:5px;line-height:1.4;}
+.rv-mine{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.rv-mine-bad{background:rgba(255,90,90,0.08);border:1px solid rgba(255,90,90,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--red);}
+.rv-mine-good{background:rgba(80,220,140,0.08);border:1px solid rgba(80,220,140,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--green);}
+.rv-mine-label{font-size:9px;font-family:'Space Mono',monospace;opacity:0.6;margin-bottom:3px;}
+.rv-back{background:none;border:none;color:var(--text2);font-size:13px;cursor:pointer;padding:4px 0 16px;display:flex;align-items:center;gap:6px;}
 </style>
 </head>
 <body>
@@ -417,6 +438,18 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
     </div>
 
+    <!-- 複習手冊入口 -->
+    <div class="mode-card wide" onclick="showReview()" style="background:linear-gradient(135deg,rgba(100,200,255,0.08),rgba(100,200,255,0.02));border-color:rgba(100,200,255,0.25);">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-size:24px;">📖</span>
+        <div>
+          <div class="mode-name" style="color:#64c8ff;">複習手冊</div>
+          <div class="mode-desc">Task 1 句型 · Task 2 PEEL骨架 · 核心語塊 · 地雷清單</div>
+        </div>
+        <span style="margin-left:auto;font-family:'Space Mono',monospace;color:#64c8ff;font-size:18px;">→</span>
+      </div>
+    </div>
+
     <div id="errorTrackerSection"></div>
     <div id="pendingReportSection"></div>
 
@@ -510,6 +543,138 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
   </div>
 
   <!-- UNLOCK RESULT -->
+  <!-- 複習手冊 -->
+  <div class="screen" id="reviewScreen">
+    <div style="height:12px"></div>
+    <button class="rv-back" onclick="showScreen('homeScreen')">← 回首頁</button>
+    <div class="home-title" style="font-size:20px;margin-bottom:16px;">📖 <span class="a1">複習</span>手冊</div>
+    <div class="review-tabs">
+      <div class="review-tab active" data-tab="task1" onclick="switchRvTab('task1')">📊 Task 1</div>
+      <div class="review-tab" data-tab="task2" onclick="switchRvTab('task2')">🖊️ Task 2 PEEL</div>
+      <div class="review-tab" data-tab="chunks" onclick="switchRvTab('chunks')">🔤 核心語塊</div>
+      <div class="review-tab" data-tab="mines" onclick="switchRvTab('mines')">⚡ 地雷清單</div>
+    </div>
+
+    <!-- Task 1 -->
+    <div class="review-panel active" id="rp-task1">
+      <div class="rv-section">首句改寫公式</div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">❌ 懶人換字（扣分）</div>
+        <div class="rv-pattern-en" style="color:var(--red)">The line graph <u>illustrates</u> the percentage of households with internet access in four countries between 2000 and 2020.</div>
+      </div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">✅ 結構改寫（得分）</div>
+        <div class="rv-pattern-en">The graph <u>compares the proportion of homes connected to the internet</u> across four nations <u>over a twenty-year period</u>.</div>
+        <div class="rv-pattern-note">換動詞 · 換名詞（percentage→proportion, households→homes）· 換時間說法（between X and Y→over a X-year period）</div>
+      </div>
+
+      <div class="rv-section">Overview（整體趨勢）</div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">固定開頭</div>
+        <div class="rv-pattern-en">Overall, an overarching upward trend is <u>evident</u> across all [X] countries.</div>
+        <div class="rv-pattern-note">trend 不能 surge / rise / grow — 用 evident / can be observed</div>
+      </div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">有例外時</div>
+        <div class="rv-pattern-en">Overall, … , with the notable exception of [X], which [did the opposite].</div>
+      </div>
+
+      <div class="rv-section">趨勢描述動詞</div>
+      <div class="rv-chunk"><span class="rv-en">surge / skyrocket</span><span class="rv-zh">激增（幅度大）</span></div>
+      <div class="rv-chunk"><span class="rv-en">plateau at X%</span><span class="rv-zh">趨於平穩在X%</span></div>
+      <div class="rv-chunk"><span class="rv-en">fluctuate between X and Y</span><span class="rv-zh">在X和Y之間波動</span></div>
+      <div class="rv-chunk"><span class="rv-en">remain relatively stable</span><span class="rv-zh">保持相對穩定</span></div>
+      <div class="rv-chunk"><span class="rv-en">converge markedly by 2020</span><span class="rv-zh">到2020年明顯趨同</span></div>
+
+      <div class="rv-section">比較 / 差距</div>
+      <div class="rv-chunk"><span class="rv-en">trail [country] by over 10 percentage points</span><span class="rv-zh">落後X個百分點</span></div>
+      <div class="rv-chunk"><span class="rv-en">marginally higher / lower than</span><span class="rv-zh">略高／低於</span></div>
+      <div class="rv-chunk"><span class="rv-en">markedly higher than</span><span class="rv-zh">顯著高於</span></div>
+      <div class="rv-chunk"><span class="rv-en">approximately X times that of</span><span class="rv-zh">約為X的幾倍</span></div>
+      <div class="rv-chunk"><span class="rv-en">account for X% of</span><span class="rv-zh">佔X%</span></div>
+
+      <div class="rv-section">時間介系詞規則</div>
+      <div class="rv-mine">
+        <div class="rv-mine-bad"><div class="rv-mine-label">❌</div>at 2000</div>
+        <div class="rv-mine-good"><div class="rv-mine-label">✅</div>in 2000</div>
+      </div>
+      <div class="rv-mine">
+        <div class="rv-mine-bad"><div class="rv-mine-label">❌</div>at 2020（截止）</div>
+        <div class="rv-mine-good"><div class="rv-mine-label">✅</div>by 2020</div>
+      </div>
+
+      <div class="rv-section">預測時態（有 projected 資料）</div>
+      <div class="rv-chunk"><span class="rv-en">is projected to reach / hit X%</span><span class="rv-zh">預計達到X%</span></div>
+      <div class="rv-chunk"><span class="rv-en">are expected to see … grow to X%</span><span class="rv-zh">預計增長至X%</span></div>
+    </div>
+
+    <!-- Task 2 PEEL -->
+    <div class="review-panel" id="rp-task2">
+      <div class="rv-section">引言 — 改寫題目 + 立場</div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">立場句（支持）</div>
+        <div class="rv-pattern-en">I contend that … / It is my firm belief that …</div>
+      </div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">兩面討論開頭</div>
+        <div class="rv-pattern-en">While … has its merits, I would argue that … ultimately yields greater long-term benefits.</div>
+      </div>
+
+      <div class="rv-section">Point — 提出核心論點</div>
+      <div class="rv-chunk"><span class="rv-en">A compelling case can be made that</span><span class="rv-zh">有力論據表明</span></div>
+      <div class="rv-chunk"><span class="rv-en">It is widely argued that</span><span class="rv-zh">普遍認為</span></div>
+      <div class="rv-chunk"><span class="rv-en">This issue warrants serious consideration, as</span><span class="rv-zh">此議題值得重視，因為</span></div>
+
+      <div class="rv-section">Explain — 展開原因</div>
+      <div class="rv-chunk"><span class="rv-en">This can be attributed to</span><span class="rv-zh">這可歸因於</span></div>
+      <div class="rv-chunk"><span class="rv-en">The underlying reason is that</span><span class="rv-zh">深層原因在於</span></div>
+      <div class="rv-chunk"><span class="rv-en">This inevitably leads to / consequently giving rise to</span><span class="rv-zh">這不可避免地導致</span></div>
+
+      <div class="rv-section">Example — 佐證</div>
+      <div class="rv-chunk"><span class="rv-en">A striking example of this is</span><span class="rv-zh">一個典型例子是</span></div>
+      <div class="rv-chunk"><span class="rv-en">This is exemplified by</span><span class="rv-zh">這可由…加以印證</span></div>
+      <div class="rv-chunk"><span class="rv-en">Studies have consistently shown that</span><span class="rv-zh">研究一致表明</span></div>
+
+      <div class="rv-section">Link — 收尾連結</div>
+      <div class="rv-chunk"><span class="rv-en">This demonstrates that</span><span class="rv-zh">這說明了</span></div>
+      <div class="rv-chunk"><span class="rv-en">It is therefore evident that</span><span class="rv-zh">因此可見</span></div>
+      <div class="rv-chunk"><span class="rv-en">Beyond the immediate impact, this reflects a deeper societal</span><span class="rv-zh">超越表面影響，這反映出更深層的社會</span></div>
+
+      <div class="rv-section">讓步 + 反駁（必備段）</div>
+      <div class="rv-chunk"><span class="rv-en">Admittedly, / It must be acknowledged that</span><span class="rv-zh">誠然，/ 必須承認</span></div>
+      <div class="rv-chunk"><span class="rv-en">However, this overlooks the fact that</span><span class="rv-zh">然而，這忽略了</span></div>
+      <div class="rv-chunk"><span class="rv-en">Yet this argument fails to account for</span><span class="rv-zh">然而此論點未能考量</span></div>
+
+      <div class="rv-section">結論升維（CLB 9 頂級）</div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">✅ 最高境界</div>
+        <div class="rv-pattern-en">The question is therefore not whether X, but whether Y.</div>
+        <div class="rv-pattern-note">不直接給答案，把問題升維到更深的層次</div>
+      </div>
+      <div class="rv-chunk"><span class="rv-en">Ultimately, / In light of the above,</span><span class="rv-zh">歸根究柢，/ 綜上所述，</span></div>
+
+      <div class="rv-section">X → Y 升維法則</div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">停在X（CLB 6）</div>
+        <div class="rv-pattern-en" style="color:var(--text2)">Longer sentences reduce crime.</div>
+      </div>
+      <div class="rv-pattern">
+        <div class="rv-pattern-label">升到Y（CLB 9）</div>
+        <div class="rv-pattern-en">The question is not whether punishment deters crime, but whether it can address the structural inequalities that give rise to it in the first place.</div>
+      </div>
+    </div>
+
+    <!-- 核心語塊 -->
+    <div class="review-panel" id="rp-chunks">
+      <div id="rvChunksContent"></div>
+    </div>
+
+    <!-- 地雷清單 -->
+    <div class="review-panel" id="rp-mines">
+      <div id="rvMinesContent"></div>
+    </div>
+  </div>
+
   <div class="screen" id="unlockResultScreen">
     <div style="height:20px"></div>
     <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text2);text-align:center;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.1em;">開箱完成</div>
@@ -1473,9 +1638,68 @@ function goHome() {
 function retryMode() { startMode(currentMode); }
 
 function showScreen(id) {
-  ['homeScreen','quizScreen','resultScreen','unlockScreen','unlockResultScreen'].forEach(s=>{
+  ['homeScreen','quizScreen','resultScreen','unlockScreen','unlockResultScreen','reviewScreen'].forEach(s=>{
     document.getElementById(s).classList.toggle('active',s===id);
   });
+}
+
+// ── 複習手冊 ──────────────────────────────────────────────
+function showReview() {
+  showScreen('reviewScreen');
+  renderRvChunks();
+  renderRvMines();
+}
+
+function switchRvTab(tab) {
+  document.querySelectorAll('.review-tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.tab === tab));
+  document.querySelectorAll('.review-panel').forEach(p =>
+    p.classList.toggle('active', p.id === 'rp-' + tab));
+}
+
+function renderRvChunks() {
+  const el = document.getElementById('rvChunksContent');
+  if (el.innerHTML) return; // 已渲染
+  const cats = [
+    {key:'environment', label:'🌿 環境'},
+    {key:'economy',     label:'💰 經濟'},
+    {key:'technology',  label:'💻 科技'},
+    {key:'education',   label:'📚 教育'},
+    {key:'health',      label:'🏥 健康'},
+    {key:'society',     label:'🏛️ 社會'},
+    {key:'general',     label:'⚡ 通用動詞'},
+    {key:'spoken_upgrade', label:'🗣️ 口語升級'},
+    {key:'task1',       label:'📊 Task 1'},
+  ];
+  let html = '';
+  cats.forEach(({key, label}) => {
+    const items = VOCAB_DATA.filter(v => v.category === key);
+    if (!items.length) return;
+    html += `<div class="rv-section">${label}</div>`;
+    items.forEach(v => {
+      html += `<div class="rv-chunk">
+        <span class="rv-en">${v.en}</span>
+        <span class="rv-zh">${v.note || v.zh}</span>
+      </div>`;
+    });
+  });
+  el.innerHTML = html;
+}
+
+function renderRvMines() {
+  const el = document.getElementById('rvMinesContent');
+  if (el.innerHTML) return;
+  let html = '<div class="rv-section">文法地雷 ❌ → ✅</div>';
+  GRAMMAR_DATA.forEach(g => {
+    html += `<div style="margin-bottom:10px;">
+      <div class="rv-mine">
+        <div class="rv-mine-bad"><div class="rv-mine-label">❌ 錯誤</div>${g.error_span}</div>
+        <div class="rv-mine-good"><div class="rv-mine-label">✅ 正解</div>${g.correct.replace(/.*?([\w].*)/,'$1').substring(0,60)}</div>
+      </div>
+      <div style="font-size:11px;color:var(--text2);padding:0 2px;margin-top:2px;">${g.explanation.replace(/[❌✅]/g,'').trim().substring(0,80)}</div>
+    </div>`;
+  });
+  el.innerHTML = html;
 }
 
 // ── UNLOCK MODE (主題開箱) ────────────────────────────────
