@@ -348,5 +348,61 @@
     "answer": 0,
     "explanation": "❌ which + V-ing → 動詞殘缺。which 後必須接完整動詞（which use / which are using）。✅ 最乾淨：直接用分詞後置修飾語 companies using AI（省掉 which）。",
     "errorKey": "which using"
+  },
+  {
+    "sentence": "Overall, an overarching upward trend is surging from 2000 to 2020.",
+    "error_span": "trend is surging",
+    "correct": "Overall, an overarching upward trend is evident across all four countries.",
+    "options": [
+      "Overall, an overarching upward trend is evident across all four countries.",
+      "Overall, an overarching upward trend is surging from 2000 to 2020.",
+      "Overall, an overarching upward trend is rising from 2000 to 2020.",
+      "Overall, an overarching upward trend is growing from 2000 to 2020."
+    ],
+    "answer": 0,
+    "explanation": "❌ trend is surging → trend 不能 surge。surge 是數字/數量的動作動詞（the figure surged）。✅ 描述趨勢用：an upward trend is evident / can be observed / was recorded across all countries。",
+    "errorKey": "trend is surging"
+  },
+  {
+    "sentence": "Japan's internet access rate was only 30% at 2000.",
+    "error_span": "at 2000",
+    "correct": "Japan's internet access rate was only 30% in 2000.",
+    "options": [
+      "Japan's internet access rate was only 30% in 2000.",
+      "Japan's internet access rate was only 30% at 2000.",
+      "Japan's internet access rate was only 30% on 2000.",
+      "Japan's internet access rate was only 30% by 2000."
+    ],
+    "answer": 0,
+    "explanation": "❌ at 2000 → 年份用 in，不用 at（at 用於時間點如 at 3pm）。✅ in 2000（某年）；by 2020（到某年為止，強調截止）。",
+    "errorKey": "at year → in year"
+  },
+  {
+    "sentence": "Brazil stood out markedly. It's initial figure was a mere 5% in 2000.",
+    "error_span": "It's",
+    "correct": "Brazil stood out markedly. Its initial figure was a mere 5% in 2000.",
+    "options": [
+      "Brazil stood out markedly. Its initial figure was a mere 5% in 2000.",
+      "Brazil stood out markedly. It's initial figure was a mere 5% in 2000.",
+      "Brazil stood out markedly. It initial figure was a mere 5% in 2000.",
+      "Brazil stood out markedly. Their initial figure was a mere 5% in 2000."
+    ],
+    "answer": 0,
+    "explanation": "❌ It's = It is（縮寫）。✅ Its = 所有格（它的）。這是 GRA 致命錯，考官必扣分。口訣：能展開成 'It is' 就用 it's；不行就用 its。",
+    "errorKey": "it's vs its"
+  },
+  {
+    "sentence": "The line graph illustrates the percentage of households with internet access in four countries between 2000 and 2020.",
+    "error_span": "illustrates the percentage of households with internet access in four countries between 2000 and 2020",
+    "correct": "The graph compares the proportion of homes connected to the internet across four nations over a twenty-year period.",
+    "options": [
+      "The graph compares the proportion of homes connected to the internet across four nations over a twenty-year period.",
+      "The line graph illustrates the percentage of households with internet access in four countries between 2000 and 2020.",
+      "The line graph shows the percentage of households having internet access in four countries from 2000 to 2020.",
+      "The graph displays internet access percentages for four countries across 2000, 2010 and 2020."
+    ],
+    "answer": 0,
+    "explanation": "❌ 只換一個動詞（shows→illustrates）= 懶人換字法，LR 被扣。✅ Task 1 首句必須改寫結構：換名詞（percentage→proportion, households→homes, countries→nations）+ 換動詞片語（with internet access→connected to the internet）+ 換時間說法（between X and Y→over a twenty-year period）。",
+    "errorKey": "Task1首句改寫"
   }
 ]

@@ -2110,5 +2110,41 @@
       "multiple strategies"
     ],
     "sentence": "Reducing urban pollution requires ___ that address both transport and industrial emissions simultaneously."
+  },
+  {
+    "zh": "落後於（差距）",
+    "en": "trail by X percentage points",
+    "note": "Japan trailed the USA by over 10 percentage points（差距用 trail by，數字後加 percentage points 不是 %）",
+    "category": "task1",
+    "distractors": [
+      "was behind by X%",
+      "lagged X percent behind",
+      "fell short by X%"
+    ],
+    "sentence": "In 2000, Germany ___ the USA ___ over 10 percentage points, though both converged by 2020."
+  },
+  {
+    "zh": "趨同／收斂",
+    "en": "converge",
+    "note": "all three countries converged markedly by 2020（多條線接近時用）",
+    "category": "task1",
+    "distractors": [
+      "become similar",
+      "get closer",
+      "narrow"
+    ],
+    "sentence": "Despite diverging sharply in the early period, the figures for all three nations began to ___ from 2010 onwards."
+  },
+  {
+    "zh": "描述趨勢（Task 1）",
+    "en": "an upward trend is evident",
+    "note": "trend 不能 surge／rise／grow；用 evident / can be observed / was recorded",
+    "category": "task1",
+    "distractors": [
+      "an upward trend is surging",
+      "the trend is rising",
+      "a growing trend is increasing"
+    ],
+    "sentence": "___ across all four countries, with Brazil recording the most dramatic increase."
   }
 ]

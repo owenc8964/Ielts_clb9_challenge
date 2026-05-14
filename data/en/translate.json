@@ -378,5 +378,41 @@
       "carry their obligations / focused actions / inflexible standard",
       "bear their duties / targeted solutions / one-sided blanket"
     ]
+  },
+  {
+    "id": "t-task1-intro",
+    "context_zh": "Task 1 首句改寫（折線圖）",
+    "template_en": "The graph ___[比較] the ___[比例] of homes ___[連接到網路] across four nations over a ___[二十年期間].",
+    "key_answer": "compares / proportion / connected to the internet / twenty-year period",
+    "note": "Task 1 首句黃金公式：換動詞（illustrates/compares/depicts）+ 換名詞（percentage→proportion, households→homes）+ 換時間說法（between X and Y→over a X-year period）",
+    "distractors": [
+      "shows / percentage / with internet access / period from 2000 to 2020",
+      "illustrates / rate / accessing the internet / two decades between",
+      "displays / proportion / connected online / twenty years span"
+    ]
+  },
+  {
+    "id": "t-task1-gap",
+    "context_zh": "Task 1 差距描述",
+    "template_en": "Although Japan and Germany ___[落後於] the USA by over 10 ___[百分點] in 2000, all three ___[明顯趨同] by 2020.",
+    "key_answer": "trailed / percentage points / converged markedly",
+    "note": "差距用 trail by X percentage points（不是 behind X%）；趨同用 converge；markedly 比 significantly 更 Task 1 風格",
+    "distractors": [
+      "were behind / percents / became similar",
+      "lagged behind / percent / got closer",
+      "were lower than / percentage / narrowed significantly"
+    ]
+  },
+  {
+    "id": "t-day21-sentence",
+    "context_zh": "政策介入（句子翻譯練習）",
+    "template_en": "The government should ___[承擔責任] to ___[實施有針對性的介入措施], rather than ___[全面禁令].",
+    "key_answer": "shoulder their responsibilities / implement targeted interventions / a blanket ban",
+    "note": "shoulder responsibilities（複數）；implement（不是 apply）targeted interventions；blanket ban = 一刀切禁令",
+    "distractors": [
+      "take their responsibility / apply targeted solutions / complete restriction",
+      "carry their obligations / enforce targeted policies / total ban",
+      "bear responsibilities / execute targeted actions / a sweeping rule"
+    ]
   }
 ]
