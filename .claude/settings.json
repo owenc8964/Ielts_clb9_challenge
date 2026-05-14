@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check *)",
+      "Bash(git add data/en/*)",
+      "Bash(git add data/*)",
+      "Bash(git add index.html)",
+      "Bash(git add Day*)",
+      "Bash(git add assets/*)",
+      "Bash(git add HANDOFF*)",
+      "Bash(git commit *)"
+    ]
+  }
+}
