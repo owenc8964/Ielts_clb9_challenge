@@ -264,5 +264,89 @@
     "answer": 0,
     "explanation": "❌ There are + 名詞 + 動詞 → 動詞疊加。There are 後的名詞不能直接接限制子句的動詞。✅ 最簡潔：直接用 Many families cannot afford...，省掉 There are，句子更乾淨有力。",
     "errorKey": "There are cannot"
+  },
+  {
+    "sentence": "AI tools are widespreadly used across various industries.",
+    "error_span": "widespreadly",
+    "correct": "AI tools are widely adopted across various industries.",
+    "options": [
+      "AI tools are widely adopted across various industries.",
+      "AI tools are widespreadly used across various industries.",
+      "AI tools are widespread used across various industries.",
+      "AI tools are widely spreading across various industries."
+    ],
+    "answer": 0,
+    "explanation": "❌ widespreadly 根本不存在。副詞是 widely（修飾動詞），形容詞是 widespread（修飾名詞）。✅ widely adopted / widely used。",
+    "errorKey": "widespreadly"
+  },
+  {
+    "sentence": "The benefits of AI outweigh than the disadvantages.",
+    "error_span": "outweigh than",
+    "correct": "The benefits of AI outweigh the disadvantages.",
+    "options": [
+      "The benefits of AI outweigh the disadvantages.",
+      "The benefits of AI outweigh than the disadvantages.",
+      "The benefits of AI are outweighing than the disadvantages.",
+      "The benefits of AI outweigh more than the disadvantages."
+    ],
+    "answer": 0,
+    "explanation": "❌ outweigh + than → 多餘。outweigh 是及物動詞，自帶比較意味，直接接受詞。✅ The benefits outweigh the risks（不加 than）。",
+    "errorKey": "outweigh than"
+  },
+  {
+    "sentence": "As the gigantic potential of AI, its benefits far outweigh the risks.",
+    "error_span": "As the gigantic potential",
+    "correct": "Given the gigantic potential of AI, its benefits far outweigh the risks.",
+    "options": [
+      "Given the gigantic potential of AI, its benefits far outweigh the risks.",
+      "As the gigantic potential of AI, its benefits far outweigh the risks.",
+      "As AI has gigantic potential, so its benefits far outweigh the risks.",
+      "With the gigantic potential of AI benefits far outweigh the risks."
+    ],
+    "answer": 0,
+    "explanation": "❌ As + 名詞片語 → 錯。As 後需接完整子句（S+V）。接名詞片語用 Given（有鑑於）。✅ Given the gigantic potential of AI... / Given that AI has gigantic potential...",
+    "errorKey": "As vs Given"
+  },
+  {
+    "sentence": "Comprehensive measures are far more efficient than extreme restrictions.",
+    "error_span": "efficient",
+    "correct": "Comprehensive measures are far more effective than extreme restrictions.",
+    "options": [
+      "Comprehensive measures are far more effective than extreme restrictions.",
+      "Comprehensive measures are far more efficient than extreme restrictions.",
+      "Comprehensive measures are far more effecting than extreme restrictions.",
+      "Comprehensive measures are far more efficiency than extreme restrictions."
+    ],
+    "answer": 0,
+    "explanation": "❌ efficient = 節省時間/資源（機器、人的效率）。✅ effective = 能達到目標（政策、方法的效果）。描述政策和措施，永遠用 effective，不用 efficient。",
+    "errorKey": "efficient vs effective"
+  },
+  {
+    "sentence": "Citizens are not satisfied to the government's response.",
+    "error_span": "satisfied to",
+    "correct": "Citizens are not satisfied with the government's response.",
+    "options": [
+      "Citizens are not satisfied with the government's response.",
+      "Citizens are not satisfied to the government's response.",
+      "Citizens are not satisfied at the government's response.",
+      "Citizens are not satisfied of the government's response."
+    ],
+    "answer": 0,
+    "explanation": "❌ satisfied to → 介系詞地雷。✅ satisfied with（對…感到滿意）是固定搭配，不能用 to / at / of。",
+    "errorKey": "satisfied with"
+  },
+  {
+    "sentence": "The regulations target companies which using AI for data collection.",
+    "error_span": "which using",
+    "correct": "The regulations target companies using AI for data collection.",
+    "options": [
+      "The regulations target companies using AI for data collection.",
+      "The regulations target companies which using AI for data collection.",
+      "The regulations target companies which are uses AI for data collection.",
+      "The regulations target companies who using AI for data collection."
+    ],
+    "answer": 0,
+    "explanation": "❌ which + V-ing → 動詞殘缺。which 後必須接完整動詞（which use / which are using）。✅ 最乾淨：直接用分詞後置修飾語 companies using AI（省掉 which）。",
+    "errorKey": "which using"
   }
 ]

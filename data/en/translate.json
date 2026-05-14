@@ -230,7 +230,6 @@
     "explanation": "end-of-life management（或 disposal）是循環經濟必備詞彙；the entire lifecycle of these products 是 Day 17 練到的語塊，兩者一起出現在廢棄物議題最有力。",
     "errorKey": "end-of-life lifecycle"
   },
-
   {
     "template_en": "___[Point 萬用開頭] standardised testing has done more harm than good to students' long-term intellectual development.",
     "key_answer": "A compelling case can be made that",
@@ -307,5 +306,77 @@
     "hint": "第一空：CLB9 結論升維的前半，把問題從「是否做」轉向更深層，5 個字；第二空：完成升維、指出真正挑戰的後半，6 個字",
     "explanation": "[Conclusion 最高境界] The question is therefore not whether X, but whether Y 是 CLB9 頂級收尾——不直接給答案，而是把討論昇華為更深層的問題。political will（政治意志）是政策議題的高頻詞，表示執行決心，不是能力問題。",
     "errorKey": "not whether but whether"
+  },
+  {
+    "id": "t-day20-01",
+    "context_zh": "城市交通政策",
+    "template_en": "Imposing a ___[全面禁令] on private vehicles is ___[不切實際的] without adequate public transit infrastructure.",
+    "key_answer": "blanket ban / impractical",
+    "note": "blanket ban = 一刀切的全面禁令（政策禁令首選）；impractical = 不可行的（比 impossible 更精準）",
+    "distractors": [
+      "total ban / unreasonable",
+      "complete restriction / difficult",
+      "full prohibition / unfeasible"
+    ]
+  },
+  {
+    "id": "t-day20-02",
+    "context_zh": "交通紓解方案",
+    "template_en": "Rather than a blanket ban, governments should ___[部署額外接駁車] during ___[尖峰時段] to ___[紓解交通瓶頸].",
+    "key_answer": "deploy additional commuter shuttles / peak hours / relieve this bottleneck",
+    "note": "deploy = 調度/部署實體資源（車輛、人員）；commuter shuttles = 通勤接駁車；relieve the bottleneck 比 solve the traffic problem 精準",
+    "distractors": [
+      "allocate commuting buses / busy time / solve the traffic",
+      "provide more buses / rush time / reduce the jam",
+      "add transport vehicles / peak time / fix congestion"
+    ]
+  },
+  {
+    "id": "t-day20-03",
+    "context_zh": "政策副作用",
+    "template_en": "Such a drastic policy would ___[對日常生活造成嚴重干擾] and effectively ___[主宰人們的行程].",
+    "key_answer": "cause severe disruptions to daily life / dictate people's schedules",
+    "note": "cause disruptions to（造成干擾）是固定搭配；dictate = 主宰/強制規定（比 control 更學術有力）",
+    "distractors": [
+      "induce severe interruption to life / influence people's time",
+      "bring severe problems to daily schedule / control people's routes",
+      "create difficult disruption of life / restrict people's choices"
+    ]
+  },
+  {
+    "id": "t-day19-01",
+    "context_zh": "AI整合與職場轉型",
+    "template_en": "As AI and ___[自動化系統] are increasingly ___[整合進] the workflow, professionals are freed from ___[日常行政瑣事].",
+    "key_answer": "automated systems / integrated into / mundane administrative tasks",
+    "note": "automated（自動化的）不是 automatic（自動的）；integrated into = 被整合進；mundane administrative tasks = 已在vocab庫",
+    "distractors": [
+      "automatic systems / imported into / boring office work",
+      "automation systems / implemented in / daily admin jobs",
+      "AI systems / involved into / ordinary tasks"
+    ]
+  },
+  {
+    "id": "t-day19-02",
+    "context_zh": "AI安全風險",
+    "template_en": "An ___[過度依賴] on AI may expose organisations to ___[勒索軟體攻擊], ___[使營運完全停擺].",
+    "key_answer": "overreliance / ransomware attacks / bringing operations to a complete standstill",
+    "note": "overreliance on = 對…的過度依賴；ransomware attacks = 勒索軟體攻擊；bring to a standstill = 使陷入停擺（比 stop 更學術）",
+    "distractors": [
+      "over-dependency / hacker attacks / stopping all operations",
+      "excessive reliance / cyber attacks / causing complete shutdown",
+      "overuse / malware / making systems fail completely"
+    ]
+  },
+  {
+    "id": "t-day20-04",
+    "context_zh": "政府責任",
+    "template_en": "Governments must ___[承擔責任] and implement ___[有針對性的介入措施] rather than imposing ___[僵化一刀切的] blanket bans.",
+    "key_answer": "shoulder their responsibilities / targeted interventions / rigid one-size-fits-all",
+    "note": "shoulder responsibilities（承擔責任）比 take responsibilities 更學術；targeted interventions = 已在vocab；rigid one-size-fits-all = 已在vocab",
+    "distractors": [
+      "take their responsibilities / general measures / strict uniform",
+      "carry their obligations / focused actions / inflexible standard",
+      "bear their duties / targeted solutions / one-sided blanket"
+    ]
   }
 ]

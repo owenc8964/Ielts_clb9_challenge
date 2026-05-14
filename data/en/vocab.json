@@ -1966,5 +1966,149 @@
       "Therefore X is better than Y"
     ],
     "sentence": "___ we can afford to act, but whether we can afford not to."
+  },
+  {
+    "zh": "自動化的（形容詞）",
+    "en": "automated",
+    "note": "automated systems / automated processes（不是 automatic）",
+    "category": "technology",
+    "distractors": [
+      "automatic",
+      "autonomous",
+      "mechanized"
+    ],
+    "sentence": "The factory replaced manual labour with ___ systems to improve accuracy."
+  },
+  {
+    "zh": "整合進（工作流程）",
+    "en": "integrated into",
+    "note": "as AI is increasingly integrated into the workflow",
+    "category": "technology",
+    "distractors": [
+      "imported into",
+      "implemented in",
+      "inserted into"
+    ],
+    "sentence": "AI tools are increasingly ___ the daily workflow of medical professionals."
+  },
+  {
+    "zh": "勒索軟體攻擊",
+    "en": "ransomware attacks",
+    "note": "exposed to ransomware attacks（高頻網路安全詞）",
+    "category": "technology",
+    "distractors": [
+      "hacker attacks",
+      "virus invasions",
+      "cyber theft"
+    ],
+    "sentence": "Hospitals are increasingly vulnerable to ___, which can paralyse critical systems."
+  },
+  {
+    "zh": "使營運停擺",
+    "en": "bring operations to a complete standstill",
+    "note": "比 stop operations 更學術有力",
+    "category": "technology",
+    "distractors": [
+      "stop all operations",
+      "cause systems to shut down",
+      "freeze business activities"
+    ],
+    "sentence": "A single ransomware attack can ___, disrupting services for days."
+  },
+  {
+    "zh": "全面禁令",
+    "en": "a blanket ban",
+    "note": "impose a blanket ban on...（政策禁令固定說法）",
+    "category": "society",
+    "distractors": [
+      "a complete restriction",
+      "a total prohibition",
+      "a sweeping rule"
+    ],
+    "sentence": "Critics argue that ___ on private vehicles is impractical without an efficient public transit network."
+  },
+  {
+    "zh": "部署（實體資源）",
+    "en": "deploy",
+    "note": "deploy commuter shuttles / deploy additional resources（調度實體資源用deploy）",
+    "category": "general",
+    "distractors": [
+      "allocate",
+      "arrange",
+      "provide"
+    ],
+    "sentence": "The government plans to ___ additional commuter shuttles during peak hours to ease gridlock."
+  },
+  {
+    "zh": "通勤接駁車",
+    "en": "commuter shuttles",
+    "note": "deploy commuter shuttles（比 extra buses 更精準）",
+    "category": "general",
+    "distractors": [
+      "commuting buses",
+      "transit vehicles",
+      "public minibuses"
+    ],
+    "sentence": "Introducing dedicated ___ along congested corridors has significantly reduced journey times."
+  },
+  {
+    "zh": "紓解瓶頸",
+    "en": "relieve this bottleneck",
+    "note": "relieve / ease the bottleneck（比 solve the traffic 精準）",
+    "category": "general",
+    "distractors": [
+      "solve the traffic jam",
+      "fix the congestion",
+      "clear the road problem"
+    ],
+    "sentence": "Dedicated bus lanes were introduced specifically to ___ during peak commuting hours."
+  },
+  {
+    "zh": "主宰行程",
+    "en": "dictate people's schedules",
+    "note": "dictate = 強制規定（比 control 更有力的學術動詞）",
+    "category": "general",
+    "distractors": [
+      "control people's time",
+      "manage people's routes",
+      "restrict daily plans"
+    ],
+    "sentence": "A blanket ban on cars would effectively ___, limiting their freedom of movement."
+  },
+  {
+    "zh": "承擔責任",
+    "en": "shoulder their responsibilities",
+    "note": "shoulder 比 take 更學術；政策論文中常用",
+    "category": "general",
+    "distractors": [
+      "take their responsibilities",
+      "carry their duties",
+      "bear their obligations"
+    ],
+    "sentence": "Policymakers must ___ and implement solutions that balance environmental goals with public convenience."
+  },
+  {
+    "zh": "對日常生活造成干擾",
+    "en": "cause severe disruptions to daily life",
+    "note": "cause disruptions to 是固定搭配（比 disrupt 更正式）",
+    "category": "general",
+    "distractors": [
+      "induce severe interruption to life",
+      "bring difficult problems to daily routines",
+      "create major obstacles for citizens"
+    ],
+    "sentence": "Abrupt policy changes, if poorly communicated, inevitably ___."
+  },
+  {
+    "zh": "整體配套措施",
+    "en": "comprehensive measures",
+    "note": "比 many solutions 更學術；常與 targeted interventions 對比使用",
+    "category": "general",
+    "distractors": [
+      "complete solutions",
+      "various measures",
+      "multiple strategies"
+    ],
+    "sentence": "Reducing urban pollution requires ___ that address both transport and industrial emissions simultaneously."
   }
 ]
