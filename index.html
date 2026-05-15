@@ -237,17 +237,34 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .review-panel.active{display:block;}
 .rv-section{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin:18px 0 8px;}
 .rv-chunk{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 12px;background:var(--surface);border-radius:8px;margin-bottom:6px;gap:12px;}
-.rv-en{color:var(--text1);font-size:13px;flex:1;}
+.rv-en{color:var(--text);font-size:13px;flex:1;line-height:1.5;}
 .rv-zh{color:var(--text2);font-size:11px;text-align:right;flex-shrink:0;}
 .rv-pattern{background:var(--surface);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:10px;}
 .rv-pattern-label{font-size:10px;color:var(--accent2);font-family:'Space Mono',monospace;margin-bottom:5px;}
-.rv-pattern-en{font-size:14px;color:var(--text1);line-height:1.5;}
+.rv-pattern-en{font-size:14px;color:var(--text);line-height:1.6;}
+.rv-pattern-zh{font-size:12px;color:var(--yellow);margin-top:5px;line-height:1.5;padding-top:4px;border-top:1px solid rgba(255,209,102,0.15);}
 .rv-pattern-note{font-size:11px;color:var(--text2);margin-top:5px;line-height:1.4;}
-.rv-mine{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.rv-mine-bad{background:rgba(255,90,90,0.08);border:1px solid rgba(255,90,90,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--red);}
-.rv-mine-good{background:rgba(80,220,140,0.08);border:1px solid rgba(80,220,140,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--green);}
+.rv-mine{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.rv-mine-bad{background:rgba(255,90,90,0.08);border:1px solid rgba(255,90,90,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--red);line-height:1.5;}
+.rv-mine-good{background:rgba(80,220,140,0.08);border:1px solid rgba(80,220,140,0.2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--green);line-height:1.5;}
 .rv-mine-label{font-size:9px;font-family:'Space Mono',monospace;opacity:0.6;margin-bottom:3px;}
+.rv-compare-note{font-size:11px;color:var(--text2);padding:3px 4px 8px;line-height:1.4;}
 .rv-back{background:none;border:none;color:var(--text2);font-size:13px;cursor:pointer;padding:4px 0 16px;display:flex;align-items:center;gap:6px;}
+.rv-note{background:rgba(255,209,102,0.08);border:1px solid rgba(255,209,102,0.25);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--yellow);line-height:1.6;margin-bottom:10px;}
+.rv-rule{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:13px;line-height:1.5;}
+.rv-rule-icon{flex-shrink:0;font-size:13px;}
+.rv-table-wrap{overflow-x:auto;margin-bottom:12px;}
+.rv-table{width:100%;border-collapse:collapse;font-size:12px;}
+.rv-table th{background:var(--surface2);color:var(--accent);font-family:'Space Mono',monospace;font-size:10px;text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);}
+.rv-table td{padding:7px 10px;border-bottom:1px solid rgba(42,42,58,0.5);color:var(--text);vertical-align:top;line-height:1.5;}
+.rv-table tr:last-child td{border-bottom:none;}
+.rv-error-log{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
+.rv-error-entry{display:flex;align-items:flex-start;gap:8px;background:var(--surface);border-radius:8px;padding:9px 12px;}
+.rv-error-day{font-family:'Space Mono',monospace;font-size:10px;color:var(--text2);min-width:28px;flex-shrink:0;margin-top:2px;}
+.rv-error-body{flex:1;min-width:0;}
+.rv-error-bug{font-size:12px;color:var(--red);margin-bottom:3px;line-height:1.4;}
+.rv-error-fix{font-size:12px;color:var(--green);line-height:1.4;}
+.rv-error-tag{font-family:'Space Mono',monospace;font-size:9px;color:var(--text2);background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:2px 6px;flex-shrink:0;white-space:nowrap;margin-top:2px;align-self:flex-start;}
 </style>
 </head>
 <body>
@@ -328,6 +345,18 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       <div class="stat-box">
         <div class="stat-num" id="statDays">0</div>
         <div class="stat-lbl">連續天數</div>
+      </div>
+    </div>
+
+    <!-- 複習手冊入口 -->
+    <div class="mode-card wide" onclick="showReview()" style="background:linear-gradient(135deg,rgba(100,200,255,0.08),rgba(100,200,255,0.02));border-color:rgba(100,200,255,0.25);margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-size:24px;">📖</span>
+        <div>
+          <div class="mode-name" style="color:#64c8ff;">複習手冊</div>
+          <div class="mode-desc">Task 1 句型 · Task 2 PEEL骨架 · 核心語塊 · 地雷清單</div>
+        </div>
+        <span style="margin-left:auto;font-family:'Space Mono',monospace;color:#64c8ff;font-size:18px;">→</span>
       </div>
     </div>
 
@@ -438,18 +467,6 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
       </div>
     </div>
 
-    <!-- 複習手冊入口 -->
-    <div class="mode-card wide" onclick="showReview()" style="background:linear-gradient(135deg,rgba(100,200,255,0.08),rgba(100,200,255,0.02));border-color:rgba(100,200,255,0.25);">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <span style="font-size:24px;">📖</span>
-        <div>
-          <div class="mode-name" style="color:#64c8ff;">複習手冊</div>
-          <div class="mode-desc">Task 1 句型 · Task 2 PEEL骨架 · 核心語塊 · 地雷清單</div>
-        </div>
-        <span style="margin-left:auto;font-family:'Space Mono',monospace;color:#64c8ff;font-size:18px;">→</span>
-      </div>
-    </div>
-
     <div id="errorTrackerSection"></div>
     <div id="pendingReportSection"></div>
 
@@ -549,130 +566,24 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
     <button class="rv-back" onclick="showScreen('homeScreen')">← 回首頁</button>
     <div class="home-title" style="font-size:20px;margin-bottom:16px;">📖 <span class="a1">複習</span>手冊</div>
     <div class="review-tabs">
-      <div class="review-tab active" data-tab="task1" onclick="switchRvTab('task1')">📊 Task 1</div>
-      <div class="review-tab" data-tab="task2" onclick="switchRvTab('task2')">🖊️ Task 2 PEEL</div>
-      <div class="review-tab" data-tab="chunks" onclick="switchRvTab('chunks')">🔤 核心語塊</div>
-      <div class="review-tab" data-tab="mines" onclick="switchRvTab('mines')">⚡ 地雷清單</div>
+      <div class="review-tab active" data-tab="task1_framework" onclick="switchRvTab('task1_framework')">📊 T1 框架</div>
+      <div class="review-tab" data-tab="task1_phrases"   onclick="switchRvTab('task1_phrases')">📊 T1 語塊</div>
+      <div class="review-tab" data-tab="task2_framework" onclick="switchRvTab('task2_framework')">🖊️ T2 框架</div>
+      <div class="review-tab" data-tab="task2_phrases"   onclick="switchRvTab('task2_phrases')">🖊️ T2 語塊</div>
+      <div class="review-tab" data-tab="chunks"          onclick="switchRvTab('chunks')">🔤 核心語塊</div>
+      <div class="review-tab" data-tab="pitfalls_habits" onclick="switchRvTab('pitfalls_habits')">⚡ 習慣地雷</div>
+      <div class="review-tab" data-tab="pitfalls_log"    onclick="switchRvTab('pitfalls_log')">📋 錯誤記錄</div>
+      <div class="review-tab" data-tab="quick_ref"       onclick="switchRvTab('quick_ref')">🗂️ 速查表</div>
     </div>
 
-    <!-- Task 1 -->
-    <div class="review-panel active" id="rp-task1">
-      <div class="rv-section">首句改寫公式</div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">❌ 懶人換字（扣分）</div>
-        <div class="rv-pattern-en" style="color:var(--red)">The line graph <u>illustrates</u> the percentage of households with internet access in four countries between 2000 and 2020.</div>
-      </div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">✅ 結構改寫（得分）</div>
-        <div class="rv-pattern-en">The graph <u>compares the proportion of homes connected to the internet</u> across four nations <u>over a twenty-year period</u>.</div>
-        <div class="rv-pattern-note">換動詞 · 換名詞（percentage→proportion, households→homes）· 換時間說法（between X and Y→over a X-year period）</div>
-      </div>
-
-      <div class="rv-section">Overview（整體趨勢）</div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">固定開頭</div>
-        <div class="rv-pattern-en">Overall, an overarching upward trend is <u>evident</u> across all [X] countries.</div>
-        <div class="rv-pattern-note">trend 不能 surge / rise / grow — 用 evident / can be observed</div>
-      </div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">有例外時</div>
-        <div class="rv-pattern-en">Overall, … , with the notable exception of [X], which [did the opposite].</div>
-      </div>
-
-      <div class="rv-section">趨勢描述動詞</div>
-      <div class="rv-chunk"><span class="rv-en">surge / skyrocket</span><span class="rv-zh">激增（幅度大）</span></div>
-      <div class="rv-chunk"><span class="rv-en">plateau at X%</span><span class="rv-zh">趨於平穩在X%</span></div>
-      <div class="rv-chunk"><span class="rv-en">fluctuate between X and Y</span><span class="rv-zh">在X和Y之間波動</span></div>
-      <div class="rv-chunk"><span class="rv-en">remain relatively stable</span><span class="rv-zh">保持相對穩定</span></div>
-      <div class="rv-chunk"><span class="rv-en">converge markedly by 2020</span><span class="rv-zh">到2020年明顯趨同</span></div>
-
-      <div class="rv-section">比較 / 差距</div>
-      <div class="rv-chunk"><span class="rv-en">trail [country] by over 10 percentage points</span><span class="rv-zh">落後X個百分點</span></div>
-      <div class="rv-chunk"><span class="rv-en">marginally higher / lower than</span><span class="rv-zh">略高／低於</span></div>
-      <div class="rv-chunk"><span class="rv-en">markedly higher than</span><span class="rv-zh">顯著高於</span></div>
-      <div class="rv-chunk"><span class="rv-en">approximately X times that of</span><span class="rv-zh">約為X的幾倍</span></div>
-      <div class="rv-chunk"><span class="rv-en">account for X% of</span><span class="rv-zh">佔X%</span></div>
-
-      <div class="rv-section">時間介系詞規則</div>
-      <div class="rv-mine">
-        <div class="rv-mine-bad"><div class="rv-mine-label">❌</div>at 2000</div>
-        <div class="rv-mine-good"><div class="rv-mine-label">✅</div>in 2000</div>
-      </div>
-      <div class="rv-mine">
-        <div class="rv-mine-bad"><div class="rv-mine-label">❌</div>at 2020（截止）</div>
-        <div class="rv-mine-good"><div class="rv-mine-label">✅</div>by 2020</div>
-      </div>
-
-      <div class="rv-section">預測時態（有 projected 資料）</div>
-      <div class="rv-chunk"><span class="rv-en">is projected to reach / hit X%</span><span class="rv-zh">預計達到X%</span></div>
-      <div class="rv-chunk"><span class="rv-en">are expected to see … grow to X%</span><span class="rv-zh">預計增長至X%</span></div>
-    </div>
-
-    <!-- Task 2 PEEL -->
-    <div class="review-panel" id="rp-task2">
-      <div class="rv-section">引言 — 改寫題目 + 立場</div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">立場句（支持）</div>
-        <div class="rv-pattern-en">I contend that … / It is my firm belief that …</div>
-      </div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">兩面討論開頭</div>
-        <div class="rv-pattern-en">While … has its merits, I would argue that … ultimately yields greater long-term benefits.</div>
-      </div>
-
-      <div class="rv-section">Point — 提出核心論點</div>
-      <div class="rv-chunk"><span class="rv-en">A compelling case can be made that</span><span class="rv-zh">有力論據表明</span></div>
-      <div class="rv-chunk"><span class="rv-en">It is widely argued that</span><span class="rv-zh">普遍認為</span></div>
-      <div class="rv-chunk"><span class="rv-en">This issue warrants serious consideration, as</span><span class="rv-zh">此議題值得重視，因為</span></div>
-
-      <div class="rv-section">Explain — 展開原因</div>
-      <div class="rv-chunk"><span class="rv-en">This can be attributed to</span><span class="rv-zh">這可歸因於</span></div>
-      <div class="rv-chunk"><span class="rv-en">The underlying reason is that</span><span class="rv-zh">深層原因在於</span></div>
-      <div class="rv-chunk"><span class="rv-en">This inevitably leads to / consequently giving rise to</span><span class="rv-zh">這不可避免地導致</span></div>
-
-      <div class="rv-section">Example — 佐證</div>
-      <div class="rv-chunk"><span class="rv-en">A striking example of this is</span><span class="rv-zh">一個典型例子是</span></div>
-      <div class="rv-chunk"><span class="rv-en">This is exemplified by</span><span class="rv-zh">這可由…加以印證</span></div>
-      <div class="rv-chunk"><span class="rv-en">Studies have consistently shown that</span><span class="rv-zh">研究一致表明</span></div>
-
-      <div class="rv-section">Link — 收尾連結</div>
-      <div class="rv-chunk"><span class="rv-en">This demonstrates that</span><span class="rv-zh">這說明了</span></div>
-      <div class="rv-chunk"><span class="rv-en">It is therefore evident that</span><span class="rv-zh">因此可見</span></div>
-      <div class="rv-chunk"><span class="rv-en">Beyond the immediate impact, this reflects a deeper societal</span><span class="rv-zh">超越表面影響，這反映出更深層的社會</span></div>
-
-      <div class="rv-section">讓步 + 反駁（必備段）</div>
-      <div class="rv-chunk"><span class="rv-en">Admittedly, / It must be acknowledged that</span><span class="rv-zh">誠然，/ 必須承認</span></div>
-      <div class="rv-chunk"><span class="rv-en">However, this overlooks the fact that</span><span class="rv-zh">然而，這忽略了</span></div>
-      <div class="rv-chunk"><span class="rv-en">Yet this argument fails to account for</span><span class="rv-zh">然而此論點未能考量</span></div>
-
-      <div class="rv-section">結論升維（CLB 9 頂級）</div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">✅ 最高境界</div>
-        <div class="rv-pattern-en">The question is therefore not whether X, but whether Y.</div>
-        <div class="rv-pattern-note">不直接給答案，把問題升維到更深的層次</div>
-      </div>
-      <div class="rv-chunk"><span class="rv-en">Ultimately, / In light of the above,</span><span class="rv-zh">歸根究柢，/ 綜上所述，</span></div>
-
-      <div class="rv-section">X → Y 升維法則</div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">停在X（CLB 6）</div>
-        <div class="rv-pattern-en" style="color:var(--text2)">Longer sentences reduce crime.</div>
-      </div>
-      <div class="rv-pattern">
-        <div class="rv-pattern-label">升到Y（CLB 9）</div>
-        <div class="rv-pattern-en">The question is not whether punishment deters crime, but whether it can address the structural inequalities that give rise to it in the first place.</div>
-      </div>
-    </div>
-
-    <!-- 核心語塊 -->
-    <div class="review-panel" id="rp-chunks">
-      <div id="rvChunksContent"></div>
-    </div>
-
-    <!-- 地雷清單 -->
-    <div class="review-panel" id="rp-mines">
-      <div id="rvMinesContent"></div>
-    </div>
+    <div class="review-panel active" id="rp-task1_framework"><div id="rvTask1FrameworkContent"></div></div>
+    <div class="review-panel" id="rp-task1_phrases">  <div id="rvTask1PhrasesContent"></div></div>
+    <div class="review-panel" id="rp-task2_framework"><div id="rvTask2FrameworkContent"></div></div>
+    <div class="review-panel" id="rp-task2_phrases">  <div id="rvTask2PhrasesContent"></div></div>
+    <div class="review-panel" id="rp-chunks">         <div id="rvChunksContent"></div></div>
+    <div class="review-panel" id="rp-pitfalls_habits"><div id="rvPitfallsHabitsContent"></div></div>
+    <div class="review-panel" id="rp-pitfalls_log">  <div id="rvPitfallsLogContent"></div></div>
+    <div class="review-panel" id="rp-quick_ref">      <div id="rvQuickRefContent"></div></div>
   </div>
 
   <div class="screen" id="unlockResultScreen">
@@ -700,10 +611,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 <script>
 // ── DATA (loaded from JSON) ───────────────────────────────
 let VOCAB_DATA = [], GRAMMAR_DATA = [], TRANSLATE_DATA = [], CLB9_DATA = [], READING_DATA = [], TASK1_DATA = [], TASK2_DATA = [];
+let HANDBOOK_DATA = {};
 
 async function loadAllData() {
   const base = 'data/en/';
-  const [vocab, grammar, translate, clb9, reading, task1, task2] = await Promise.all([
+  const [vocab, grammar, translate, clb9, reading, task1, task2, handbook] = await Promise.all([
     fetch(base + 'vocab.json').then(r => r.json()),
     fetch(base + 'grammar.json').then(r => r.json()),
     fetch(base + 'translate.json').then(r => r.json()),
@@ -711,6 +623,7 @@ async function loadAllData() {
     fetch(base + 'reading.json').then(r => r.json()),
     fetch(base + 'task1.json').then(r => r.json()),
     fetch(base + 'task2.json').then(r => r.json()),
+    fetch(base + 'handbook.json').then(r => r.json()),
   ]);
   VOCAB_DATA = vocab;
   GRAMMAR_DATA = grammar;
@@ -719,6 +632,7 @@ async function loadAllData() {
   READING_DATA = reading;
   TASK1_DATA = task1;
   TASK2_DATA = task2;
+  HANDBOOK_DATA = handbook;
 }
 
 // ── STORAGE ───────────────────────────────────────────────
@@ -1646,8 +1560,14 @@ function showScreen(id) {
 // ── 複習手冊 ──────────────────────────────────────────────
 function showReview() {
   showScreen('reviewScreen');
+  renderRvPanel('task1_framework', 'rvTask1FrameworkContent');
+  renderRvPanel('task1_phrases',   'rvTask1PhrasesContent');
+  renderRvPanel('task2_framework', 'rvTask2FrameworkContent');
+  renderRvPanel('task2_phrases',   'rvTask2PhrasesContent');
   renderRvChunks();
+  renderRvPanel('pitfalls_habits', 'rvPitfallsHabitsContent');
   renderRvMines();
+  renderRvPanel('quick_ref',       'rvQuickRefContent');
 }
 
 function switchRvTab(tab) {
@@ -1657,19 +1577,81 @@ function switchRvTab(tab) {
     p.classList.toggle('active', p.id === 'rp-' + tab));
 }
 
+function renderHandbookBlocks(blocks) {
+  let html = '';
+  (blocks || []).forEach(b => {
+    switch (b.type) {
+      case 'h':
+        html += `<div class="rv-section">${b.text}</div>`;
+        break;
+      case 'note':
+        html += `<div class="rv-note">${b.text}</div>`;
+        break;
+      case 'rule':
+        html += `<div class="rv-rule"><span class="rv-rule-icon">${b.ok ? '✅' : '❌'}</span><span>${b.text}</span></div>`;
+        break;
+      case 'pattern': {
+        const borderColor = b.variant === 'good' ? 'var(--green)' : b.variant === 'bad' ? 'var(--red)' : 'var(--accent)';
+        const textColor   = b.variant === 'bad'  ? 'color:var(--red)' : '';
+        html += `<div class="rv-pattern" style="border-left-color:${borderColor}">
+          <div class="rv-pattern-label">${b.label}</div>
+          <div class="rv-pattern-en" style="${textColor}">${b.text.replace(/\n/g,'<br>')}</div>
+          ${b.zh   ? `<div class="rv-pattern-zh">${b.zh}</div>` : ''}
+          ${b.note ? `<div class="rv-pattern-note">${b.note}</div>` : ''}
+        </div>`;
+        break;
+      }
+      case 'chunk':
+        html += `<div class="rv-chunk"><span class="rv-en">${b.en}</span><span class="rv-zh">${b.zh}</span></div>`;
+        break;
+      case 'compare':
+        html += `<div class="rv-mine">
+          <div class="rv-mine-bad"><div class="rv-mine-label">❌</div>${b.bad}</div>
+          <div class="rv-mine-good"><div class="rv-mine-label">✅</div>${b.good}</div>
+        </div>`;
+        if (b.note) html += `<div class="rv-compare-note">${b.note}</div>`;
+        break;
+      case 'table':
+        html += `<div class="rv-table-wrap"><table class="rv-table">
+          <thead><tr>${b.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+          <tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table></div>`;
+        break;
+      case 'error_log':
+        html += `<div class="rv-error-log">${b.items.map(item => `
+          <div class="rv-error-entry">
+            <span class="rv-error-day">${item.day}</span>
+            <div class="rv-error-body">
+              <div class="rv-error-bug">❌ ${item.bug}</div>
+              <div class="rv-error-fix">✅ ${item.fix}</div>
+            </div>
+            <span class="rv-error-tag">${item.tag}</span>
+          </div>`).join('')}</div>`;
+        break;
+    }
+  });
+  return html;
+}
+
+function renderRvPanel(key, elId) {
+  const el = document.getElementById(elId);
+  if (!el || el.innerHTML) return;
+  el.innerHTML = renderHandbookBlocks(HANDBOOK_DATA[key]);
+}
+
 function renderRvChunks() {
   const el = document.getElementById('rvChunksContent');
-  if (el.innerHTML) return; // 已渲染
+  if (el.innerHTML) return;
   const cats = [
-    {key:'environment', label:'🌿 環境'},
-    {key:'economy',     label:'💰 經濟'},
-    {key:'technology',  label:'💻 科技'},
-    {key:'education',   label:'📚 教育'},
-    {key:'health',      label:'🏥 健康'},
-    {key:'society',     label:'🏛️ 社會'},
-    {key:'general',     label:'⚡ 通用動詞'},
+    {key:'environment',    label:'🌿 環境'},
+    {key:'economy',        label:'💰 經濟'},
+    {key:'technology',     label:'💻 科技'},
+    {key:'education',      label:'📚 教育'},
+    {key:'health',         label:'🏥 健康'},
+    {key:'society',        label:'🏛️ 社會'},
+    {key:'general',        label:'⚡ 通用動詞'},
     {key:'spoken_upgrade', label:'🗣️ 口語升級'},
-    {key:'task1',       label:'📊 Task 1'},
+    {key:'task1',          label:'📊 Task 1'},
   ];
   let html = '';
   cats.forEach(({key, label}) => {
@@ -1677,26 +1659,27 @@ function renderRvChunks() {
     if (!items.length) return;
     html += `<div class="rv-section">${label}</div>`;
     items.forEach(v => {
-      html += `<div class="rv-chunk">
-        <span class="rv-en">${v.en}</span>
-        <span class="rv-zh">${v.note || v.zh}</span>
-      </div>`;
+      html += `<div class="rv-chunk"><span class="rv-en">${v.en}</span><span class="rv-zh">${v.note || v.zh}</span></div>`;
+      if (v.sentence) {
+        html += `<div style="font-size:12px;color:var(--text2);padding:0 12px 8px;line-height:1.6;border-left:2px solid var(--border);margin-left:12px;margin-bottom:4px;">${v.sentence}</div>`;
+      }
     });
   });
   el.innerHTML = html;
 }
 
 function renderRvMines() {
-  const el = document.getElementById('rvMinesContent');
-  if (el.innerHTML) return;
-  let html = '<div class="rv-section">文法地雷 ❌ → ✅</div>';
+  const el = document.getElementById('rvPitfallsLogContent');
+  if (!el || el.innerHTML) return;
+  let html = renderHandbookBlocks(HANDBOOK_DATA.pitfalls_log);
+  html += '<div class="rv-section" style="margin-top:24px;">文法挑錯題庫</div>';
   GRAMMAR_DATA.forEach(g => {
-    html += `<div style="margin-bottom:10px;">
+    html += `<div style="margin-bottom:12px;">
       <div class="rv-mine">
-        <div class="rv-mine-bad"><div class="rv-mine-label">❌ 錯誤</div>${g.error_span}</div>
-        <div class="rv-mine-good"><div class="rv-mine-label">✅ 正解</div>${g.correct.replace(/.*?([\w].*)/,'$1').substring(0,60)}</div>
+        <div class="rv-mine-bad"><div class="rv-mine-label">❌ 錯誤</div>${g.error_span || ''}</div>
+        <div class="rv-mine-good"><div class="rv-mine-label">✅ 正解</div>${(g.correct || '').substring(0, 80)}</div>
       </div>
-      <div style="font-size:11px;color:var(--text2);padding:0 2px;margin-top:2px;">${g.explanation.replace(/[❌✅]/g,'').trim().substring(0,80)}</div>
+      <div style="font-size:11px;color:var(--text2);padding:3px 4px;line-height:1.5;">${(g.explanation || '').replace(/[❌✅]/g,'').trim()}</div>
     </div>`;
   });
   el.innerHTML = html;

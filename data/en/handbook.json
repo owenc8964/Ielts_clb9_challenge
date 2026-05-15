@@ -1,0 +1,223 @@
+{
+  "task1_framework": [
+    { "type": "h", "text": "黃金規則" },
+    { "type": "rule", "ok": true,  "text": "第二段必須有 Overall 整體趨勢句（靈魂段落）" },
+    { "type": "rule", "ok": true,  "text": "開場必須改寫題目（換動詞、換名詞、換時間說法）" },
+    { "type": "rule", "ok": true,  "text": "挑最顯著的數字，不全部列出" },
+    { "type": "rule", "ok": true,  "text": "兩兩分組對比（Grouping）" },
+    { "type": "rule", "ok": false, "text": "不能說「為什麼」或「應該怎樣」" },
+
+    { "type": "h", "text": "四段式結構" },
+    { "type": "chunk", "en": "P1", "zh": "改寫題目" },
+    { "type": "chunk", "en": "P2", "zh": "Overall — 最大值、整體趨勢、交叉點" },
+    { "type": "chunk", "en": "P3", "zh": "Body 1 — 高速成長組，使用倍數 / 幅度" },
+    { "type": "chunk", "en": "P4", "zh": "Body 2 — 衰退組或對比組" },
+
+    { "type": "h", "text": "首句改寫公式" },
+    { "type": "pattern", "label": "❌ 懶人換字（扣分）", "text": "The line graph illustrates the percentage of households with internet access in four countries between 2000 and 2020.", "zh": "直接換字，句子結構沒有改變", "variant": "bad" },
+    { "type": "pattern", "label": "✅ 結構改寫（得分）", "text": "The graph compares the proportion of homes connected to the internet across four nations over a twenty-year period.", "zh": "折線圖比較了四個國家在二十年間的家庭網路普及率。", "note": "換動詞 · 換名詞（percentage→proportion, households→homes）· 換時間說法（between X and Y → over a X-year period）", "variant": "good" },
+
+    { "type": "h", "text": "Overall（整體趨勢）" },
+    { "type": "pattern", "label": "固定開頭", "text": "Overall, an overarching upward trend is evident across all [X] countries.", "zh": "整體而言，所有 [X] 個國家均可見明顯的整體上升趨勢。", "note": "trend 不能 surge / rise / grow — 用 evident / can be observed", "variant": "neutral" },
+    { "type": "pattern", "label": "有例外時", "text": "Overall, … , with the notable exception of [X], which [did the opposite].", "zh": "整體而言，…，唯有 [X] 例外，其走勢相反。", "variant": "neutral" }
+  ],
+
+  "task1_phrases": [
+    { "type": "h", "text": "趨勢描述動詞" },
+    { "type": "chunk", "en": "surge / skyrocket", "zh": "激增（幅度大）" },
+    { "type": "chunk", "en": "rose / climbed steadily", "zh": "穩定上升" },
+    { "type": "chunk", "en": "grew by a substantial margin of X%", "zh": "大幅增長 X%" },
+    { "type": "chunk", "en": "nearly doubled / tripled", "zh": "近乎翻倍 / 三倍" },
+    { "type": "chunk", "en": "plateau at X%", "zh": "趨於平穩在 X%" },
+    { "type": "chunk", "en": "fluctuate between X and Y", "zh": "在 X 和 Y 之間波動" },
+    { "type": "chunk", "en": "remain relatively stable", "zh": "保持相對穩定" },
+    { "type": "chunk", "en": "converge markedly by 2020", "zh": "到 2020 年明顯趨同" },
+    { "type": "chunk", "en": "leveled off / plateaued at X%", "zh": "增長趨平，穩定在 X%" },
+    { "type": "chunk", "en": "followed a similar growth trajectory", "zh": "走了相似的成長軌跡" },
+
+    { "type": "h", "text": "倍數公式（黃金句型）" },
+    { "type": "pattern", "label": "標準倍數", "text": "A is approximately three times that of B.", "zh": "A 約為 B 的三倍。", "variant": "good" },
+    { "type": "pattern", "label": "預測倍數", "text": "By 2040, the figure is projected to be more than five times its 1940 level.", "zh": "預計到 2040 年，該數字將超過 1940 年水準的五倍。", "variant": "good" },
+    { "type": "pattern", "label": "分詞構句版", "text": "…, making it more than five times its 1940 level.", "zh": "（接在數字後）使其超過 1940 年水準的五倍。", "variant": "good" },
+
+    { "type": "h", "text": "比較 / 差距語塊" },
+    { "type": "chunk", "en": "trail [country] by over 10 percentage points", "zh": "落後 [國家] 超過 10 個百分點" },
+    { "type": "chunk", "en": "marginally higher / lower than", "zh": "略高 / 略低於" },
+    { "type": "chunk", "en": "markedly higher than", "zh": "顯著高於" },
+    { "type": "chunk", "en": "approximately X times that of", "zh": "約為…的 X 倍" },
+    { "type": "chunk", "en": "account for X% of the total", "zh": "佔總數的 X%" },
+    { "type": "chunk", "en": "shared a relatively consistent pattern of growth", "zh": "呈現相對一致的增長模式" },
+    { "type": "chunk", "en": "a striking contrast to X's sudden surge", "zh": "與 X 的急劇激增形成鮮明對比" },
+
+    { "type": "h", "text": "預測時態（有 projected 資料必用）" },
+    { "type": "note", "text": "⚠️ 圖表出現未來預測年份，絕對不能整篇過去式！歷史數據用過去式（rose / increased），預測數據必須用預測句型。" },
+    { "type": "chunk", "en": "is projected to reach / hit X% by [年份]", "zh": "預計到 [年份] 達到 X%" },
+    { "type": "chunk", "en": "is expected to surge to X%", "zh": "預計激增至 X%" },
+    { "type": "chunk", "en": "are expected to see … grow to X%", "zh": "預計…將增長至 X%" },
+
+    { "type": "h", "text": "時間介系詞規則" },
+    { "type": "compare", "bad": "at 2000", "good": "in 2000", "note": "某一年份用 in" },
+    { "type": "compare", "bad": "at 2020（截止）", "good": "by 2020", "note": "截止到某年用 by" },
+    { "type": "compare", "bad": "population over 65-year-old", "good": "the population aged 65 and over", "note": "圖表標準名詞" }
+  ],
+
+  "task2_framework": [
+    { "type": "h", "text": "CLB 分級差距" },
+    { "type": "table", "headers": ["等級", "特徵"], "rows": [
+      ["CLB 7", "結構清楚，文法偶有錯誤，詞彙書面化但單一"],
+      ["CLB 8", "結構穩定，文法幾乎無誤，詞彙多樣，論點清楚有例子"],
+      ["CLB 9", "語言自然流暢，論點有深度有更大意義，結尾留思考空間"]
+    ]},
+
+    { "type": "h", "text": "CLB 9 升維法（X → Y）" },
+    { "type": "pattern", "label": "停在 X（CLB 8）", "text": "Longer sentences reduce crime.", "zh": "停留在表面的直接論點。", "variant": "bad" },
+    { "type": "pattern", "label": "升到 Y（CLB 9）", "text": "The question is not whether punishment deters crime, but whether it can address the structural inequalities that give rise to it in the first place.", "zh": "問題不在於懲罰能否嚇阻犯罪，而在於社會能否消除滋生犯罪的結構性不平等。", "variant": "good" },
+    { "type": "table", "headers": ["CLB 8（X）", "CLB 9（X → Y）"], "rows": [
+      ["公共交通減少污染", "公共交通體現社會對公平與永續的價值選擇"],
+      ["加重刑罰能嚇阻犯罪", "真正的問題是社會是否創造了讓犯罪變得不必要的條件"],
+      ["大學應培養批判思考", "在AI時代，思辨能力才是人類不可被取代的核心"],
+      ["社區服務培養同理心", "打破階級壁壘、重新分配資源至邊緣地區的過程"]
+    ]},
+
+    { "type": "h", "text": "開場（3 句話框架）" },
+    { "type": "pattern", "label": "萬用開場", "text": "As [現實背景], the question of whether [A] or [B] has become increasingly significant. While proponents of [A] argue that [核心理由], those who favour [B] contend that [核心理由]. Ultimately, the most effective approach may lie not in choosing one, but in [你的立場方向].", "zh": "隨著 [背景]，[A] 與 [B] 之爭愈發重要。支持 [A] 者認為…，支持 [B] 者則主張…。最有效的方式或許不在於二選一，而在於 [立場]。", "variant": "neutral" },
+    { "type": "pattern", "label": "深度現象開場（CLB 9）", "text": "This phenomenon has sparked widespread debate, warranting our serious consideration. It is high time we closely examine / scrutinize the underlying causes of…", "zh": "這一現象引發廣泛討論，值得我們認真審視。現在正是仔細檢視 … 深層原因的時候了。", "variant": "good" },
+
+    { "type": "h", "text": "PEEL 論點架構" },
+    { "type": "chunk", "en": "P (Point)", "zh": "中心句 — 直接說出核心論點" },
+    { "type": "chunk", "en": "E (Explanation)", "zh": "解釋底層機制 — 為什麼成立" },
+    { "type": "chunk", "en": "E (Example)", "zh": "具體例子 — 新加坡、台灣、TSMC…" },
+    { "type": "chunk", "en": "L (Link)", "zh": "小結，連結到更大意義 / 論文立場" },
+
+    { "type": "h", "text": "收尾公式" },
+    { "type": "pattern", "label": "CLB 8 版", "text": "Ultimately, while X has its merits, Y represents a more sustainable path forward.\n… is not merely X — it is a commitment to Y.", "zh": "歸根究柢，X 雖有其優點，但 Y 代表更可持續的前進方向。… 不僅僅是 X，更是對 Y 的承諾。", "variant": "neutral" },
+    { "type": "pattern", "label": "CLB 9 升維結尾（最強）", "text": "The question is therefore not whether X, but whether Y.", "zh": "因此，問題不在於 X，而在於 Y。", "note": "不直接給答案，把問題升維到更深的層次", "variant": "good" },
+    { "type": "pattern", "label": "CLB 9 挑戰結尾", "text": "The real challenge lies not in X, but in Y — a question that demands both political will and long-term commitment.", "zh": "真正的挑戰不在 X，而在 Y——這需要政治意志與長期承諾。", "variant": "good" }
+  ],
+
+  "task2_phrases": [
+    { "type": "h", "text": "Point — 提出核心論點" },
+    { "type": "chunk", "en": "A compelling case can be made that", "zh": "有充分理由認為" },
+    { "type": "chunk", "en": "It is widely argued that", "zh": "普遍認為" },
+    { "type": "chunk", "en": "This issue warrants serious consideration, as", "zh": "此議題值得重視，因為" },
+    { "type": "chunk", "en": "I contend that … / It is my firm belief that …", "zh": "我主張…／我堅定認為…（支持立場句）" },
+    { "type": "chunk", "en": "While … has its merits, I would argue that … ultimately yields greater long-term benefits.", "zh": "儘管…有其優點，但我認為…從長遠看更有益。（兩面討論開頭）" },
+
+    { "type": "h", "text": "Explain — 展開原因" },
+    { "type": "chunk", "en": "This can be attributed to", "zh": "這可歸因於" },
+    { "type": "chunk", "en": "The underlying reason is that", "zh": "深層原因在於" },
+    { "type": "chunk", "en": "This inevitably leads to / consequently giving rise to", "zh": "這不可避免地導致 / 進而引發" },
+    { "type": "chunk", "en": "This approach might be counterproductive and exacerbate the very problems it aims to solve.", "zh": "這種做法可能適得其反，加劇其試圖解決的問題。（反效果句型）" },
+    { "type": "chunk", "en": "The effects can trigger [X], which in turn leads to…", "zh": "這種效應會引發 [X]，進而導致…（連鎖反應句型）" },
+
+    { "type": "h", "text": "Example — 佐證" },
+    { "type": "chunk", "en": "A striking example of this is", "zh": "一個典型例子是" },
+    { "type": "chunk", "en": "This is exemplified by", "zh": "這可由…加以印證" },
+    { "type": "chunk", "en": "Studies have consistently shown that", "zh": "研究一致表明" },
+    { "type": "chunk", "en": "A case in point is…", "zh": "典型案例是…" },
+
+    { "type": "h", "text": "Link — 收尾連結" },
+    { "type": "chunk", "en": "This demonstrates that", "zh": "這說明了" },
+    { "type": "chunk", "en": "It is therefore evident that", "zh": "因此可見" },
+    { "type": "chunk", "en": "Beyond the immediate impact, this reflects a deeper societal…", "zh": "超越表面影響，這反映出更深層的社會…" },
+
+    { "type": "h", "text": "讓步 + 反駁（必備段）" },
+    { "type": "chunk", "en": "Admittedly, / It must be acknowledged that", "zh": "誠然，/ 必須承認" },
+    { "type": "chunk", "en": "Granted, … ; however, …", "zh": "固然如此，但…" },
+    { "type": "chunk", "en": "However, this overlooks the fact that", "zh": "然而，這忽略了" },
+    { "type": "chunk", "en": "Yet this argument fails to account for", "zh": "然而此論點未能考量" },
+    { "type": "chunk", "en": "That said, …", "zh": "話雖如此，…" }
+  ],
+
+  "pitfalls_habits": [
+    { "type": "note", "text": "⚠️ 木桶效應：文法是最低的那塊木板。即便用了 CLB 9 的單字，只要出現影響句子基本結構的 Fatal Error，GRA 就會被鎖死在 6.0 甚至 5.5。" },
+
+    { "type": "h", "text": "預設習慣覆寫" },
+    { "type": "compare", "bad": "fabricate lots of items with low cost\n（解釋型冗長）", "good": "mass-produce low-cost garments\n（複合形容詞＋名詞）", "note": "停止解釋，直接用精準語塊" },
+    { "type": "compare", "bad": "care about convenience but protect the planet\n（口語 but 對比）", "good": "prioritize sustainability over convenience\n（prioritize A over B）", "note": "遇到「權衡、選擇」邏輯，強制觸發 prioritize" },
+    { "type": "compare", "bad": "loaning of house（字面直譯）", "good": "mortgages / housing costs", "note": "社會科學有固定搭配，仰賴詞彙庫，別自創" },
+    { "type": "compare", "bad": "resource elimination（語意相反）", "good": "resource depletion", "note": "eliminate = 消滅；deplete = 耗盡。語意截然不同" },
+
+    { "type": "h", "text": "致命地雷（Fatal Errors）" },
+    { "type": "compare", "bad": "make students can record", "good": "enable students to record", "note": "使役動詞不能接 can" },
+    { "type": "compare", "bad": "There are people cannot afford", "good": "People struggling to afford…", "note": "動詞疊加（兩個動詞直接相接）" },
+    { "type": "compare", "bad": "plays a role for…", "good": "plays a crucial role in (doing)", "note": "role in + V-ing，不是 role for" },
+    { "type": "compare", "bad": "as an unified force", "good": "as a unified force", "note": "冠詞：/j/ 子音開頭用 a，不用 an" },
+    { "type": "compare", "bad": "is projected to 27%", "good": "is projected to reach 27%", "note": "漏主要動詞" },
+    { "type": "compare", "bad": "widespreadly used", "good": "widely adopted / extensively used", "note": "無此單字" },
+    { "type": "compare", "bad": "outweigh than", "good": "outweigh（直接接受詞）", "note": "及物動詞自帶比較，不加 than" },
+    { "type": "compare", "bad": "As the gigantic potential…", "good": "Given the gigantic potential…", "note": "As 後需接 S+V；接名詞片語用 Given" },
+    { "type": "compare", "bad": "efficient（政策用）", "good": "effective（政策有效度）", "note": "efficient = 省時省力；effective = 能解決問題" }
+  ],
+
+  "pitfalls_log": [
+    { "type": "note", "text": "每次練習寫作後更新。看到相同 tag 連續出現 → 那就是你的慣性地雷。" },
+    { "type": "h", "text": "錯誤記錄（D16–D20）" },
+    { "type": "error_log", "items": [
+      { "day": "D16", "bug": "There are people cannot afford", "fix": "People struggling to afford…", "tag": "動詞疊加" },
+      { "day": "D16", "bug": "loaning of house / housing fee", "fix": "mortgages / housing costs", "tag": "中式直譯" },
+      { "day": "D16", "bug": "eliminating the resource", "fix": "allocating resources", "tag": "語意相反" },
+      { "day": "D17", "bug": "resource elimination", "fix": "resource depletion", "tag": "詞彙誤用" },
+      { "day": "D17", "bug": "fabricate items with low cost", "fix": "mass-produce low-cost garments", "tag": "解釋型冗贅" },
+      { "day": "D17", "bug": "care about A but protect B", "fix": "prioritize B over A", "tag": "口語對比句" },
+      { "day": "D17", "bug": "people sccumbing to", "fix": "blindly succumb to a materialistic culture", "tag": "結構鬆散" },
+      { "day": "D18", "bug": "population over 65-year-old", "fix": "the population aged 65 and over", "tag": "圖表名詞" },
+      { "day": "D18", "bug": "is projected to（漏字）27%", "fix": "is projected to reach / hit 27%", "tag": "漏主要動詞" },
+      { "day": "D18", "bug": "It makes the proportion be…", "fix": "are expected to see their populations grow to…", "tag": "中式直譯" },
+      { "day": "D18", "bug": "make students can record", "fix": "enable students to record", "tag": "使役動詞接 can" },
+      { "day": "D18", "bug": "ceiling of learning", "fix": "learning potential", "tag": "中式直譯" },
+      { "day": "D18", "bug": "as an unified force", "fix": "as a unified force", "tag": "冠詞地雷" },
+      { "day": "D19", "bug": "With AI…massive imported", "fix": "As AI…are increasingly integrated into", "tag": "With 接完整子句" },
+      { "day": "D19", "bug": "automatic system", "fix": "automated systems", "tag": "形容詞誤用" },
+      { "day": "D19", "bug": "imported the workflow", "fix": "integrated into the workflow", "tag": "動詞搭配錯誤" },
+      { "day": "D19", "bug": "widespreadly used", "fix": "widely adopted / extensively used", "tag": "無此單字" },
+      { "day": "D19", "bug": "elevate the satisfication", "fix": "boost their job satisfaction", "tag": "拼字錯誤" },
+      { "day": "D19", "bug": "outweigh than", "fix": "outweigh（直接接受詞）", "tag": "及物動詞" },
+      { "day": "D19", "bug": "As the gigantic potential", "fix": "Given the gigantic potential", "tag": "As 後需 S+V" },
+      { "day": "D19", "bug": "companies which using", "fix": "companies using / that use", "tag": "which 後無動詞" },
+      { "day": "D20", "bug": "at busy time", "fix": "during peak hours", "tag": "中式直譯" },
+      { "day": "D20", "bug": "allocate commuting buses", "fix": "deploy commuter shuttles", "tag": "動詞誤用" },
+      { "day": "D20", "bug": "more efficient（政策）", "fix": "more effective", "tag": "語意地雷" },
+      { "day": "D20", "bug": "induce severe interruption", "fix": "cause severe disruptions to", "tag": "搭配詞錯誤" },
+      { "day": "D20", "bug": "the total restriction", "fix": "a blanket ban", "tag": "未掛載零件" },
+      { "day": "D20", "bug": "satisfied to", "fix": "satisfied with", "tag": "介系詞地雷" },
+      { "day": "D20", "bug": "shuttles relieving their problem", "fix": "shuttles relieve（and 後需主要動詞）", "tag": "V-ing 疊加" },
+      { "day": "D20", "bug": "take their responsibilities", "fix": "shoulder their responsibilities", "tag": "搭配詞升級" },
+      { "day": "D20", "bug": "influence people by time arrangement", "fix": "dictate people's schedules", "tag": "中式直譯" }
+    ]}
+  ],
+
+  "quick_ref": [
+    { "type": "h", "text": "轉折詞分級表" },
+    { "type": "table", "headers": ["功能", "✅ 自然流暢", "🔥 CLB 8–9"], "rows": [
+      ["讓步", "Admittedly / That said", "Granted / It is true that"],
+      ["反駁", "Nevertheless / Even so", "Nonetheless / Yet"],
+      ["補充", "Furthermore / Moreover", "What is more"],
+      ["舉例", "To illustrate / For instance", "A case in point is…"],
+      ["因果", "Therefore / As a result", "Consequently / Hence"],
+      ["對比", "In contrast / Meanwhile", "Conversely"],
+      ["收尾", "Ultimately", "In light of this…"]
+    ]},
+
+    { "type": "h", "text": "文法速查表" },
+    { "type": "table", "headers": ["規則", "❌ 錯誤", "✅ 正確"], "rows": [
+      ["使役動詞", "make students to pay", "make students pay"],
+      ["Although / but 互斥", "Although X, but Y", "Although X, Y"],
+      ["及物動詞需受詞", "crime will undermine", "crime will decline"],
+      ["動詞疊加", "There are people need", "There are people waiting"],
+      ["虛主詞", "people are hard to do", "It is hard for people to do"],
+      ["role 搭配", "role to develop", "role in developing"],
+      ["逗號接完整句", "…, it causes effects", "…, which causes effects"],
+      ["不可數名詞", "researches", "research"],
+      ["倍數句型", "3 times of", "three times that of"],
+      ["worth 用法", "worth to do", "worth doing"],
+      ["outweigh", "outweigh than", "outweigh（不加 than）"],
+      ["efficient vs effective", "efficient（政策）", "effective（政策有效度）"]
+    ]},
+
+    { "type": "h", "text": "With / As / Given 三兄弟" },
+    { "type": "compare", "bad": "With AI massive imported the workflow…", "good": "With AI being increasingly integrated…", "note": "With 是介系詞，後面不能接完整 S+V，用 受詞 + V-ing" },
+    { "type": "compare", "bad": "As the gigantic potential…（As 後接名詞）", "good": "Given the gigantic potential…", "note": "As 後需 S+V；接名詞片語用 Given" },
+    { "type": "compare", "bad": "Given many companies violate…", "good": "Given that many companies violate… / Given the substantial losses…", "note": "Given 接完整子句補 that；接名詞直接跟" }
+  ]
+}
