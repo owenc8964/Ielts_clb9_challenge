@@ -28,16 +28,13 @@
 ## 工作流（三角分工）
 
 ```
-Step 1｜Claude Code 出題
-  → 1 句翻譯（附提示字）
+Step 1｜Claude AI 出題 + 引導練習
+  → 1 句翻譯（附提示字）→ Owen 翻 → Claude AI 批改
   → Task 2 題目 + PEEL 骨架模板
+  → Owen 填骨架 → Claude AI 確認 + 引導寫句子
+  → Owen 完成全文
 
-Step 2｜Owen 寫作
-  → 先填 PEEL 骨架（中英夾雜，鎖邏輯）
-  → 貼給 Claude Code 確認骨架
-  → 完成全文
-
-Step 3｜Owen 貼文章給 Claude AI 批改
+Step 2｜Owen 貼文章給 Claude AI 批改
   → 使用下方「Claude AI 批改 Prompt」
   → Claude AI 輸出結構化 MD 檔內容
 
